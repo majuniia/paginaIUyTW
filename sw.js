@@ -1,4 +1,4 @@
-const CACHE_NAME = 'country-app-v1'; 
+const CACHE_NAME = 'country-app-v2'; 
  
 
 const ASSETS = [ 
