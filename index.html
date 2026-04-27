@@ -1,40 +1,79 @@
-<!doctype html> 
-<html lang="es"> 
-<head> 
-  <meta charset="utf-8"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1"> 
-  <title>App Country</title> 
- 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Country Inicio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="logo">Country Inicio</div>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#noticias">Novedades</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
 
-<!-- PWA --> 
-  <link rel="manifest" href="manifest.json"> 
-  <meta name="theme-color" content="#1f4e79"> 
- 
+  <section class="hero" id="inicio">
+    <div class="slider" id="slider">
+      <div class="slide active">
+        <img src="https://via.placeholder.com/1200x480/004080/ffffff?text=Turismo+Sostenible" alt="Turismo sostenible">
+        <div class="caption">
+          <h2>Nuevas rutas ecológicas</h2>
+          <p>Descubre senderos y paisajes naturales que respetan el ambiente del country.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="https://via.placeholder.com/1200x480/0059b3/ffffff?text=Eventos+de+la+Semana" alt="Eventos de la semana">
+        <div class="caption">
+          <h2>Eventos y actividades</h2>
+          <p>Programa de talleres, ferias y encuentros para toda la familia en el club social.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="https://via.placeholder.com/1200x480/002244/ffffff?text=Noticias+del+Country" alt="Noticias del country">
+        <div class="caption">
+          <h2>Noticias del country</h2>
+          <p>Infórmate sobre mejoras en infraestructura, novedades y servicios exclusivos.</p>
+        </div>
+      </div>
+      <div class="slider-controls">
+        <button class="control" id="prev">&#10094;</button>
+        <button class="control" id="next">&#10095;</button>
+      </div>
+    </div>
+  </section>
 
-<link rel="stylesheet" href="styles.css"> 
-</head> 
-<body> 
- 
+  <section id="noticias" style="padding: 32px 24px; max-width: 1180px; margin: 0 auto;">
+    <h2 style="margin-bottom: 16px; color: #003366;">Novedades destacadas</h2>
+    <p style="margin: 0 0 12px; line-height: 1.6;">Bienvenido al portal del country. Aquí encontrarás las últimas noticias, actividades y servicios que se renuevan constantemente para tu comodidad y seguridad.</p>
+  </section>
 
-<h1>🏡 Country App</h1> 
- 
+  <footer id="contacto">
+    <p>Contacto: <a href="mailto:info@country.com">info@country.com</a></p>
+    <p>WhatsApp: <a href="https://wa.me/1234567890" target="_blank" rel="noopener">+54 9 11 1234 5678</a></p>
+    <p>Teléfono: <a href="tel:+541112345678">+54 11 1234 5678</a></p>
+  </footer>
 
-<section> 
-    <h2>Avisos</h2> 
-    <ul> 
-      <li>Corte de agua mañana 8hs</li> 
-      <li>Reunión de consorcio viernes</li> 
-    </ul> 
-  </section> 
- 
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const nextBtn = document.getElementById('next');
+    const prevBtn = document.getElementById('prev');
+    let current = 0;
 
-<section> 
-    <h2>Expensas</h2> 
-    <p>Estado: Al día</p> 
-  </section> 
- 
+    function showSlide(index) {
+      slides[current].classList.remove('active');
+      current = (index + slides.length) % slides.length;
+      slides[current].classList.add('active');
+    }
 
-<script src="app.js"></script> 
-</body> 
-</html> 
+    nextBtn.addEventListener('click', () => showSlide(current + 1));
+    prevBtn.addEventListener('click', () => showSlide(current - 1));
+
+    setInterval(() => showSlide(current + 1), 6000);
+  </script>
+</body>
+</html>
  
