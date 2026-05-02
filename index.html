@@ -17,6 +17,7 @@
       <a href="#contacto">Contacto</a>
     </nav>
   </header>
+
   <section class="hero" id="inicio">
     <div class="slider" id="slider">
       <div class="slide active">
@@ -46,6 +47,7 @@
       </div>
     </div>
   </section>
+
   <section class="dashboard">
     <h2 class="section-title">Accesos rápidos</h2>
     <div class="cards">
@@ -71,12 +73,12 @@
       </div>
     </div>
   </section>
+
   <section id="noticias" style="padding: 32px 24px; max-width: 1180px; margin: 0 auto;">
     <h2 style="margin-bottom: 16px; color: #003366;">Novedades destacadas</h2>
     <p style="margin: 0 0 12px; line-height: 1.6;">Bienvenido al portal del country. Aquí encontrarás las últimas noticias, actividades y servicios que se renuevan constantemente para tu comodidad y seguridad.</p>
   </section>
 
-  <!-- HISTORIA -->
   <section class="historia">
     <div class="historia-contenido">
       <h2>Nuestra historia</h2>
@@ -86,7 +88,6 @@
     </div>
   </section>
 
-  <!-- NÚMEROS -->
   <section class="numeros">
     <div class="numeros-grid">
       <div class="numero-item">
@@ -108,10 +109,10 @@
     </div>
   </section>
 
-  <!-- AMENITIES -->
   <section class="amenities">
     <h2>Amenities e instalaciones</h2>
-    <div class="amenity-item" onclick="abrirModal('pileta')" style="cursor:pointer;">
+    <div class="amenities-grid">
+      <div class="amenity-item" onclick="abrirModal('pileta')" style="cursor:pointer;">
         <span class="amenity-icono">🏊</span>
         <h3>Pileta olímpica</h3>
         <p>Piscina climatizada con solarium y área de descanso para toda la familia.</p>
@@ -153,26 +154,13 @@
       </div>
     </div>
   </section>
+
   <footer id="contacto">
     <p>Contacto: <a href="mailto:info@country.com">info@country.com</a></p>
     <p>WhatsApp: <a href="https://wa.me/1167367021" target="_blank" rel="noopener">+54 9 11 1234 4242</a></p>
     <p>Teléfono: <a href="tel:+541112345678">+54 11 1234 5678</a></p>
   </footer>
-  <script>
-    const slides = document.querySelectorAll('.slide');
-    const nextBtn = document.getElementById('next');
-    const prevBtn = document.getElementById('prev');
-    let current = 0;
-    function showSlide(index) {
-      slides[current].classList.remove('active');
-      current = (index + slides.length) % slides.length;
-      slides[current].classList.add('active');
-    }
-    nextBtn.addEventListener('click', () => showSlide(current + 1));
-    prevBtn.addEventListener('click', () => showSlide(current - 1));
-    setInterval(() => showSlide(current + 1), 6000);
-  </script>
-  <script src="app.js"></script>
+
   <!-- MODAL PILETA -->
   <div id="modal-pileta" class="modal-overlay" onclick="cerrarModal('pileta')">
     <div class="modal-contenido" onclick="event.stopPropagation()">
@@ -196,6 +184,21 @@
   </div>
 
   <script>
+    // Carrusel
+    const slides = document.querySelectorAll('.slide');
+    const nextBtn = document.getElementById('next');
+    const prevBtn = document.getElementById('prev');
+    let current = 0;
+    function showSlide(index) {
+      slides[current].classList.remove('active');
+      current = (index + slides.length) % slides.length;
+      slides[current].classList.add('active');
+    }
+    nextBtn.addEventListener('click', () => showSlide(current + 1));
+    prevBtn.addEventListener('click', () => showSlide(current - 1));
+    setInterval(() => showSlide(current + 1), 6000);
+
+    // Modal
     function abrirModal(id) {
       document.getElementById('modal-' + id).classList.add('activo');
       document.body.style.overflow = 'hidden';
@@ -213,5 +216,7 @@
       }
     });
   </script>
+
+  <script src="app.js"></script>
 </body>
 </html>
