@@ -218,5 +218,15 @@ footer a:hover {
   }
 }
 
+.card ul {
+  font-weight: normal;
+  font-size: 0.9rem;
+  color: #555;
+  padding-left: 16px;
+  margin-bottom: 15px;
+}
 
+.card p, .card ul {
+  font-weight: normal;
+}
 
