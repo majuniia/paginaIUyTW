@@ -216,17 +216,5 @@ footer a:hover {
   }
 }
 
-/* Slides sin imagen: fondo de color */
-.slide:nth-child(1) {
-  background: linear-gradient(135deg, #004080, #0059b3);
-  min-height: 300px;
-}
-.slide:nth-child(2) {
-  background: linear-gradient(135deg, #0059b3, #0073e6);
-  min-height: 300px;
-}
-.slide:nth-child(3) {
-  background: linear-gradient(135deg, #002244, #004080);
-  min-height: 300px;
-}
+
 
