@@ -230,3 +230,106 @@ footer a:hover {
   font-weight: normal;
 }
 
+/* HISTORIA */
+.historia {
+  background: #f0f7f0;
+  padding: 60px 24px;
+}
+.historia-contenido {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.historia h2 {
+  color: #003366;
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+}
+.historia p {
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 16px;
+  font-size: 1rem;
+}
+
+/* NÚMEROS */
+.numeros {
+  background: #003366;
+  padding: 50px 24px;
+}
+.numeros-grid {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 32px;
+  text-align: center;
+}
+.numero-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.numero-valor {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #F5C842;
+}
+.numero-label {
+  font-size: 0.95rem;
+  color: #ffffff;
+  margin-top: 8px;
+}
+
+/* AMENITIES */
+.amenities {
+  padding: 60px 24px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+.amenities h2 {
+  color: #003366;
+  font-size: 1.8rem;
+  margin-bottom: 32px;
+  text-align: center;
+}
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+.amenity-item {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+.amenity-item:hover {
+  transform: translateY(-4px);
+}
+.amenity-icono {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 12px;
+}
+.amenity-item h3 {
+  color: #003366;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+.amenity-item p {
+  color: #666;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+/* RESPONSIVE NUEVAS SECCIONES */
+@media (max-width: 768px) {
+  .numero-valor {
+    font-size: 2.2rem;
+  }
+  .historia h2, .amenities h2 {
+    font-size: 1.4rem;
+  }
+}
