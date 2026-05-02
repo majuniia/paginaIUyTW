@@ -111,8 +111,7 @@
   <!-- AMENITIES -->
   <section class="amenities">
     <h2>Amenities e instalaciones</h2>
-    <div class="amenities-grid">
-      <div class="amenity-item">
+    <div class="amenity-item" onclick="abrirModal('pileta')" style="cursor:pointer;">
         <span class="amenity-icono">🏊</span>
         <h3>Pileta olímpica</h3>
         <p>Piscina climatizada con solarium y área de descanso para toda la familia.</p>
@@ -174,5 +173,45 @@
     setInterval(() => showSlide(current + 1), 6000);
   </script>
   <script src="app.js"></script>
+  <!-- MODAL PILETA -->
+  <div id="modal-pileta" class="modal-overlay" onclick="cerrarModal('pileta')">
+    <div class="modal-contenido" onclick="event.stopPropagation()">
+      <button class="modal-cerrar" onclick="cerrarModal('pileta')">✕</button>
+      <h2>🏊 Pileta olímpica</h2>
+      <p>Nuestra piscina olímpica de 50 metros es el corazón del área recreativa de Los Alamos. Rodeada de vegetación y con cerramiento de vidrio, ofrece una experiencia única en cualquier época del año.</p>
+      <ul>
+        <li>Piscina de 50m × 25m con 8 carriles</li>
+        <li>Temperatura regulada todo el año</li>
+        <li>Solarium con reposeras y sombrillas</li>
+        <li>Vestuarios equipados con sauna</li>
+        <li>Clases de natación para todas las edades</li>
+        <li>Guardia de seguridad permanente</li>
+      </ul>
+      <div class="modal-imagenes">
+        <img src="./icons/Fondos/pileta-1.jpg" alt="Pileta olímpica">
+        <img src="./icons/Fondos/pileta-2.jpg" alt="Pileta olímpica">
+        <img src="./icons/Fondos/pileta-3.jpg" alt="Pileta olímpica">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function abrirModal(id) {
+      document.getElementById('modal-' + id).classList.add('activo');
+      document.body.style.overflow = 'hidden';
+    }
+    function cerrarModal(id) {
+      document.getElementById('modal-' + id).classList.remove('activo');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.activo').forEach(m => {
+          m.classList.remove('activo');
+          document.body.style.overflow = '';
+        });
+      }
+    });
+  </script>
 </body>
 </html>
