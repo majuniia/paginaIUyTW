@@ -68,7 +68,7 @@ nav a:hover {
   position: absolute;
   left: 24px;
   bottom: 24px;
-  background: rgba(0,0,0,0.55);
+  background: rgba(0,0,0,0.75);
   padding: 18px 24px;
   border-radius: 10px;
   max-width: 70%;
