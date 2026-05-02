@@ -17,73 +17,69 @@
       <a href="#contacto">Contacto</a>
     </nav>
   </header>
-
   <section class="hero" id="inicio">
     <div class="slider" id="slider">
       <div class="slide active">
-       <img src="./icons/Slider/senderos.png" alt="Senderos ecológicos">
+        <img src="./icons/Slider/senderos.png" alt="Senderos ecológicos">
         <div class="caption">
           <h2>Nuevas rutas ecológicas</h2>
           <p>Descubre senderos y paisajes naturales que respetan el ambiente del country.</p>
         </div>
       </div>
       <div class="slide">
-<img src="./icons/Slider/Eventos.png" alt="Eventos de la semana">
+        <img src="./icons/Slider/Eventos.png" alt="Eventos de la semana">
         <div class="caption">
           <h2>Eventos y actividades</h2>
           <p>Programa de talleres, ferias y encuentros para toda la familia en el club social.</p>
         </div>
       </div>
       <div class="slide">
-<img src="./icons/Slider/Noticias.png" alt="Noticias del country">
+        <img src="./icons/Slider/Noticias.png" alt="Noticias del country">
         <div class="caption">
           <h2>Noticias del country</h2>
           <p>Infórmate sobre mejoras en infraestructura, novedades y servicios exclusivos.</p>
         </div>
       </div>
-
+      <div class="slider-controls">
+        <button class="control" id="prev">&#10094;</button>
+        <button class="control" id="next">&#10095;</button>
+      </div>
+    </div>
+  </section>
   <section class="dashboard">
     <h2 class="section-title">Accesos rápidos</h2>
     <div class="cards">
-
       <div class="card">
         <h3>Expensas</h3>
         <p id="estado-expensas">Cargando...</p>
         <button>Ver más</button>
       </div>
-
       <div class="card">
         <h3>Avisos</h3>
         <ul id="lista-avisos"><li>Cargando...</li></ul>
         <button>Ver más</button>
       </div>
-
       <div class="card">
         <h3>Reservas</h3>
         <p>SUM, canchas y espacios</p>
         <button>Reservar</button>
       </div>
-
       <div class="card">
         <h3>Seguridad</h3>
         <p>Accesos y notificaciones</p>
         <button>Ver</button>
       </div>
-
     </div>
   </section>
-
   <section id="noticias" style="padding: 32px 24px; max-width: 1180px; margin: 0 auto;">
     <h2 style="margin-bottom: 16px; color: #003366;">Novedades destacadas</h2>
     <p style="margin: 0 0 12px; line-height: 1.6;">Bienvenido al portal del country. Aquí encontrarás las últimas noticias, actividades y servicios que se renuevan constantemente para tu comodidad y seguridad.</p>
   </section>
-
   <footer id="contacto">
     <p>Contacto: <a href="mailto:info@country.com">info@country.com</a></p>
     <p>WhatsApp: <a href="https://wa.me/1167367021" target="_blank" rel="noopener">+54 9 11 1234 4242</a></p>
     <p>Teléfono: <a href="tel:+541112345678">+54 11 1234 5678</a></p>
   </footer>
-
   <script>
     const slides = document.querySelectorAll('.slide');
     const nextBtn = document.getElementById('next');
@@ -98,7 +94,6 @@
     prevBtn.addEventListener('click', () => showSlide(current - 1));
     setInterval(() => showSlide(current + 1), 6000);
   </script>
-
   <script src="app.js"></script>
 </body>
 </html>
