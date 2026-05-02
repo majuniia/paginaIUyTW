@@ -1,50 +1,46 @@
-const CACHE_NAME = 'country-app-v3'; 
- 
+const CACHE_NAME = 'country-app-v6';
 
-const ASSETS = [ 
-  '/', 
-  '/index.html', 
-  '/styles.css', 
-  '/app.js', 
-  '/manifest.json' 
-]; 
- 
+const ASSETS = [
+  'https://seqqueiralourdes.github.io/paginaIUyTW/',
+  'https://seqqueiralourdes.github.io/paginaIUyTW/index.html',
+  'https://seqqueiralourdes.github.io/paginaIUyTW/styles.css',
+  'https://seqqueiralourdes.github.io/paginaIUyTW/app.js',
+  'https://seqqueiralourdes.github.io/paginaIUyTW/manifest.json',
+  'https://seqqueiralourdes.github.io/paginaIUyTW/icons/icon-192.png',
+  'https://seqqueiralourdes.github.io/paginaIUyTW/icons/icon-512.png'
+];
 
-// Instalar y guardar en caché 
-self.addEventListener('install', event => { 
-  event.waitUntil( 
-    caches.open(CACHE_NAME) 
-      .then(cache => cache.addAll(ASSETS)) 
-  ); 
-}); 
- 
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(cache => cache.addAll(ASSETS))
+      .then(() => self.skipWaiting())
+  );
+});
 
-// Activar y limpiar caché viejo 
-self.addEventListener('activate', event => { 
-  event.waitUntil( 
-    caches.keys().then(keys => 
-      Promise.all( 
-        keys.filter(key => key !== CACHE_NAME) 
-            .map(key => caches.delete(key)) 
-      ) 
-    ) 
-  ); 
-}); 
- 
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(keys =>
+      Promise.all(
+        keys.filter(key => key !== CACHE_NAME)
+            .map(key => caches.delete(key))
+      )
+    ).then(() => self.clients.claim())
+  );
+});
 
-// Interceptar requests (offline) 
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        return response || fetch(event.request)
-          .then(fetchResponse => {
-            return caches.open(CACHE_NAME).then(cache => {
-              cache.put(event.request, fetchResponse.clone());
-              return fetchResponse;
-            });
-          });
+    fetch(event.request)
+      .then(fetchResponse => {
+        return caches.open(CACHE_NAME).then(cache => {
+          cache.put(event.request, fetchResponse.clone());
+          return fetchResponse;
+        });
       })
-      .catch(() => caches.match('./index.html'))
+      .catch(() => {
+        return caches.match(event.request)
+          .then(response => response || caches.match('https://seqqueiralourdes.github.io/paginaIUyTW/index.html'));
+      })
   );
 });
