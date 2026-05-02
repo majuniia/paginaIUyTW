@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Country Inicio</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#003366">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -44,38 +46,35 @@
   </section>
 
   <section class="dashboard">
+    <h2 class="section-title">Accesos rápidos</h2>
+    <div class="cards">
 
-  <h2 class="section-title">Accesos rápidos</h2>
+      <div class="card">
+        <h3>Expensas</h3>
+        <p id="estado-expensas">Cargando...</p>
+        <button>Ver más</button>
+      </div>
 
-  <div class="cards">
+      <div class="card">
+        <h3>Avisos</h3>
+        <ul id="lista-avisos"><li>Cargando...</li></ul>
+        <button>Ver más</button>
+      </div>
 
-    <div class="card">
-      <h3>Expensas</h3>
-      <p>Ver estado de cuenta</p>
-      <button>Ver más</button>
+      <div class="card">
+        <h3>Reservas</h3>
+        <p>SUM, canchas y espacios</p>
+        <button>Reservar</button>
+      </div>
+
+      <div class="card">
+        <h3>Seguridad</h3>
+        <p>Accesos y notificaciones</p>
+        <button>Ver</button>
+      </div>
+
     </div>
-
-    <div class="card">
-      <h3>Avisos</h3>
-      <p>Comunicados importantes</p>
-      <button>Ver más</button>
-    </div>
-
-    <div class="card">
-      <h3>Reservas</h3>
-      <p>SUM, canchas y espacios</p>
-      <button>Reservar</button>
-    </div>
-
-    <div class="card">
-      <h3>Seguridad</h3>
-      <p>Accesos y notificaciones</p>
-      <button>Ver</button>
-    </div>
-
-  </div>
-
-</section>
+  </section>
 
   <section id="noticias" style="padding: 32px 24px; max-width: 1180px; margin: 0 auto;">
     <h2 style="margin-bottom: 16px; color: #003366;">Novedades destacadas</h2>
@@ -84,7 +83,7 @@
 
   <footer id="contacto">
     <p>Contacto: <a href="mailto:info@country.com">info@country.com</a></p>
-    <p>WhatsApp: <a href="https://wa.me/1234567890" target="_blank" rel="noopener">+54 9 11 1234 5678</a></p>
+    <p>WhatsApp: <a href="https://wa.me/1167367021" target="_blank" rel="noopener">+54 9 11 1234 4242</a></p>
     <p>Teléfono: <a href="tel:+541112345678">+54 11 1234 5678</a></p>
   </footer>
 
@@ -93,18 +92,16 @@
     const nextBtn = document.getElementById('next');
     const prevBtn = document.getElementById('prev');
     let current = 0;
-
     function showSlide(index) {
       slides[current].classList.remove('active');
       current = (index + slides.length) % slides.length;
       slides[current].classList.add('active');
     }
-
     nextBtn.addEventListener('click', () => showSlide(current + 1));
     prevBtn.addEventListener('click', () => showSlide(current - 1));
-
     setInterval(() => showSlide(current + 1), 6000);
   </script>
+
+  <script src="app.js"></script>
 </body>
 </html>
- 
