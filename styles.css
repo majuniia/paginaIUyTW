@@ -315,9 +315,9 @@ footer a:hover {
   margin-bottom: 16px;
 }
 .amenity-icono i {
-  font-size: 2rem;
-  color: #003366;
-  font-weight: 100;
+  font-size: 1.8rem;
+  color: #2E75B6;
+  opacity: 0.85;
 }
 .amenity-item h3 {
   color: #003366;
