@@ -39,7 +39,7 @@ nav a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-background: linear-gradient(135deg, #0b3d91, #1A3A2A);
+  background: #050F1F;
   color: white;
 }
 .slider {
