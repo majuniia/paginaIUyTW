@@ -12,11 +12,6 @@
 <body>
   <header>
     <div class="logo">Country Inicio</div>
-    <nav>
-      <a href="#inicio">Inicio</a>
-      <a href="#noticias">Novedades</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
   </header>
 
   <section class="hero" id="inicio">
@@ -48,6 +43,14 @@
       </div>
     </div>
   </section>
+
+  <nav class="nav-secundaria">
+    <a href="#inicio">Inicio</a>
+    <a href="#noticias">Novedades</a>
+    <a href="#amenities">Instalaciones</a>
+    <a href="#acceso">Acceso</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
 
   <section class="dashboard">
     <h2 class="section-title">Accesos rápidos</h2>
@@ -108,7 +111,9 @@
         <span class="numero-label">Años de historia</span>
       </div>
     </div>
- <section class="amenities">
+  </section>
+
+  <section class="amenities" id="amenities">
     <h2>Amenities e instalaciones</h2>
     <div class="amenities-grid">
       <div class="amenity-item" onclick="abrirModal('pileta')" style="cursor:pointer;">
@@ -153,7 +158,12 @@
       </div>
     </div>
   </section>
-   
+
+  <section id="acceso" style="padding: 60px 24px; max-width: 1180px; margin: 0 auto; text-align: center;">
+    <h2 style="color: #003366; margin-bottom: 16px;">Acceso al barrio</h2>
+    <p style="color: #444; line-height: 1.8; max-width: 700px; margin: 0 auto;">El ingreso al country se realiza por Ruta Provincial 58, km 18. Contamos con guardia de seguridad las 24 horas, sistema de registro de visitas y acceso vehicular con barrera electrónica. Para autorizar visitas podés hacerlo desde la sección de Seguridad.</p>
+  </section>
+
   <footer id="contacto">
     <p>Contacto: <a href="mailto:info@country.com">info@country.com</a></p>
     <p>WhatsApp: <a href="https://wa.me/1167367021" target="_blank" rel="noopener">+54 9 11 1234 4242</a></p>
@@ -164,7 +174,7 @@
   <div id="modal-pileta" class="modal-overlay" onclick="cerrarModal('pileta')">
     <div class="modal-contenido" onclick="event.stopPropagation()">
       <button class="modal-cerrar" onclick="cerrarModal('pileta')">✕</button>
-<h2><i class="fa-solid fa-water-ladder" style="color:#2E75B6; margin-right:10px;"></i>Pileta olímpica</h2>
+      <h2><i class="fa-solid fa-water-ladder" style="color:#2E75B6; margin-right:10px;"></i>Pileta olímpica</h2>
       <p>Nuestra piscina olímpica de 50 metros es el corazón del área recreativa de Los Alamos. Rodeada de vegetación y con cerramiento de vidrio, ofrece una experiencia única en cualquier época del año.</p>
       <ul>
         <li>Piscina de 50m × 25m con 8 carriles</li>
