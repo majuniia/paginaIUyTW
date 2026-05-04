@@ -9,7 +9,20 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body
+  <!-- LOGIN -->
+  <div class="login-overlay" id="login-overlay">
+    <div class="login-box">
+      <img src="./icons/icon-192.png" alt="Country Los Alamos">
+      <h2>Country Los Alamos</h2>
+      <p>Ingresá con tus credenciales de residente</p>
+      <input type="text" id="login-usuario" placeholder="Usuario" />
+      <input type="password" id="login-password" placeholder="Contraseña" />
+      <button class="login-btn" onclick="iniciarSesion()">Ingresar</button>
+      <p class="login-error" id="login-error">Usuario o contraseña incorrectos.</p>
+      <p class="login-invitado">¿Solo querés explorar? <a onclick="entrarComoInvitado()">Entrá como invitado</a></p>
+    </div>
+  </div>
   <header>
     <div class="logo">Country Inicio</div>
   </header>
@@ -231,6 +244,39 @@
           m.classList.remove('activo');
           document.body.style.overflow = '';
         });
+      }
+    });
+    // Login
+    const USUARIO = 'residente';
+    const PASSWORD = 'losalamos2024';
+
+    function iniciarSesion() {
+      const usuario = document.getElementById('login-usuario').value;
+      const password = document.getElementById('login-password').value;
+      if (usuario === USUARIO && password === PASSWORD) {
+        document.getElementById('login-overlay').style.display = 'none';
+        sessionStorage.setItem('logueado', 'true');
+      } else {
+        document.getElementById('login-error').style.display = 'block';
+      }
+    }
+
+    function entrarComoInvitado() {
+      document.getElementById('login-overlay').style.display = 'none';
+      sessionStorage.setItem('logueado', 'invitado');
+      document.getElementById('estado-expensas').textContent = '🔒 Solo para residentes';
+      document.getElementById('lista-avisos').innerHTML = '<li>🔒 Solo para residentes</li>';
+    }
+
+    // Verificar si ya está logueado
+    window.addEventListener('load', () => {
+      const logueado = sessionStorage.getItem('logueado');
+      if (logueado === 'true') {
+        document.getElementById('login-overlay').style.display = 'none';
+      } else if (logueado === 'invitado') {
+        document.getElementById('login-overlay').style.display = 'none';
+        document.getElementById('estado-expensas').textContent = '🔒 Solo para residentes';
+        document.getElementById('lista-avisos').innerHTML = '<li>🔒 Solo para residentes</li>';
       }
     });
   </script>
