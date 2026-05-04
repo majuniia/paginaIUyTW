@@ -147,7 +147,7 @@
         <h3>Deportes náuticos</h3>
         <p>Lago de 8 hectáreas habilitado para kayak, pesca deportiva y paseos en lancha sin motor.</p>
       </div>
-      <div class="amenity-item">
+      <div class="amenity-item" onclick="abrirModal('futbol')" style="cursor:pointer;">
         <span class="amenity-icono"><i class="fa-solid fa-futbol"></i></span>
         <h3>Canchas de fútbol</h3>
         <p>Cancha de fútbol 11 y dos canchas de fútbol 5 con césped sintético.</p>
@@ -328,6 +328,28 @@
       }
     });
   </script>
+<!-- MODAL FÚTBOL -->
+  <div id="modal-futbol" class="modal-overlay" onclick="cerrarModal('futbol')">
+    <div class="modal-contenido" onclick="event.stopPropagation()">
+      <button class="modal-cerrar" onclick="cerrarModal('futbol')">✕</button>
+      <h2><i class="fa-solid fa-futbol" style="color:#2E75B6; margin-right:10px;"></i>Canchas de fútbol</h2>
+      <p>Nuestras canchas de fútbol son el escenario ideal para disfrutar del deporte más popular del país. Con césped sintético de última generación e iluminación nocturna, permiten jugar en cualquier condición climática.</p>
+      <ul>
+        <li>1 cancha de fútbol 11 reglamentaria</li>
+        <li>2 canchas de fútbol 5 con césped sintético</li>
+        <li>Iluminación LED nocturna</li>
+        <li>Vestuarios y duchas</li>
+        <li>Torneos internos mensuales</li>
+        <li>Reservas online desde la app</li>
+      </ul>
+      <div class="modal-imagenes">
+        <img src="./icons/Fondos/futbol-1.jpg" alt="Canchas de fútbol">
+        <img src="./icons/Fondos/futbol-2.jpg" alt="Canchas de fútbol">
+        <img src="./icons/Fondos/futbol-3.jpg" alt="Canchas de fútbol">
+      </div>
+    </div>
+  </div>
+  
 // Lightbox
     let lightboxImagenes = [];
     let lightboxIndex = 0;
