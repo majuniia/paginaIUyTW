@@ -9,7 +9,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body
+<body>
+
   <!-- LOGIN -->
   <div class="login-overlay" id="login-overlay">
     <div class="login-box">
@@ -23,6 +24,7 @@
       <p class="login-invitado">¿Solo querés explorar? <a onclick="entrarComoInvitado()">Entrá como invitado</a></p>
     </div>
   </div>
+
   <header>
     <div class="logo">Country Inicio</div>
   </header>
@@ -182,10 +184,11 @@
     <h2 style="color: #003366; margin-bottom: 24px;">Reglamento de convivencia</h2>
     <p style="color: #444; line-height: 1.8; margin-bottom: 16px;">El reglamento de convivencia establece las normas que nos permiten a todos los residentes disfrutar en armonía de la vida en el barrio. Su cumplimiento es responsabilidad de cada vecino y contribuye al bienestar de toda la comunidad.</p>
     <p style="color: #444; line-height: 1.8; margin-bottom: 24px;">Entre los puntos principales se incluyen normas sobre el uso de espacios comunes, circulación vehicular, tenencia responsable de mascotas, niveles de ruido y horarios de descanso, gestión de residuos y acceso de visitas.</p>
-    <a href="#" style="display: inline-block; background: #003366; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-size: 0.95rem; transition: background 0.2s;">
+    <a href="#" style="display: inline-block; background: #003366; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-size: 0.95rem;">
       <i class="fa-solid fa-file-pdf" style="margin-right: 8px;"></i>Descargar reglamento completo
     </a>
   </section>
+
   <footer id="contacto">
     <p>Contacto: <a href="mailto:info@country.com">info@country.com</a></p>
     <p>WhatsApp: <a href="https://wa.me/1167367021" target="_blank" rel="noopener">+54 9 11 1234 4242</a></p>
@@ -210,6 +213,51 @@
         <img src="./icons/Fondos/pileta-1.jpg" alt="Pileta olímpica">
         <img src="./icons/Fondos/pileta-2.jpg" alt="Pileta olímpica">
         <img src="./icons/Fondos/pileta-3.jpg" alt="Pileta olímpica">
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL TENIS -->
+  <div id="modal-tenis" class="modal-overlay" onclick="cerrarModal('tenis')">
+    <div class="modal-contenido" onclick="event.stopPropagation()">
+      <button class="modal-cerrar" onclick="cerrarModal('tenis')">✕</button>
+      <h2><i class="fa-solid fa-table-tennis-paddle-ball" style="color:#2E75B6; margin-right:10px;"></i>Canchas de tenis</h2>
+      <p>Nuestras canchas de tenis son un punto de encuentro para jugadores de todos los niveles. Rodeadas de vegetación y con iluminación nocturna, permiten disfrutar del juego en cualquier momento del día.</p>
+      <ul>
+        <li>4 canchas de polvo de ladrillo reglamentarias</li>
+        <li>Iluminación LED nocturna en todas las canchas</li>
+        <li>Clases con profesores certificados</li>
+        <li>Torneos internos mensuales</li>
+        <li>Alquiler de raquetas disponible</li>
+        <li>Reservas online desde la app</li>
+      </ul>
+      <div class="modal-imagenes">
+        <img src="./icons/Fondos/tenis-1.jpg" alt="Canchas de tenis">
+        <img src="./icons/Fondos/tenis-2.jpg" alt="Canchas de tenis">
+        <img src="./icons/Fondos/tenis-3.jpg" alt="Canchas de tenis">
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL NÁUTICOS -->
+  <div id="modal-nauticos" class="modal-overlay" onclick="cerrarModal('nauticos')">
+    <div class="modal-contenido" onclick="event.stopPropagation()">
+      <button class="modal-cerrar" onclick="cerrarModal('nauticos')">✕</button>
+      <h2><i class="fa-solid fa-sailboat" style="color:#2E75B6; margin-right:10px;"></i>Deportes náuticos</h2>
+      <p>El lago natural de 8 hectáreas es el corazón de Los Alamos y el escenario ideal para disfrutar de actividades náuticas en contacto pleno con la naturaleza.</p>
+      <ul>
+        <li>Lago de 8 hectáreas de agua cristalina</li>
+        <li>Kayak y canoas disponibles para residentes</li>
+        <li>Pesca deportiva habilitada</li>
+        <li>Paseos en lancha sin motor</li>
+        <li>Clases de remo para todas las edades</li>
+        <li>Muelle y área de embarque</li>
+      </ul>
+      <div class="modal-imagenes">
+        <img src="./icons/Fondos/nauticos-1.jpg" alt="Deportes náuticos">
+        <img src="./icons/Fondos/nauticos-2.jpg" alt="Deportes náuticos">
+        <img src="./icons/Fondos/nauticos-3.jpg" alt="Deportes náuticos">
+        <img src="./icons/Fondos/nauticos-4.jpg" alt="Deportes náuticos">
       </div>
     </div>
   </div>
@@ -246,6 +294,7 @@
         });
       }
     });
+
     // Login
     const USUARIO = 'residente';
     const PASSWORD = 'losalamos2024';
@@ -268,7 +317,6 @@
       document.getElementById('lista-avisos').innerHTML = '<li>🔒 Solo para residentes</li>';
     }
 
-    // Verificar si ya está logueado
     window.addEventListener('load', () => {
       const logueado = sessionStorage.getItem('logueado');
       if (logueado === 'true') {
@@ -282,47 +330,5 @@
   </script>
 
   <script src="app.js"></script>
-<!-- MODAL TENIS -->
-  <div id="modal-tenis" class="modal-overlay" onclick="cerrarModal('tenis')">
-    <div class="modal-contenido" onclick="event.stopPropagation()">
-      <button class="modal-cerrar" onclick="cerrarModal('tenis')">✕</button>
-      <h2><i class="fa-solid fa-table-tennis-paddle-ball" style="color:#2E75B6; margin-right:10px;"></i>Canchas de tenis</h2>
-      <p>Nuestras canchas de tenis son un punto de encuentro para jugadores de todos los niveles. Rodeadas de vegetación y con iluminación nocturna, permiten disfrutar del juego en cualquier momento del día.</p>
-      <ul>
-        <li>4 canchas de polvo de ladrillo reglamentarias</li>
-        <li>Iluminación LED nocturna en todas las canchas</li>
-        <li>Clases con profesores certificados</li>
-        <li>Torneos internos mensuales</li>
-        <li>Alquiler de raquetas disponible</li>
-        <li>Reservas online desde la app</li>
-      </ul>
-      <div class="modal-imagenes">
-        <img src="./icons/Fondos/tenis-1.jpg" alt="Canchas de tenis">
-        <img src="./icons/Fondos/tenis-2.jpg" alt="Canchas de tenis">
-        <img src="./icons/Fondos/tenis-3.jpg" alt="Canchas de tenis">
-      </div>
-    </div>
-  </div>
-
-<!-- MODAL NÁUTICOS -->
-  <div id="modal-nauticos" class="modal-overlay" onclick="cerrarModal('nauticos')">
-    <div class="modal-contenido" onclick="event.stopPropagation()">
-      <button class="modal-cerrar" onclick="cerrarModal('nauticos')">✕</button>
-      <h2><i class="fa-solid fa-sailboat" style="color:#2E75B6; margin-right:10px;"></i>Deportes náuticos</h2>
-      <p>El lago natural de 8 hectáreas es el corazón de Los Alamos y el escenario ideal para disfrutar de actividades náuticas en contacto pleno con la naturaleza.</p>
-      <ul>
-        <li>Lago de 8 hectáreas de agua cristalina</li>
-        <li>Kayak y canoas disponibles para residentes</li>
-        <li>Pesca deportiva habilitada</li>
-        <li>Paseos en lancha sin motor</li>
-        <li>Clases de remo para todas las edades</li>
-        <li>Muelle y área de embarque</li>
-      </ul>
-      <div class="modal-imagenes">
-        <img src="./icons/Fondos/nauticos-1.jpg" alt="Deportes náuticos">
-      </div>
-    </div>
-  </div>
-  
 </body>
 </html>
