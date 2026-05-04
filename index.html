@@ -328,7 +328,73 @@
       }
     });
   </script>
+// Lightbox
+    let lightboxImagenes = [];
+    let lightboxIndex = 0;
 
+    function abrirLightbox(imagenes, index) {
+      lightboxImagenes = imagenes;
+      lightboxIndex = index;
+      document.getElementById('lightbox-img').src = imagenes[index];
+      document.getElementById('lightbox-contador').textContent = (index + 1) + ' / ' + imagenes.length;
+      document.getElementById('lightbox').classList.add('activo');
+    }
+
+    function cerrarLightbox() {
+      document.getElementById('lightbox').classList.remove('activo');
+    }
+
+    function cambiarLightbox(direccion) {
+      lightboxIndex = (lightboxIndex + direccion + lightboxImagenes.length) % lightboxImagenes.length;
+      document.getElementById('lightbox-img').src = lightboxImagenes[lightboxIndex];
+      document.getElementById('lightbox-contador').textContent = (lightboxIndex + 1) + ' / ' + lightboxImagenes.length;
+    }
+
+    document.addEventListener('keydown', e => {
+      if (document.getElementById('lightbox').classList.contains('activo')) {
+        if (e.key === 'ArrowRight') cambiarLightbox(1);
+        if (e.key === 'ArrowLeft') cambiarLightbox(-1);
+        if (e.key === 'Escape') cerrarLightbox();
+      }
+    });
+
+    function activarLightboxEnModal(modalId, rutas) {
+      const imgs = document.querySelectorAll('#modal-' + modalId + ' .modal-imagenes img');
+      imgs.forEach((img, i) => {
+        img.onclick = (e) => {
+          e.stopPropagation();
+          abrirLightbox(rutas, i);
+        };
+      });
+    }
+
+    // Activar lightbox en cada modal
+    activarLightboxEnModal('pileta', [
+      './icons/Fondos/pileta-1.jpg',
+      './icons/Fondos/pileta-2.jpg',
+      './icons/Fondos/pileta-3.jpg'
+    ]);
+    activarLightboxEnModal('tenis', [
+      './icons/Fondos/tenis-1.jpg',
+      './icons/Fondos/tenis-2.jpg',
+      './icons/Fondos/tenis-3.jpg'
+    ]);
+    activarLightboxEnModal('nauticos', [
+      './icons/Fondos/nauticos-1.jpg',
+      './icons/Fondos/nauticos-2.jpg',
+      './icons/Fondos/nauticos-3.jpg',
+      './icons/Fondos/nauticos-4.jpg'
+    ]);
   <script src="app.js"></script>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="cerrarLightbox()">
+    <button class="lightbox-cerrar" onclick="cerrarLightbox()">✕</button>
+    <button class="lightbox-prev" onclick="event.stopPropagation(); cambiarLightbox(-1)">&#10094;</button>
+    <img id="lightbox-img" src="" alt="">
+    <button class="lightbox-next" onclick="event.stopPropagation(); cambiarLightbox(1)">&#10095;</button>
+    <span class="lightbox-contador" id="lightbox-contador"></span>
+  </div>
+  
 </body>
 </html>
