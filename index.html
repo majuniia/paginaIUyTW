@@ -135,7 +135,7 @@
         <h3>Pileta olímpica</h3>
         <p>Piscina climatizada con solarium y área de descanso para toda la familia.</p>
       </div>
-      <div class="amenity-item">
+      <div class="amenity-item" onclick="abrirModal('tenis')" style="cursor:pointer;">
         <span class="amenity-icono"><i class="fa-solid fa-table-tennis-paddle-ball"></i></span>
         <h3>Canchas de tenis</h3>
         <p>4 canchas de polvo de ladrillo con iluminación nocturna y clases profesionales.</p>
@@ -282,5 +282,27 @@
   </script>
 
   <script src="app.js"></script>
+<!-- MODAL TENIS -->
+  <div id="modal-tenis" class="modal-overlay" onclick="cerrarModal('tenis')">
+    <div class="modal-contenido" onclick="event.stopPropagation()">
+      <button class="modal-cerrar" onclick="cerrarModal('tenis')">✕</button>
+      <h2><i class="fa-solid fa-table-tennis-paddle-ball" style="color:#2E75B6; margin-right:10px;"></i>Canchas de tenis</h2>
+      <p>Nuestras canchas de tenis son un punto de encuentro para jugadores de todos los niveles. Rodeadas de vegetación y con iluminación nocturna, permiten disfrutar del juego en cualquier momento del día.</p>
+      <ul>
+        <li>4 canchas de polvo de ladrillo reglamentarias</li>
+        <li>Iluminación LED nocturna en todas las canchas</li>
+        <li>Clases con profesores certificados</li>
+        <li>Torneos internos mensuales</li>
+        <li>Alquiler de raquetas disponible</li>
+        <li>Reservas online desde la app</li>
+      </ul>
+      <div class="modal-imagenes">
+        <img src="./icons/Fondos/tenis-1.jpg" alt="Canchas de tenis">
+        <img src="./icons/Fondos/tenis-2.jpg" alt="Canchas de tenis">
+        <img src="./icons/Fondos/tenis-3.jpg" alt="Canchas de tenis">
+      </div>
+    </div>
+  </div>
+  
 </body>
 </html>
