@@ -140,7 +140,7 @@
         <h3>Canchas de tenis</h3>
         <p>4 canchas de polvo de ladrillo con iluminación nocturna y clases profesionales.</p>
       </div>
-      <div class="amenity-item">
+      <div class="amenity-item" onclick="abrirModal('nauticos')" style="cursor:pointer;">
         <span class="amenity-icono"><i class="fa-solid fa-sailboat"></i></span>
         <h3>Deportes náuticos</h3>
         <p>Lago de 8 hectáreas habilitado para kayak, pesca deportiva y paseos en lancha sin motor.</p>
@@ -300,6 +300,26 @@
         <img src="./icons/Fondos/tenis-1.jpg" alt="Canchas de tenis">
         <img src="./icons/Fondos/tenis-2.jpg" alt="Canchas de tenis">
         <img src="./icons/Fondos/tenis-3.jpg" alt="Canchas de tenis">
+      </div>
+    </div>
+  </div>
+
+<!-- MODAL NÁUTICOS -->
+  <div id="modal-nauticos" class="modal-overlay" onclick="cerrarModal('nauticos')">
+    <div class="modal-contenido" onclick="event.stopPropagation()">
+      <button class="modal-cerrar" onclick="cerrarModal('nauticos')">✕</button>
+      <h2><i class="fa-solid fa-sailboat" style="color:#2E75B6; margin-right:10px;"></i>Deportes náuticos</h2>
+      <p>El lago natural de 8 hectáreas es el corazón de Los Alamos y el escenario ideal para disfrutar de actividades náuticas en contacto pleno con la naturaleza.</p>
+      <ul>
+        <li>Lago de 8 hectáreas de agua cristalina</li>
+        <li>Kayak y canoas disponibles para residentes</li>
+        <li>Pesca deportiva habilitada</li>
+        <li>Paseos en lancha sin motor</li>
+        <li>Clases de remo para todas las edades</li>
+        <li>Muelle y área de embarque</li>
+      </ul>
+      <div class="modal-imagenes">
+        <img src="./icons/Fondos/nauticos-1.jpg" alt="Deportes náuticos">
       </div>
     </div>
   </div>
