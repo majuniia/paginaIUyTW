@@ -162,7 +162,7 @@
         <h3>Espacios verdes</h3>
         <p>Más de 40 hectáreas de parques, senderos y reserva forestal de arboleda añosa.</p>
       </div>
-      <div class="amenity-item">
+      <div class="amenity-item" onclick="abrirModal('clubhouse')" style="cursor:pointer;">
         <span class="amenity-icono"><i class="fa-solid fa-house-chimney"></i></span>
         <h3>Club House & SUM</h3>
         <p>Salón de usos múltiples, restaurante, bar y espacios para eventos y reuniones.</p>
@@ -328,6 +328,28 @@
       </div>
     </div>
   </div>
+<!-- MODAL CLUB HOUSE -->
+  <div id="modal-clubhouse" class="modal-overlay" onclick="cerrarModal('clubhouse')">
+    <div class="modal-contenido" onclick="event.stopPropagation()">
+      <button class="modal-cerrar" onclick="cerrarModal('clubhouse')">✕</button>
+      <h2><i class="fa-solid fa-house-chimney" style="color:#2E75B6; margin-right:10px;"></i>Club House & SUM</h2>
+      <p>El Club House es el corazón social de Los Alamos. Un espacio moderno y amplio diseñado para que los residentes disfruten de momentos únicos en familia o con amigos.</p>
+      <ul>
+        <li>Salón de usos múltiples con capacidad para 200 personas</li>
+        <li>Restaurante con cocina de autor</li>
+        <li>Bar y terraza con vista al lago</li>
+        <li>Sala de reuniones equipada</li>
+        <li>Espacio para eventos privados y celebraciones</li>
+        <li>Wi-Fi de alta velocidad en todas las instalaciones</li>
+      </ul>
+      <div class="modal-imagenes">
+        <img src="./icons/Fondos/clubhouse-1.jpg" alt="Club House">
+        <img src="./icons/Fondos/clubhouse-2.jpg" alt="Club House">
+        <img src="./icons/Fondos/clubhouse-3.jpg" alt="Club House">
+      </div>
+    </div>
+  </div>
+
   
   <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox" onclick="cerrarLightbox()">
@@ -460,6 +482,12 @@
         './icons/Fondos/verdes-2.jpg',
         './icons/Fondos/verdes-3.jpg'
       ]);
+      activarLightboxEnModal('clubhouse', [
+        './icons/Fondos/clubhouse-1.jpg',
+        './icons/Fondos/clubhouse-2.jpg',
+        './icons/Fondos/clubhouse-3.jpg'
+      ]);
+
     
     document.addEventListener('keydown', e => {
       if (document.getElementById('lightbox').classList.contains('activo')) {
