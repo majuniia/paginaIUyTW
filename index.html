@@ -167,7 +167,7 @@
         <h3>Club House & SUM</h3>
         <p>Salón de usos múltiples, restaurante, bar y espacios para eventos y reuniones.</p>
       </div>
-      <div class="amenity-item">
+  <div class="amenity-item" onclick="abrirModal('ciclovias')" style="cursor:pointer;">
         <span class="amenity-icono"><i class="fa-solid fa-person-biking"></i></span>
         <h3>Ciclovías</h3>
         <p>Circuito de 6 km de ciclovías y senderos peatonales que recorren todo el barrio.</p>
@@ -349,7 +349,26 @@
       </div>
     </div>
   </div>
-
+<!-- MODAL CICLOVÍAS -->
+  <div id="modal-ciclovias" class="modal-overlay" onclick="cerrarModal('ciclovias')">
+    <div class="modal-contenido" onclick="event.stopPropagation()">
+      <button class="modal-cerrar" onclick="cerrarModal('ciclovias')">✕</button>
+      <h2><i class="fa-solid fa-person-biking" style="color:#2E75B6; margin-right:10px;"></i>Ciclovías</h2>
+      <p>Nuestro circuito de ciclovías recorre todo el barrio conectando los principales espacios verdes, el lago y las instalaciones deportivas, ideal para disfrutar al aire libre en familia.</p>
+      <ul>
+        <li>6 km de ciclovías señalizadas</li>
+        <li>Senderos peatonales paralelos</li>
+        <li>Iluminación nocturna en todo el recorrido</li>
+        <li>Estaciones de descanso con bancos y bebederos</li>
+        <li>Apto para bicicletas, rollers y caminatas</li>
+        <li>Conecta todos los amenities del barrio</li>
+      </ul>
+      <div class="modal-imagenes">
+        <img src="./icons/Fondos/ciclovias-1.jpg" alt="Ciclovías">
+        <img src="./icons/Fondos/ciclovias-2.jpg" alt="Ciclovías">
+      </div>
+    </div>
+  </div>
   
   <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox" onclick="cerrarLightbox()">
@@ -487,7 +506,10 @@
         './icons/Fondos/clubhouse-2.jpg',
         './icons/Fondos/clubhouse-3.jpg'
       ]);
-
+      activarLightboxEnModal('ciclovias', [
+        './icons/Fondos/ciclovias-1.jpg',
+        './icons/Fondos/ciclovias-2.jpg'
+      ]);
     
     document.addEventListener('keydown', e => {
       if (document.getElementById('lightbox').classList.contains('activo')) {
