@@ -157,7 +157,7 @@
         <h3>Gimnasio</h3>
         <p>Equipamiento completo con área de musculación, cardio y clases grupales.</p>
       </div>
-      <div class="amenity-item">
+      <div class="amenity-item" onclick="abrirModal('verdes')" style="cursor:pointer;">
         <span class="amenity-icono"><i class="fa-solid fa-tree"></i></span>
         <h3>Espacios verdes</h3>
         <p>Más de 40 hectáreas de parques, senderos y reserva forestal de arboleda añosa.</p>
@@ -307,6 +307,28 @@
     </div>
   </div>
 
+  <!-- MODAL ESPACIOS VERDES -->
+  <div id="modal-verdes" class="modal-overlay" onclick="cerrarModal('verdes')">
+    <div class="modal-contenido" onclick="event.stopPropagation()">
+      <button class="modal-cerrar" onclick="cerrarModal('verdes')">✕</button>
+      <h2><i class="fa-solid fa-tree" style="color:#2E75B6; margin-right:10px;"></i>Espacios verdes</h2>
+      <p>Los Alamos cuenta con más de 40 hectáreas de espacios verdes cuidados y preservados, donde la naturaleza convive con la vida cotidiana de los residentes.</p>
+      <ul>
+        <li>40 hectáreas de parques y jardines</li>
+        <li>Reserva forestal de arboleda añosa</li>
+        <li>Senderos peatonales iluminados</li>
+        <li>Áreas de picnic y descanso</li>
+        <li>Juegos infantiles en espacios naturales</li>
+        <li>Mantenimiento profesional permanente</li>
+      </ul>
+      <div class="modal-imagenes">
+        <img src="./icons/Fondos/verdes-1.jpg" alt="Espacios verdes">
+        <img src="./icons/Fondos/verdes-2.jpg" alt="Espacios verdes">
+        <img src="./icons/Fondos/verdes-3.jpg" alt="Espacios verdes">
+      </div>
+    </div>
+  </div>
+  
   <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox" onclick="cerrarLightbox()">
     <button class="lightbox-cerrar" onclick="cerrarLightbox()">✕</button>
@@ -432,6 +454,11 @@
         './icons/Fondos/gimnasio-1.jpg',
         './icons/Fondos/gimnasio-2.jpg',
         './icons/Fondos/gimnasio-3.jpg'
+      ]);
+      activarLightboxEnModal('verdes', [
+        './icons/Fondos/verdes-1.jpg',
+        './icons/Fondos/verdes-2.jpg',
+        './icons/Fondos/verdes-3.jpg'
       ]);
     
     document.addEventListener('keydown', e => {
