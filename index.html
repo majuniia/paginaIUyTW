@@ -11,9 +11,10 @@
 </head>
 <body>
 
-  <!-- LOGIN -->
-  <div class="login-overlay" id="login-overlay">
+  <!-- LOGIN MODAL -->
+  <div class="login-overlay" id="login-overlay" onclick="cerrarLoginOverlay(event)">
     <div class="login-box">
+      <button class="modal-cerrar" onclick="cerrarLogin()" style="position:absolute; top:16px; right:16px;">✕</button>
       <img src="./icons/icon-192.png" alt="Country Los Alamos">
       <h2>Country Los Alamos</h2>
       <p>Ingresá con tus credenciales de residente</p>
@@ -21,12 +22,14 @@
       <input type="password" id="login-password" placeholder="Contraseña" />
       <button class="login-btn" onclick="iniciarSesion()">Ingresar</button>
       <p class="login-error" id="login-error">Usuario o contraseña incorrectos.</p>
-      <p class="login-invitado">¿Solo querés explorar? <a onclick="entrarComoInvitado()">Entrá como invitado</a></p>
     </div>
   </div>
 
   <header>
     <div class="logo">Country Inicio</div>
+    <button class="header-login-btn" id="header-login-btn" onclick="toggleLogin()">
+      <i class="fa-solid fa-user"></i> Ingresar
+    </button>
   </header>
 
   <section class="hero" id="inicio">
@@ -73,12 +76,12 @@
     <div class="cards">
       <div class="card">
         <h3>Expensas</h3>
-        <p id="estado-expensas">Cargando...</p>
+        <p id="estado-expensas">🔒 Solo para residentes</p>
         <button>Ver más</button>
       </div>
       <div class="card">
         <h3>Avisos</h3>
-        <ul id="lista-avisos"><li>Cargando...</li></ul>
+        <ul id="lista-avisos"><li>🔒 Solo para residentes</li></ul>
         <button>Ver más</button>
       </div>
       <div class="card">
@@ -99,7 +102,7 @@
     <p style="margin: 0 0 12px; line-height: 1.6;">Bienvenido al portal del country. Aquí encontrarás las últimas noticias, actividades y servicios que se renuevan constantemente para tu comodidad y seguridad.</p>
   </section>
 
-<!-- GALERÍA -->
+  <!-- GALERÍA -->
   <section class="galeria" id="galeria">
     <h2>Galería</h2>
     <div class="galeria-grid">
@@ -167,7 +170,7 @@
         <h3>Canchas de fútbol</h3>
         <p>Cancha de fútbol 11 y dos canchas de fútbol 5 con césped sintético.</p>
       </div>
-   <div class="amenity-item" onclick="abrirModal('gimnasio')" style="cursor:pointer;">
+      <div class="amenity-item" onclick="abrirModal('gimnasio')" style="cursor:pointer;">
         <span class="amenity-icono"><i class="fa-solid fa-dumbbell"></i></span>
         <h3>Gimnasio</h3>
         <p>Equipamiento completo con área de musculación, cardio y clases grupales.</p>
@@ -182,7 +185,7 @@
         <h3>Club House & SUM</h3>
         <p>Salón de usos múltiples, restaurante, bar y espacios para eventos y reuniones.</p>
       </div>
-  <div class="amenity-item" onclick="abrirModal('ciclovias')" style="cursor:pointer;">
+      <div class="amenity-item" onclick="abrirModal('ciclovias')" style="cursor:pointer;">
         <span class="amenity-icono"><i class="fa-solid fa-person-biking"></i></span>
         <h3>Ciclovías</h3>
         <p>Circuito de 6 km de ciclovías y senderos peatonales que recorren todo el barrio.</p>
@@ -204,7 +207,7 @@
     </a>
   </section>
 
-<footer id="contacto">
+  <footer id="contacto">
     <p><i class="fa-solid fa-envelope" style="margin-right: 8px;"></i>Contacto: <a href="mailto:info@country.com">info@country.com</a></p>
     <p><i class="fa-brands fa-whatsapp" style="margin-right: 8px; color: #25D366;"></i>WhatsApp: <a href="https://wa.me/1167367021" target="_blank" rel="noopener">+54 9 11 1234 4242</a></p>
     <p><i class="fa-solid fa-phone" style="margin-right: 8px;"></i>Teléfono: <a href="tel:+541112345678">+54 11 1234 5678</a></p>
@@ -343,7 +346,8 @@
       </div>
     </div>
   </div>
-<!-- MODAL CLUB HOUSE -->
+
+  <!-- MODAL CLUB HOUSE -->
   <div id="modal-clubhouse" class="modal-overlay" onclick="cerrarModal('clubhouse')">
     <div class="modal-contenido" onclick="event.stopPropagation()">
       <button class="modal-cerrar" onclick="cerrarModal('clubhouse')">✕</button>
@@ -364,7 +368,8 @@
       </div>
     </div>
   </div>
-<!-- MODAL CICLOVÍAS -->
+
+  <!-- MODAL CICLOVÍAS -->
   <div id="modal-ciclovias" class="modal-overlay" onclick="cerrarModal('ciclovias')">
     <div class="modal-contenido" onclick="event.stopPropagation()">
       <button class="modal-cerrar" onclick="cerrarModal('ciclovias')">✕</button>
@@ -384,7 +389,7 @@
       </div>
     </div>
   </div>
-  
+
   <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox" onclick="cerrarLightbox()">
     <button class="lightbox-cerrar" onclick="cerrarLightbox()">✕</button>
@@ -455,35 +460,60 @@
     const USUARIO = 'residente';
     const PASSWORD = 'losalamos2024';
 
+    function toggleLogin() {
+      const logueado = sessionStorage.getItem('logueado');
+      if (logueado === 'true') {
+        cerrarSesion();
+      } else {
+        document.getElementById('login-overlay').classList.add('activo');
+      }
+    }
+
+    function cerrarLogin() {
+      document.getElementById('login-overlay').classList.remove('activo');
+    }
+
+    function cerrarLoginOverlay(e) {
+      if (e.target === document.getElementById('login-overlay')) {
+        cerrarLogin();
+      }
+    }
+
     function iniciarSesion() {
       const usuario = document.getElementById('login-usuario').value;
       const password = document.getElementById('login-password').value;
       if (usuario === USUARIO && password === PASSWORD) {
-        document.getElementById('login-overlay').style.display = 'none';
+        cerrarLogin();
         sessionStorage.setItem('logueado', 'true');
+        actualizarEstadoLogin();
       } else {
         document.getElementById('login-error').style.display = 'block';
       }
     }
 
-    function entrarComoInvitado() {
-      document.getElementById('login-overlay').style.display = 'none';
-      sessionStorage.setItem('logueado', 'invitado');
-      document.getElementById('estado-expensas').textContent = '🔒 Solo para residentes';
-      document.getElementById('lista-avisos').innerHTML = '<li>🔒 Solo para residentes</li>';
+    function cerrarSesion() {
+      sessionStorage.removeItem('logueado');
+      actualizarEstadoLogin();
     }
 
-        window.addEventListener('load', () => {
-      const logueado = sessionStorage.getItem('logueado');
-      if (logueado === 'true') {
-        document.getElementById('login-overlay').style.display = 'none';
-      } else if (logueado === 'invitado') {
-        document.getElementById('login-overlay').style.display = 'none';
+    function actualizarEstadoLogin() {
+      const logueado = sessionStorage.getItem('logueado') === 'true';
+      const btn = document.getElementById('header-login-btn');
+      if (logueado) {
+        btn.innerHTML = '<i class="fa-solid fa-user"></i> Cerrar sesión';
+        btn.classList.add('logueado');
+        cargarDatosAPI();
+      } else {
+        btn.innerHTML = '<i class="fa-solid fa-user"></i> Ingresar';
+        btn.classList.remove('logueado');
         document.getElementById('estado-expensas').textContent = '🔒 Solo para residentes';
         document.getElementById('lista-avisos').innerHTML = '<li>🔒 Solo para residentes</li>';
       }
+    }
 
-      // Activar lightbox en cada modal
+    window.addEventListener('load', () => {
+      actualizarEstadoLogin();
+
       activarLightboxEnModal('pileta', [
         './icons/Fondos/pileta-1.jpg',
         './icons/Fondos/pileta-2.jpg',
@@ -544,4 +574,3 @@
   <script src="app.js"></script>
 </body>
 </html>
-
