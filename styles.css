@@ -224,6 +224,7 @@ footer a:hover {
   color: #555;
   padding-left: 0px;
   margin-bottom: 15px;
+  list-style: none;
 }
 
 .card p, .card ul {
