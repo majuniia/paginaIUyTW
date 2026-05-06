@@ -473,7 +473,7 @@
       document.getElementById('lista-avisos').innerHTML = '<li>🔒 Solo para residentes</li>';
     }
 
-    window.addEventListener('load', () => {
+        window.addEventListener('load', () => {
       const logueado = sessionStorage.getItem('logueado');
       if (logueado === 'true') {
         document.getElementById('login-overlay').style.display = 'none';
@@ -505,7 +505,6 @@
         './icons/Fondos/futbol-2.jpg',
         './icons/Fondos/futbol-3.jpg'
       ]);
-    });
       activarLightboxEnModal('gimnasio', [
         './icons/Fondos/gimnasio-1.jpg',
         './icons/Fondos/gimnasio-2.jpg',
@@ -525,22 +524,24 @@
         './icons/Fondos/ciclovias-1.jpg',
         './icons/Fondos/ciclovias-2.jpg'
       ]);
-    
-    document.addEventListener('keydown', e => {
-      if (document.getElementById('lightbox').classList.contains('activo')) {
-        if (e.key === 'ArrowRight') cambiarLightbox(1);
-        if (e.key === 'ArrowLeft') cambiarLightbox(-1);
-        if (e.key === 'Escape') cerrarLightbox();
-      }
-      if (e.key === 'Escape') {
-        document.querySelectorAll('.modal-overlay.activo').forEach(m => {
-          m.classList.remove('activo');
-          document.body.style.overflow = '';
-        });
-      }
+
+      document.addEventListener('keydown', e => {
+        if (document.getElementById('lightbox').classList.contains('activo')) {
+          if (e.key === 'ArrowRight') cambiarLightbox(1);
+          if (e.key === 'ArrowLeft') cambiarLightbox(-1);
+          if (e.key === 'Escape') cerrarLightbox();
+        }
+        if (e.key === 'Escape') {
+          document.querySelectorAll('.modal-overlay.activo').forEach(m => {
+            m.classList.remove('activo');
+            document.body.style.overflow = '';
+          });
+        }
+      });
     });
   </script>
 
   <script src="app.js"></script>
 </body>
 </html>
+
