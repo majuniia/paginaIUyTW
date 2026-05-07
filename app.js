@@ -67,4 +67,7 @@ async function cargarDatos() {
   }
 }
 
-window.addEventListener('load', cargarDatos);
+// Ya no se ejecuta automáticamente al cargar la página.
+// Ahora se llama desde actualizarEstadoLogin() en el script inline,
+// solo cuando el usuario inicia sesión correctamente.
+// window.addEventListener('load', cargarDatos);
