@@ -64,7 +64,7 @@ nav a:hover {
   display: block;
   height: 480px;
   object-fit: cover;
-  object-position: right center;
+  object-position: left center;
 }
 .slide .caption {
   position: absolute;
