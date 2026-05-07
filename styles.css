@@ -709,25 +709,35 @@ nav a, .card p, .card button, footer {
 /* HERO OVERLAY */
 .hero {
   position: relative;
-  background: linear-gradient(to right, rgba(5,15,31,0.75) 30%, rgba(5,15,31,0) 70%);
+  background: none;
+}
+.slider {
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+}
+.slide img {
+  width: 100%;
+  display: block;
+  height: 480px;
+  object-fit: cover;
+  object-position: right center;
 }
 .hero-overlay {
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 1180px;
+  left: 0;
+  width: 50%;
   height: 100%;
   z-index: 5;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 0 60px;
+  padding: 0 48px;
   box-sizing: border-box;
+  background: linear-gradient(to right, rgba(5,15,31,0.85) 60%, rgba(5,15,31,0) 100%);
   pointer-events: none;
-}
 }
 .hero-subtitulo {
   font-family: 'Inter', sans-serif;
@@ -774,6 +784,7 @@ nav a, .card p, .card button, footer {
 }
 @media (max-width: 768px) {
   .hero-overlay {
+    width: 100%;
     padding: 0 24px;
     background: linear-gradient(to bottom, rgba(5,15,31,0.7) 60%, rgba(5,15,31,0) 100%);
   }
