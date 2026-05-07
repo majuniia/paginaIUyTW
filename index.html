@@ -28,39 +28,59 @@
     </div>
   </div>
 
- <header>
-  <div class="logo">Los Alamos</div>
-  <button class="header-login-btn" id="header-login-btn" onclick="toggleLogin()">
-    <i class="fa-solid fa-user"></i> Ingresar
-  </button>
-</header>
+  <!-- ═══════════════════════════════════════════════
+       CAMBIO 1: Se agregó el botón hamburguesa ☰
+       entre el .logo y el .header-login-btn
+  ════════════════════════════════════════════════ -->
+  <header>
+    <div class="logo">Los Alamos</div>
+    <!-- NUEVO: botón hamburguesa visible solo en móvil -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">&#9776;</button>
+    <button class="header-login-btn" id="header-login-btn" onclick="toggleLogin()">
+      <i class="fa-solid fa-user"></i> Ingresar
+    </button>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════
+       CAMBIO 2: El <nav> se movió DENTRO del header
+       para que el menú hamburguesa lo pueda controlar.
+       Antes estaba fuera del header como .nav-secundaria.
+       Ahora hay DOS navs:
+         - nav#nav-principal → dentro del header (links del header)
+         - nav.nav-secundaria → sigue igual debajo del hero
+       NOTA: tu header original no tenía nav con links,
+       así que simplemente se agrega el id al nav-secundaria
+       para que el JS lo pueda abrir/cerrar en móvil.
+  ════════════════════════════════════════════════ -->
 
   <section class="hero" id="inicio">
-  <!-- Texto hero superpuesto -->
-  <div class="hero-overlay">
-    <p class="hero-subtitulo">Bienvenido a</p>
-    <h1 class="hero-titulo">Los Alamos</h1>
-    <p class="hero-descripcion">Un lugar donde el verde, el agua y la comunidad definen una forma de vivir diferente.</p>
-  </div>
+    <div class="hero-overlay">
+      <p class="hero-subtitulo">Bienvenido a</p>
+      <h1 class="hero-titulo">Los Alamos</h1>
+      <p class="hero-descripcion">Un lugar donde el verde, el agua y la comunidad definen una forma de vivir diferente.</p>
+    </div>
+    <div class="slider" id="slider">
+      <div class="slide active">
+        <img src="./icons/Slider/senderos.png" alt="Senderos ecológicos">
+      </div>
+      <div class="slide">
+        <img src="./icons/Slider/Eventos.png" alt="Eventos de la semana">
+      </div>
+      <div class="slide">
+        <img src="./icons/Slider/Noticias.png" alt="Noticias del country">
+      </div>
+      <div class="slider-controls">
+        <button class="control" id="prev">&#10094;</button>
+        <button class="control" id="next">&#10095;</button>
+      </div>
+    </div>
+  </section>
 
-  <div class="slider" id="slider">
-    <div class="slide active">
-      <img src="./icons/Slider/senderos.png" alt="Senderos ecológicos">
-    </div>
-    <div class="slide">
-      <img src="./icons/Slider/Eventos.png" alt="Eventos de la semana">
-    </div>
-    <div class="slide">
-      <img src="./icons/Slider/Noticias.png" alt="Noticias del country">
-    </div>
-    <div class="slider-controls">
-      <button class="control" id="prev">&#10094;</button>
-      <button class="control" id="next">&#10095;</button>
-    </div>
-  </div>
-</section>
-
-  <nav class="nav-secundaria">
+  <!-- ═══════════════════════════════════════════════
+       CAMBIO 3: Se agregó id="nav-secundaria-menu"
+       para que el JS del hamburguesa la controle en móvil
+  ════════════════════════════════════════════════ -->
+  <nav class="nav-secundaria" id="nav-secundaria-menu">
     <a href="#inicio">Inicio</a>
     <a href="#noticias">Novedades</a>
     <a href="#amenities">Instalaciones</a>
@@ -69,8 +89,8 @@
     <a href="#contacto">Contacto</a>
   </nav>
 
- <section class="dashboard">
-  <h2 class="section-title">Accesos rápidos</h2>
+  <section class="dashboard">
+    <h2 class="section-title">Accesos rápidos</h2>
     <div class="cards">
       <div class="card">
         <h3>Expensas</h3>
@@ -95,14 +115,19 @@
     </div>
   </section>
 
-  <section id="noticias" style="padding: 32px 24px; max-width: 1180px; margin: 0 auto;">
-  <h2 style="margin-bottom: 16px; color: #003366;">Novedades destacadas</h2>
-    <p style="margin: 0 0 12px; line-height: 1.6;">Bienvenido al portal del country. Aquí encontrarás las últimas noticias, actividades y servicios que se renuevan constantemente para tu comodidad y seguridad.</p>
+  <!-- ═══════════════════════════════════════════════
+       CAMBIO 4: Sección novedades — se reemplazaron
+       los estilos inline por clases para que el CSS
+       responsivo los pueda controlar correctamente
+  ════════════════════════════════════════════════ -->
+  <section id="noticias" class="seccion-texto">
+    <h2 class="section-title">Novedades destacadas</h2>
+    <p>Bienvenido al portal del country. Aquí encontrarás las últimas noticias, actividades y servicios que se renuevan constantemente para tu comodidad y seguridad.</p>
   </section>
 
   <!-- GALERÍA -->
-<section class="galeria" id="galeria">
-  <h2>Galería</h2>
+  <section class="galeria" id="galeria">
+    <h2>Galería</h2>
     <div class="galeria-grid">
       <img src="./icons/Fondos/galeria-1.jpg" alt="Country Los Alamos" onclick="abrirLightbox(['./icons/Fondos/galeria-1.jpg','./icons/Fondos/galeria-2.jpg','./icons/Fondos/galeria-3.jpg','./icons/Fondos/galeria-4.jpg','./icons/Fondos/galeria-5.jpg','./icons/Fondos/galeria-6.jpg','./icons/Fondos/galeria-7.jpg','./icons/Fondos/galeria-8.jpg'], 0)">
       <img src="./icons/Fondos/galeria-2.jpg" alt="Country Los Alamos" onclick="abrirLightbox(['./icons/Fondos/galeria-1.jpg','./icons/Fondos/galeria-2.jpg','./icons/Fondos/galeria-3.jpg','./icons/Fondos/galeria-4.jpg','./icons/Fondos/galeria-5.jpg','./icons/Fondos/galeria-6.jpg','./icons/Fondos/galeria-7.jpg','./icons/Fondos/galeria-8.jpg'], 1)">
@@ -115,9 +140,9 @@
     </div>
   </section>
 
-<section class="historia">
-  <div class="historia-contenido">
-    <h2>Nuestra historia</h2>
+  <section class="historia">
+    <div class="historia-contenido">
+      <h2>Nuestra historia</h2>
       <p>Country Los Alamos nació en 1998 sobre un antiguo campo de 85 hectáreas en el corazón del conurbano bonaerense, con una visión clara: crear un lugar donde las familias pudieran vivir en armonía con la naturaleza sin alejarse de la ciudad.</p>
       <p>Con el paso de los años, lo que comenzó como un proyecto residencial se convirtió en una comunidad consolidada de más de 400 familias que eligen vivir rodeadas de verde, aire puro y tranquilidad. El lago natural de 8 hectáreas que atraviesa el barrio es el corazón del paisaje y el punto de encuentro de toda la comunidad.</p>
       <p>Hoy, más de 25 años después, Los Alamos sigue siendo un lugar único donde el verde, el agua y la vida en comunidad definen una forma de vivir diferente.</p>
@@ -146,13 +171,13 @@
   </section>
 
   <div class="separador-ola">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none">
-    <path fill="#003366" d="M0,40 C360,80 1080,0 1440,40 L1440,0 L0,0 Z"/>
-  </svg>
-</div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#003366" d="M0,40 C360,80 1080,0 1440,40 L1440,0 L0,0 Z"/>
+    </svg>
+  </div>
 
-<section class="amenities" id="amenities">
-  <h2>Amenities e instalaciones</h2>
+  <section class="amenities" id="amenities">
+    <h2>Amenities e instalaciones</h2>
     <div class="amenities-grid">
       <div class="amenity-item" onclick="abrirModal('pileta')" style="cursor:pointer;">
         <span class="amenity-icono"><i class="fa-solid fa-water-ladder"></i></span>
@@ -197,16 +222,21 @@
     </div>
   </section>
 
- <section id="acceso" style="padding: 60px 24px; max-width: 1180px; margin: 0 auto; text-align: center;">
-  <h2 style="color: #003366; margin-bottom: 16px;">Acceso al barrio</h2>
-    <p style="color: #444; line-height: 1.8; max-width: 700px; margin: 0 auto;">El ingreso al country se realiza por Ruta Provincial 58, km 18. Contamos con guardia de seguridad las 24 horas, sistema de registro de visitas y acceso vehicular con barrera electrónica. Para autorizar visitas podés hacerlo desde la sección de Seguridad.</p>
+  <!-- ═══════════════════════════════════════════════
+       CAMBIO 5: Secciones acceso y convivencia —
+       se reemplazaron estilos inline por clases
+       para que el CSS responsivo los controle
+  ════════════════════════════════════════════════ -->
+  <section id="acceso" class="seccion-texto seccion-centrada">
+    <h2 class="section-title">Acceso al barrio</h2>
+    <p>El ingreso al country se realiza por Ruta Provincial 58, km 18. Contamos con guardia de seguridad las 24 horas, sistema de registro de visitas y acceso vehicular con barrera electrónica. Para autorizar visitas podés hacerlo desde la sección de Seguridad.</p>
   </section>
 
-<section id="convivencia" style="padding: 60px 24px; max-width: 900px; margin: 0 auto;">
-  <h2 style="color: #003366; margin-bottom: 24px;">Reglamento de convivencia</h2>
-    <p style="color: #444; line-height: 1.8; margin-bottom: 16px;">El reglamento de convivencia establece las normas que nos permiten a todos los residentes disfrutar en armonía de la vida en el barrio. Su cumplimiento es responsabilidad de cada vecino y contribuye al bienestar de toda la comunidad.</p>
-    <p style="color: #444; line-height: 1.8; margin-bottom: 24px;">Entre los puntos principales se incluyen normas sobre el uso de espacios comunes, circulación vehicular, tenencia responsable de mascotas, niveles de ruido y horarios de descanso, gestión de residuos y acceso de visitas.</p>
-    <a href="#" style="display: inline-block; background: #003366; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-size: 0.95rem;">
+  <section id="convivencia" class="seccion-texto">
+    <h2 class="section-title">Reglamento de convivencia</h2>
+    <p>El reglamento de convivencia establece las normas que nos permiten a todos los residentes disfrutar en armonía de la vida en el barrio. Su cumplimiento es responsabilidad de cada vecino y contribuye al bienestar de toda la comunidad.</p>
+    <p>Entre los puntos principales se incluyen normas sobre el uso de espacios comunes, circulación vehicular, tenencia responsable de mascotas, niveles de ruido y horarios de descanso, gestión de residuos y acceso de visitas.</p>
+    <a href="#" class="btn-reglamento">
       <i class="fa-solid fa-file-pdf" style="margin-right: 8px;"></i>Descargar reglamento completo
     </a>
   </section>
@@ -217,7 +247,7 @@
     <p><i class="fa-solid fa-phone" style="margin-right: 8px;"></i>Teléfono: <a href="tel:+541167367021">+54 11 6736 7021</a></p>
   </footer>
 
-  <!-- MODAL PILETA -->
+  <!-- MODALES (sin cambios) -->
   <div id="modal-pileta" class="modal-overlay" onclick="cerrarModal('pileta')">
     <div class="modal-contenido" onclick="event.stopPropagation()">
       <button class="modal-cerrar" onclick="cerrarModal('pileta')">✕</button>
@@ -239,7 +269,6 @@
     </div>
   </div>
 
-  <!-- MODAL TENIS -->
   <div id="modal-tenis" class="modal-overlay" onclick="cerrarModal('tenis')">
     <div class="modal-contenido" onclick="event.stopPropagation()">
       <button class="modal-cerrar" onclick="cerrarModal('tenis')">✕</button>
@@ -261,7 +290,6 @@
     </div>
   </div>
 
-  <!-- MODAL NÁUTICOS -->
   <div id="modal-nauticos" class="modal-overlay" onclick="cerrarModal('nauticos')">
     <div class="modal-contenido" onclick="event.stopPropagation()">
       <button class="modal-cerrar" onclick="cerrarModal('nauticos')">✕</button>
@@ -284,7 +312,6 @@
     </div>
   </div>
 
-  <!-- MODAL FÚTBOL -->
   <div id="modal-futbol" class="modal-overlay" onclick="cerrarModal('futbol')">
     <div class="modal-contenido" onclick="event.stopPropagation()">
       <button class="modal-cerrar" onclick="cerrarModal('futbol')">✕</button>
@@ -306,7 +333,6 @@
     </div>
   </div>
 
-  <!-- MODAL GIMNASIO -->
   <div id="modal-gimnasio" class="modal-overlay" onclick="cerrarModal('gimnasio')">
     <div class="modal-contenido" onclick="event.stopPropagation()">
       <button class="modal-cerrar" onclick="cerrarModal('gimnasio')">✕</button>
@@ -329,7 +355,6 @@
     </div>
   </div>
 
-  <!-- MODAL ESPACIOS VERDES -->
   <div id="modal-verdes" class="modal-overlay" onclick="cerrarModal('verdes')">
     <div class="modal-contenido" onclick="event.stopPropagation()">
       <button class="modal-cerrar" onclick="cerrarModal('verdes')">✕</button>
@@ -351,7 +376,6 @@
     </div>
   </div>
 
-  <!-- MODAL CLUB HOUSE -->
   <div id="modal-clubhouse" class="modal-overlay" onclick="cerrarModal('clubhouse')">
     <div class="modal-contenido" onclick="event.stopPropagation()">
       <button class="modal-cerrar" onclick="cerrarModal('clubhouse')">✕</button>
@@ -373,7 +397,6 @@
     </div>
   </div>
 
-  <!-- MODAL CICLOVÍAS -->
   <div id="modal-ciclovias" class="modal-overlay" onclick="cerrarModal('ciclovias')">
     <div class="modal-contenido" onclick="event.stopPropagation()">
       <button class="modal-cerrar" onclick="cerrarModal('ciclovias')">✕</button>
@@ -431,7 +454,6 @@
     // Lightbox
     let lightboxImagenes = [];
     let lightboxIndex = 0;
-
     function abrirLightbox(imagenes, index) {
       lightboxImagenes = imagenes;
       lightboxIndex = index;
@@ -439,17 +461,14 @@
       document.getElementById('lightbox-contador').textContent = (index + 1) + ' / ' + imagenes.length;
       document.getElementById('lightbox').classList.add('activo');
     }
-
     function cerrarLightbox() {
       document.getElementById('lightbox').classList.remove('activo');
     }
-
     function cambiarLightbox(direccion) {
       lightboxIndex = (lightboxIndex + direccion + lightboxImagenes.length) % lightboxImagenes.length;
       document.getElementById('lightbox-img').src = lightboxImagenes[lightboxIndex];
       document.getElementById('lightbox-contador').textContent = (lightboxIndex + 1) + ' / ' + lightboxImagenes.length;
     }
-
     function activarLightboxEnModal(modalId, rutas) {
       const imgs = document.querySelectorAll('#modal-' + modalId + ' .modal-imagenes img');
       imgs.forEach((img, i) => {
@@ -463,7 +482,6 @@
     // Login
     const USUARIO = 'residente';
     const PASSWORD = 'losalamos2024';
-
     function toggleLogin() {
       const logueado = sessionStorage.getItem('logueado');
       if (logueado === 'true') {
@@ -472,17 +490,12 @@
         document.getElementById('login-overlay').classList.add('activo');
       }
     }
-
     function cerrarLogin() {
       document.getElementById('login-overlay').classList.remove('activo');
     }
-
     function cerrarLoginOverlay(e) {
-      if (e.target === document.getElementById('login-overlay')) {
-        cerrarLogin();
-      }
+      if (e.target === document.getElementById('login-overlay')) cerrarLogin();
     }
-
     function iniciarSesion() {
       const usuario = document.getElementById('login-usuario').value;
       const password = document.getElementById('login-password').value;
@@ -494,12 +507,10 @@
         document.getElementById('login-error').style.display = 'block';
       }
     }
-
     function cerrarSesion() {
       sessionStorage.removeItem('logueado');
       actualizarEstadoLogin();
     }
-
     function actualizarEstadoLogin() {
       const logueado = sessionStorage.getItem('logueado') === 'true';
       const btn = document.getElementById('header-login-btn');
@@ -515,50 +526,36 @@
       }
     }
 
+    // ═══════════════════════════════════════════
+    // CAMBIO 6: Menú hamburguesa — JS agregado
+    // ═══════════════════════════════════════════
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggle = document.getElementById('menuToggle');
+      const nav = document.getElementById('nav-secundaria-menu');
+      if (toggle && nav) {
+        toggle.addEventListener('click', function () {
+          nav.classList.toggle('nav-abierta');
+          toggle.innerHTML = nav.classList.contains('nav-abierta') ? '✕' : '&#9776;';
+        });
+        nav.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', function () {
+            nav.classList.remove('nav-abierta');
+            toggle.innerHTML = '&#9776;';
+          });
+        });
+      }
+    });
+
     window.addEventListener('load', () => {
       actualizarEstadoLogin();
-
-      activarLightboxEnModal('pileta', [
-        './icons/Fondos/pileta-1.jpg',
-        './icons/Fondos/pileta-2.jpg',
-        './icons/Fondos/pileta-3.jpg'
-      ]);
-      activarLightboxEnModal('tenis', [
-        './icons/Fondos/tenis-1.jpg',
-        './icons/Fondos/tenis-2.jpg',
-        './icons/Fondos/tenis-3.jpg'
-      ]);
-      activarLightboxEnModal('nauticos', [
-        './icons/Fondos/nauticos-1.jpg',
-        './icons/Fondos/nauticos-2.jpg',
-        './icons/Fondos/nauticos-3.jpg',
-        './icons/Fondos/nauticos-4.jpg'
-      ]);
-      activarLightboxEnModal('futbol', [
-        './icons/Fondos/futbol-1.jpg',
-        './icons/Fondos/futbol-2.jpg',
-        './icons/Fondos/futbol-3.jpg'
-      ]);
-      activarLightboxEnModal('gimnasio', [
-        './icons/Fondos/gimnasio-1.jpg',
-        './icons/Fondos/gimnasio-2.jpg',
-        './icons/Fondos/gimnasio-3.jpg'
-      ]);
-      activarLightboxEnModal('verdes', [
-        './icons/Fondos/verdes-1.jpg',
-        './icons/Fondos/verdes-2.jpg',
-        './icons/Fondos/verdes-3.jpg'
-      ]);
-      activarLightboxEnModal('clubhouse', [
-        './icons/Fondos/clubhouse-1.jpg',
-        './icons/Fondos/clubhouse-2.jpg',
-        './icons/Fondos/clubhouse-3.jpg'
-      ]);
-      activarLightboxEnModal('ciclovias', [
-        './icons/Fondos/ciclovias-1.jpg',
-        './icons/Fondos/ciclovias-2.jpg'
-      ]);
-
+      activarLightboxEnModal('pileta', ['./icons/Fondos/pileta-1.jpg','./icons/Fondos/pileta-2.jpg','./icons/Fondos/pileta-3.jpg']);
+      activarLightboxEnModal('tenis', ['./icons/Fondos/tenis-1.jpg','./icons/Fondos/tenis-2.jpg','./icons/Fondos/tenis-3.jpg']);
+      activarLightboxEnModal('nauticos', ['./icons/Fondos/nauticos-1.jpg','./icons/Fondos/nauticos-2.jpg','./icons/Fondos/nauticos-3.jpg','./icons/Fondos/nauticos-4.jpg']);
+      activarLightboxEnModal('futbol', ['./icons/Fondos/futbol-1.jpg','./icons/Fondos/futbol-2.jpg','./icons/Fondos/futbol-3.jpg']);
+      activarLightboxEnModal('gimnasio', ['./icons/Fondos/gimnasio-1.jpg','./icons/Fondos/gimnasio-2.jpg','./icons/Fondos/gimnasio-3.jpg']);
+      activarLightboxEnModal('verdes', ['./icons/Fondos/verdes-1.jpg','./icons/Fondos/verdes-2.jpg','./icons/Fondos/verdes-3.jpg']);
+      activarLightboxEnModal('clubhouse', ['./icons/Fondos/clubhouse-1.jpg','./icons/Fondos/clubhouse-2.jpg','./icons/Fondos/clubhouse-3.jpg']);
+      activarLightboxEnModal('ciclovias', ['./icons/Fondos/ciclovias-1.jpg','./icons/Fondos/ciclovias-2.jpg']);
       document.addEventListener('keydown', e => {
         if (document.getElementById('lightbox').classList.contains('activo')) {
           if (e.key === 'ArrowRight') cambiarLightbox(1);
@@ -578,9 +575,9 @@
   <script src="app.js"></script>
 
   <!-- WhatsApp flotante -->
-<a href="https://wa.me/5491167367021" target="_blank" class="whatsapp-flotante" aria-label="WhatsApp">
-  <i class="fa-brands fa-whatsapp"></i>
-</a>
-  
+  <a href="https://wa.me/5491167367021" target="_blank" class="whatsapp-flotante" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
 </body>
 </html>
