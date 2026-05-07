@@ -92,16 +92,22 @@
     <li>Torneo de tenis: inscripciones abiertas hasta el viernes.</li>
   </ul>
 </div>
-      <div class="card card-bloqueada">
+     <div class="card card-bloqueada" id="card-reservas">
   <h3>Reservas</h3>
   <div class="card-contenido-blur">
     <p>SUM, canchas y espacios</p>
     <p>Reservá tu turno online</p>
   </div>
-  <div class="card-overlay">
+  <div class="card-overlay" id="overlay-reservas">
     <i class="fa-solid fa-lock"></i>
     <span>Solo para residentes</span>
     <button onclick="toggleLogin()">Ingresar</button>
+  </div>
+  <div class="card-reservas-logueado" id="card-reservas-logueado" style="display:none;">
+    <p style="color:#555; font-size:0.9rem; margin-bottom:12px;">SUM, canchas y salón de eventos</p>
+    <button class="card-btn-reservar" onclick="abrirModal('reservas')">
+      <i class="fa-solid fa-calendar-plus"></i> Reservar espacio
+    </button>
   </div>
 </div>
    <div class="card card-bloqueada">
@@ -647,5 +653,58 @@ function bloquearCards() {
     <i class="fa-brands fa-whatsapp"></i>
   </a>
 
+<!-- MODAL RESERVAS -->
+<div id="modal-reservas" class="modal-overlay" onclick="cerrarModal('reservas')">
+  <div class="modal-contenido" onclick="event.stopPropagation()" style="max-width: 500px;">
+    <button class="modal-cerrar" onclick="cerrarModal('reservas')">✕</button>
+    <h2><i class="fa-solid fa-calendar-check" style="color:#2E75B6; margin-right:10px;"></i>Reservar espacio</h2>
+    <p style="color:#666; margin-bottom: 24px;">Completá los datos para solicitar tu reserva.</p>
+
+    <div class="reserva-form">
+      <div class="reserva-campo">
+        <label>Espacio</label>
+        <select id="reserva-espacio">
+          <option value="">Seleccioná un espacio</option>
+          <option value="sum">SUM — Salón de usos múltiples</option>
+          <option value="tenis">Canchas de tenis</option>
+          <option value="futbol5">Cancha de fútbol 5</option>
+          <option value="futbol11">Cancha de fútbol 11</option>
+          <option value="salon">Salón de eventos</option>
+        </select>
+      </div>
+
+      <div class="reserva-campo">
+        <label>Fecha</label>
+        <input type="date" id="reserva-fecha" min="">
+      </div>
+
+      <div class="reserva-campo">
+        <label>Horario</label>
+        <select id="reserva-horario">
+          <option value="">Seleccioná un horario</option>
+          <option value="08:00">08:00 — 10:00</option>
+          <option value="10:00">10:00 — 12:00</option>
+          <option value="12:00">12:00 — 14:00</option>
+          <option value="14:00">14:00 — 16:00</option>
+          <option value="16:00">16:00 — 18:00</option>
+          <option value="18:00">18:00 — 20:00</option>
+          <option value="20:00">20:00 — 22:00</option>
+        </select>
+      </div>
+
+      <div class="reserva-campo">
+        <label>Cantidad de personas</label>
+        <input type="number" id="reserva-personas" min="1" max="200" placeholder="Ej: 10">
+      </div>
+
+      <div id="reserva-mensaje" class="reserva-mensaje" style="display:none;"></div>
+
+      <button class="reserva-btn" onclick="enviarReserva()">
+        <i class="fa-solid fa-check"></i> Confirmar reserva
+      </button>
+    </div>
+  </div>
+</div>
+  
 </body>
 </html>
