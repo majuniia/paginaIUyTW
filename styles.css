@@ -1221,3 +1221,19 @@ p, li {
     max-height: 80vh;
   }
 }
+
+/* — FIX: menú móvil compacto y que no tape la página — */
+@media (max-width: 768px) {
+  .nav-secundaria.nav-abierta {
+    position: fixed;
+    top: 57px;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  }
+  .nav-secundaria a {
+    padding: 11px 20px;
+    font-size: 0.9rem;
+  }
+}
