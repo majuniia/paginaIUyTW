@@ -685,21 +685,22 @@ nav a, .card p, .card button, footer {
 
 /* LOGO HEADER */
 .logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.logo-img {
-  width: 38px;
-  height: 38px;
-  border-radius: 8px;
-  object-fit: cover;
-}
-.logo-texto {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  letter-spacing: 1.5px;
-  color: white;
+  letter-spacing: 2px;
   text-transform: uppercase;
+  color: white;
+  animation: deslizarDesdeDerechaLogo 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes deslizarDesdeDerechaLogo {
+  from {
+    opacity: 0;
+    transform: translateX(120px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
