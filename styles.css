@@ -1237,3 +1237,70 @@ p, li {
     font-size: 0.9rem;
   }
 }
+
+/* CARD BLOQUEADA CON OVERLAY */
+.card-bloqueada {
+  position: relative;
+  overflow: hidden;
+}
+.card-contenido-blur {
+  filter: blur(3px);
+  opacity: 0.5;
+  pointer-events: none;
+  user-select: none;
+}
+.badge-estado {
+  display: inline-block;
+  font-size: 11px;
+  background: #e6f4ea;
+  color: #1e7e34;
+  border-radius: 6px;
+  padding: 2px 10px;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.monto {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #003366;
+  margin-bottom: 4px;
+}
+.card-bloqueada .card-contenido-blur p {
+  font-size: 0.88rem;
+  color: #555;
+  margin: 4px 0;
+}
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 20, 60, 0.45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 16px;
+}
+.card-overlay i {
+  font-size: 1.8rem;
+  color: white;
+}
+.card-overlay span {
+  font-size: 0.85rem;
+  color: white;
+  font-weight: 500;
+}
+.card-overlay button {
+  background: white;
+  color: #003366;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 20px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.card-overlay button:hover {
+  background: #f0f4ff;
+}
