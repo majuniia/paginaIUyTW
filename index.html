@@ -30,7 +30,6 @@
 
   <header>
     <div class="logo">Los Alamos</div>
-    <!-- NUEVO: botón hamburguesa visible solo en móvil -->
     <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">&#9776;</button>
     <button class="header-login-btn" id="header-login-btn" onclick="toggleLogin()">
       <i class="fa-solid fa-user"></i> Ingresar
@@ -72,121 +71,127 @@
   <section class="dashboard">
     <h2 class="section-title">Accesos rápidos</h2>
     <div class="cards">
-     <div class="card card-bloqueada">
-  <h3>Expensas</h3>
-  <div class="card-contenido-blur">
-    <div class="badge-estado">Al día</div>
-    <div class="monto">$42.500</div>
-    <p>Vencimiento: 10 de mayo</p>
-  </div>
-  <div class="card-overlay">
-    <i class="fa-solid fa-lock"></i>
-    <span>Solo para residentes</span>
-    <button onclick="toggleLogin()">Ingresar</button>
-  </div>
-</div>
-     <div class="card">
-  <h3>Avisos</h3>
-  <ul id="lista-avisos">
-    <li>Corte de agua programado el martes 14 de mayo de 9 a 13hs.</li>
-    <li>Torneo de tenis: inscripciones abiertas hasta el viernes.</li>
-  </ul>
-</div>
-     <div class="card card-bloqueada" id="card-reservas">
-  <h3>Reservas</h3>
-  <div class="card-contenido-blur">
-    <p>SUM, canchas y espacios</p>
-    <p>Reservá tu turno online</p>
-  </div>
-  <div class="card-overlay" id="overlay-reservas">
-    <i class="fa-solid fa-lock"></i>
-    <span>Solo para residentes</span>
-    <button onclick="toggleLogin()">Ingresar</button>
-  </div>
-  <div class="card-reservas-logueado" id="card-reservas-logueado" style="display:none;">
-    <p style="color:#555; font-size:0.9rem; margin-bottom:12px;">SUM y canchas</p>
-    <button class="card-btn-reservar" onclick="abrirModal('reservas')">
-      <i class="fa-solid fa-calendar-plus"></i> Reservar espacio
-    </button>
-  </div>
-</div>
-  <div class="card card-bloqueada" id="card-seguridad">
-  <h3>Seguridad</h3>
-  <div class="card-contenido-blur">
-    <p>Accesos y notificaciones</p>
-    <p>Autorizá visitas online</p>
-  </div>
-  <div class="card-overlay" id="overlay-seguridad">
-    <i class="fa-solid fa-lock"></i>
-    <span>Solo para residentes</span>
-    <button onclick="toggleLogin()">Ingresar</button>
-  </div>
-  <div class="card-seguridad-logueado" id="card-seguridad-logueado" style="display:none;">
-    <p style="color:#555; font-size:0.9rem; margin-bottom:12px;">Autorizá el ingreso de visitas al barrio</p>
-    <button class="card-btn-reservar" onclick="abrirModal('visitas')">
-      <i class="fa-solid fa-user-check"></i> Autorizar visita
-    </button>
-  </div>
-</div>
+
+      <div class="card card-bloqueada">
+        <h3>Expensas</h3>
+        <div class="card-contenido-blur">
+          <div class="badge-estado">Al día</div>
+          <div class="monto">$42.500</div>
+          <p>Vencimiento: 10 de mayo</p>
+        </div>
+        <div class="card-overlay">
+          <i class="fa-solid fa-lock"></i>
+          <span>Solo para residentes</span>
+          <button onclick="toggleLogin()">Ingresar</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Avisos</h3>
+        <ul id="lista-avisos">
+          <li>Corte de agua programado el martes 14 de mayo de 9 a 13hs.</li>
+          <li>Torneo de tenis: inscripciones abiertas hasta el viernes.</li>
+        </ul>
+      </div>
+
+      <div class="card card-bloqueada" id="card-reservas">
+        <h3>Reservas</h3>
+        <div class="card-contenido-blur">
+          <p>SUM, canchas y espacios</p>
+          <p>Reservá tu turno online</p>
+        </div>
+        <div class="card-overlay" id="overlay-reservas">
+          <i class="fa-solid fa-lock"></i>
+          <span>Solo para residentes</span>
+          <button onclick="toggleLogin()">Ingresar</button>
+        </div>
+        <div class="card-reservas-logueado" id="card-reservas-logueado" style="display:none;">
+          <p style="color:#555; font-size:0.9rem; margin-bottom:12px;">SUM, canchas y salón de eventos</p>
+          <button class="card-btn-reservar" onclick="abrirModal('reservas')">
+            <i class="fa-solid fa-calendar-plus"></i> Reservar espacio
+          </button>
+        </div>
+      </div>
+
+      <div class="card card-bloqueada" id="card-seguridad">
+        <h3>Seguridad</h3>
+        <div class="card-contenido-blur">
+          <p>Accesos y notificaciones</p>
+          <p>Autorizá visitas online</p>
+        </div>
+        <div class="card-overlay" id="overlay-seguridad">
+          <i class="fa-solid fa-lock"></i>
+          <span>Solo para residentes</span>
+          <button onclick="toggleLogin()">Ingresar</button>
+        </div>
+        <div class="card-seguridad-logueado" id="card-seguridad-logueado" style="display:none;">
+          <p style="color:#555; font-size:0.9rem; margin-bottom:12px;">Autorizá el ingreso de visitas al barrio</p>
+          <button class="card-btn-reservar" onclick="abrirModal('visitas')">
+            <i class="fa-solid fa-user-check"></i> Autorizar visita
+          </button>
+        </div>
+      </div>
+
+    </div>
   </section>
 
- <section id="noticias" style="padding: 32px 24px; max-width: 1180px; margin: 0 auto;">
-  <h2 style="margin-bottom: 8px; color: #003366;">Novedades destacadas</h2>
-  <p style="margin: 0 0 28px; line-height: 1.6; color: #555;">Bienvenido al portal del country. Aquí encontrarás las últimas noticias, actividades y servicios que se renuevan constantemente para tu comodidad y seguridad.</p>
+  <section id="noticias" style="padding: 32px 24px; max-width: 1180px; margin: 0 auto;">
+    <h2 style="margin-bottom: 8px; color: #003366;">Novedades destacadas</h2>
+    <p style="margin: 0 0 28px; line-height: 1.6; color: #555;">Bienvenido al portal del country. Aquí encontrarás las últimas noticias, actividades y servicios que se renuevan constantemente para tu comodidad y seguridad.</p>
 
-  <h3 style="color: #003366; margin-bottom: 16px; font-size: 1.1rem; letter-spacing: 0.5px;">Próximos eventos</h3>
-  <div class="eventos-lista">
+    <h3 style="color: #003366; margin-bottom: 16px; font-size: 1.1rem; letter-spacing: 0.5px;">Próximos eventos</h3>
+    <div class="eventos-lista">
 
-    <div class="evento-item">
-      <div class="evento-fecha">
-        <span class="evento-dia">10</span>
-        <span class="evento-mes">MAY</span>
+      <div class="evento-item">
+        <div class="evento-fecha">
+          <span class="evento-dia">10</span>
+          <span class="evento-mes">MAY</span>
+        </div>
+        <div class="evento-info">
+          <h4>Torneo de tenis — inscripciones abiertas</h4>
+          <p>Torneo interno mensual en canchas de polvo de ladrillo. Categorías: primera, segunda y damas.</p>
+        </div>
+        <span class="evento-badge">Deporte</span>
       </div>
-      <div class="evento-info">
-        <h4>Torneo de tenis — inscripciones abiertas</h4>
-        <p>Torneo interno mensual en canchas de polvo de ladrillo. Categorías: primera, segunda y damas.</p>
+
+      <div class="evento-item">
+        <div class="evento-fecha">
+          <span class="evento-dia">14</span>
+          <span class="evento-mes">MAY</span>
+        </div>
+        <div class="evento-info">
+          <h4>Corte de agua programado</h4>
+          <p>Mantenimiento de red hídrica. Sin suministro de 9 a 13hs en sector norte del barrio.</p>
+        </div>
+        <span class="evento-badge evento-badge-aviso">Aviso</span>
       </div>
-      <span class="evento-badge">Deporte</span>
+
+      <div class="evento-item">
+        <div class="evento-fecha">
+          <span class="evento-dia">18</span>
+          <span class="evento-mes">MAY</span>
+        </div>
+        <div class="evento-info">
+          <h4>Feria de productores — Club House</h4>
+          <p>Feria mensual con productores locales. Frutas, verduras, conservas y productos artesanales.</p>
+        </div>
+        <span class="evento-badge evento-badge-comunidad">Comunidad</span>
+      </div>
+
+      <div class="evento-item">
+        <div class="evento-fecha">
+          <span class="evento-dia">24</span>
+          <span class="evento-mes">MAY</span>
+        </div>
+        <div class="evento-info">
+          <h4>Clases de kayak — inicio de temporada</h4>
+          <p>Clases grupales para todas las edades en el lago. Inscripción previa requerida en Seguridad.</p>
+        </div>
+        <span class="evento-badge">Deporte</span>
+      </div>
+
     </div>
-
-    <div class="evento-item">
-      <div class="evento-fecha">
-        <span class="evento-dia">14</span>
-        <span class="evento-mes">MAY</span>
-      </div>
-      <div class="evento-info">
-        <h4>Corte de agua programado</h4>
-        <p>Mantenimiento de red hídrica. Sin suministro de 9 a 13hs en sector norte del barrio.</p>
-      </div>
-      <span class="evento-badge evento-badge-aviso">Aviso</span>
-    </div>
-
-    <div class="evento-item">
-      <div class="evento-fecha">
-        <span class="evento-dia">18</span>
-        <span class="evento-mes">MAY</span>
-      </div>
-      <div class="evento-info">
-        <h4>Feria de productores — Club House</h4>
-        <p>Feria mensual con productores locales. Frutas, verduras, conservas y productos artesanales.</p>
-      </div>
-      <span class="evento-badge evento-badge-comunidad">Comunidad</span>
-    </div>
-
-    <div class="evento-item">
-      <div class="evento-fecha">
-        <span class="evento-dia">24</span>
-        <span class="evento-mes">MAY</span>
-      </div>
-      <div class="evento-info">
-        <h4>Clases de kayak — inicio de temporada</h4>
-        <p>Clases grupales para todas las edades en el lago. Inscripción previa requerida en Seguridad.</p>
-      </div>
-      <span class="evento-badge">Deporte</span>
-    </div>
-
-  </div>
-</section>
+  </section>
 
   <!-- GALERÍA -->
   <section class="galeria" id="galeria">
@@ -305,12 +310,12 @@
     <p><i class="fa-solid fa-phone" style="margin-right: 8px;"></i>Teléfono: <a href="tel:+541167367021">+54 11 6736 7021</a></p>
   </footer>
 
-  <!-- MODALES (sin cambios) -->
+  <!-- MODAL PILETA -->
   <div id="modal-pileta" class="modal-overlay" onclick="cerrarModal('pileta')">
     <div class="modal-contenido" onclick="event.stopPropagation()">
       <button class="modal-cerrar" onclick="cerrarModal('pileta')">✕</button>
       <h2><i class="fa-solid fa-water-ladder" style="color:#2E75B6; margin-right:10px;"></i>Pileta olímpica</h2>
-      <p>Nuestra piscina olímpica de 50 metros es el corazón del área recreativa de Los Alamos. Rodeada de vegetación y con cerramiento de vidrio, ofrece una experiencia única en cualquier época del año.</p>
+      <p>Nuestra piscina olímpica de 50 metros es el corazón del área recreativa de Los Alamos.</p>
       <ul>
         <li>Piscina de 50m × 25m con 8 carriles</li>
         <li>Temperatura regulada todo el año</li>
@@ -327,11 +332,12 @@
     </div>
   </div>
 
+  <!-- MODAL TENIS -->
   <div id="modal-tenis" class="modal-overlay" onclick="cerrarModal('tenis')">
     <div class="modal-contenido" onclick="event.stopPropagation()">
       <button class="modal-cerrar" onclick="cerrarModal('tenis')">✕</button>
       <h2><i class="fa-solid fa-table-tennis-paddle-ball" style="color:#2E75B6; margin-right:10px;"></i>Canchas de tenis</h2>
-      <p>Nuestras canchas de tenis son un punto de encuentro para jugadores de todos los niveles. Rodeadas de vegetación y con iluminación nocturna, permiten disfrutar del juego en cualquier momento del día.</p>
+      <p>Nuestras canchas de tenis son un punto de encuentro para jugadores de todos los niveles.</p>
       <ul>
         <li>4 canchas de polvo de ladrillo reglamentarias</li>
         <li>Iluminación LED nocturna en todas las canchas</li>
@@ -348,11 +354,12 @@
     </div>
   </div>
 
+  <!-- MODAL NÁUTICOS -->
   <div id="modal-nauticos" class="modal-overlay" onclick="cerrarModal('nauticos')">
     <div class="modal-contenido" onclick="event.stopPropagation()">
       <button class="modal-cerrar" onclick="cerrarModal('nauticos')">✕</button>
       <h2><i class="fa-solid fa-sailboat" style="color:#2E75B6; margin-right:10px;"></i>Deportes náuticos</h2>
-      <p>El lago natural de 8 hectáreas es el corazón de Los Alamos y el escenario ideal para disfrutar de actividades náuticas en contacto pleno con la naturaleza.</p>
+      <p>El lago natural de 8 hectáreas es el corazón de Los Alamos.</p>
       <ul>
         <li>Lago de 8 hectáreas de agua cristalina</li>
         <li>Kayak y canoas disponibles para residentes</li>
@@ -370,11 +377,12 @@
     </div>
   </div>
 
+  <!-- MODAL FÚTBOL -->
   <div id="modal-futbol" class="modal-overlay" onclick="cerrarModal('futbol')">
     <div class="modal-contenido" onclick="event.stopPropagation()">
       <button class="modal-cerrar" onclick="cerrarModal('futbol')">✕</button>
       <h2><i class="fa-solid fa-futbol" style="color:#2E75B6; margin-right:10px;"></i>Canchas de fútbol</h2>
-      <p>Nuestras canchas de fútbol son el escenario ideal para disfrutar del deporte más popular del país. Con césped sintético de última generación e iluminación nocturna, permiten jugar en cualquier condición climática.</p>
+      <p>Nuestras canchas de fútbol son el escenario ideal para disfrutar del deporte más popular del país.</p>
       <ul>
         <li>1 cancha de fútbol 11 reglamentaria</li>
         <li>2 canchas de fútbol 5 con césped sintético</li>
@@ -391,11 +399,12 @@
     </div>
   </div>
 
+  <!-- MODAL GIMNASIO -->
   <div id="modal-gimnasio" class="modal-overlay" onclick="cerrarModal('gimnasio')">
     <div class="modal-contenido" onclick="event.stopPropagation()">
       <button class="modal-cerrar" onclick="cerrarModal('gimnasio')">✕</button>
       <h2><i class="fa-solid fa-dumbbell" style="color:#2E75B6; margin-right:10px;"></i>Gimnasio</h2>
-      <p>Nuestro gimnasio cuenta con equipamiento de última generación y profesores especializados para acompañarte en cada etapa de tu entrenamiento, desde principiantes hasta deportistas avanzados.</p>
+      <p>Nuestro gimnasio cuenta con equipamiento de última generación.</p>
       <ul>
         <li>Área de musculación con equipamiento completo</li>
         <li>Zona de cardio con cintas, bicicletas y elípticas</li>
@@ -413,11 +422,12 @@
     </div>
   </div>
 
+  <!-- MODAL ESPACIOS VERDES -->
   <div id="modal-verdes" class="modal-overlay" onclick="cerrarModal('verdes')">
     <div class="modal-contenido" onclick="event.stopPropagation()">
       <button class="modal-cerrar" onclick="cerrarModal('verdes')">✕</button>
       <h2><i class="fa-solid fa-tree" style="color:#2E75B6; margin-right:10px;"></i>Espacios verdes</h2>
-      <p>Los Alamos cuenta con más de 40 hectáreas de espacios verdes cuidados y preservados, donde la naturaleza convive con la vida cotidiana de los residentes.</p>
+      <p>Los Alamos cuenta con más de 40 hectáreas de espacios verdes cuidados y preservados.</p>
       <ul>
         <li>40 hectáreas de parques y jardines</li>
         <li>Reserva forestal de arboleda añosa</li>
@@ -434,11 +444,12 @@
     </div>
   </div>
 
+  <!-- MODAL CLUB HOUSE -->
   <div id="modal-clubhouse" class="modal-overlay" onclick="cerrarModal('clubhouse')">
     <div class="modal-contenido" onclick="event.stopPropagation()">
       <button class="modal-cerrar" onclick="cerrarModal('clubhouse')">✕</button>
       <h2><i class="fa-solid fa-house-chimney" style="color:#2E75B6; margin-right:10px;"></i>Club House & SUM</h2>
-      <p>El Club House es el corazón social de Los Alamos. Un espacio moderno y amplio diseñado para que los residentes disfruten de momentos únicos en familia o con amigos.</p>
+      <p>El Club House es el corazón social de Los Alamos.</p>
       <ul>
         <li>Salón de usos múltiples con capacidad para 200 personas</li>
         <li>Restaurante con cocina de autor</li>
@@ -455,11 +466,12 @@
     </div>
   </div>
 
+  <!-- MODAL CICLOVÍAS -->
   <div id="modal-ciclovias" class="modal-overlay" onclick="cerrarModal('ciclovias')">
     <div class="modal-contenido" onclick="event.stopPropagation()">
       <button class="modal-cerrar" onclick="cerrarModal('ciclovias')">✕</button>
       <h2><i class="fa-solid fa-person-biking" style="color:#2E75B6; margin-right:10px;"></i>Ciclovías</h2>
-      <p>Nuestro circuito de ciclovías recorre todo el barrio conectando los principales espacios verdes, el lago y las instalaciones deportivas, ideal para disfrutar al aire libre en familia.</p>
+      <p>Nuestro circuito de ciclovías recorre todo el barrio.</p>
       <ul>
         <li>6 km de ciclovías señalizadas</li>
         <li>Senderos peatonales paralelos</li>
@@ -475,6 +487,80 @@
     </div>
   </div>
 
+  <!-- MODAL RESERVAS -->
+  <div id="modal-reservas" class="modal-overlay" onclick="cerrarModal('reservas')">
+    <div class="modal-contenido" onclick="event.stopPropagation()" style="max-width: 500px;">
+      <button class="modal-cerrar" onclick="cerrarModal('reservas')">✕</button>
+      <h2><i class="fa-solid fa-calendar-check" style="color:#2E75B6; margin-right:10px;"></i>Reservar espacio</h2>
+      <p style="color:#666; margin-bottom: 24px;">Completá los datos para solicitar tu reserva.</p>
+      <div class="reserva-form">
+        <div class="reserva-campo">
+          <label>Espacio</label>
+          <select id="reserva-espacio">
+            <option value="">Seleccioná un espacio</option>
+            <option value="sum">SUM — Salón de usos múltiples</option>
+            <option value="tenis">Cancha de tenis</option>
+            <option value="futbol5">Cancha de fútbol 5</option>
+            <option value="futbol11">Cancha de fútbol 11</option>
+            <option value="salon">Salón de eventos</option>
+          </select>
+        </div>
+        <div class="reserva-campo">
+          <label>Fecha</label>
+          <input type="date" id="reserva-fecha" min="">
+        </div>
+        <div class="reserva-campo">
+          <label>Horario</label>
+          <select id="reserva-horario">
+            <option value="">Seleccioná un horario</option>
+            <option value="08:00">08:00 — 10:00</option>
+            <option value="10:00">10:00 — 12:00</option>
+            <option value="12:00">12:00 — 14:00</option>
+            <option value="14:00">14:00 — 16:00</option>
+            <option value="16:00">16:00 — 18:00</option>
+            <option value="18:00">18:00 — 20:00</option>
+            <option value="20:00">20:00 — 22:00</option>
+          </select>
+        </div>
+        <div class="reserva-campo">
+          <label>Cantidad de personas</label>
+          <input type="number" id="reserva-personas" min="1" max="200" placeholder="Ej: 10">
+        </div>
+        <div id="reserva-mensaje" class="reserva-mensaje" style="display:none;"></div>
+        <button class="reserva-btn" onclick="enviarReserva()">
+          <i class="fa-solid fa-check"></i> Confirmar reserva
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL VISITAS -->
+  <div id="modal-visitas" class="modal-overlay" onclick="cerrarModal('visitas')">
+    <div class="modal-contenido" onclick="event.stopPropagation()" style="max-width: 500px;">
+      <button class="modal-cerrar" onclick="cerrarModal('visitas')">✕</button>
+      <h2><i class="fa-solid fa-user-check" style="color:#2E75B6; margin-right:10px;"></i>Autorizar visita</h2>
+      <p style="color:#666; margin-bottom: 24px;">Completá los datos del visitante para autorizar su ingreso.</p>
+      <div class="reserva-form">
+        <div class="reserva-campo">
+          <label>Nombre completo del visitante</label>
+          <input type="text" id="visita-nombre" placeholder="Ej: Juan Pérez">
+        </div>
+        <div class="reserva-campo">
+          <label>DNI</label>
+          <input type="number" id="visita-dni" placeholder="Ej: 35123456">
+        </div>
+        <div class="reserva-campo">
+          <label>Fecha de visita</label>
+          <input type="date" id="visita-fecha" min="">
+        </div>
+        <div id="visita-mensaje" class="reserva-mensaje" style="display:none;"></div>
+        <button class="reserva-btn" onclick="enviarVisita()">
+          <i class="fa-solid fa-check"></i> Confirmar autorización
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox" onclick="cerrarLightbox()">
     <button class="lightbox-cerrar" onclick="cerrarLightbox()">✕</button>
@@ -483,6 +569,11 @@
     <button class="lightbox-next" onclick="event.stopPropagation(); cambiarLightbox(1)">&#10095;</button>
     <span class="lightbox-contador" id="lightbox-contador"></span>
   </div>
+
+  <!-- WhatsApp flotante -->
+  <a href="https://wa.me/5491167367021" target="_blank" class="whatsapp-flotante" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
 
   <script>
     // Carrusel
@@ -537,100 +628,60 @@
       });
     }
 
-// Reservas
-function enviarReserva() {
-  const espacio = document.getElementById('reserva-espacio').value;
-  const fecha = document.getElementById('reserva-fecha').value;
-  const horario = document.getElementById('reserva-horario').value;
-  const personas = document.getElementById('reserva-personas').value;
-  const mensaje = document.getElementById('reserva-mensaje');
+    // Reservas
+    function enviarReserva() {
+      const espacio = document.getElementById('reserva-espacio').value;
+      const fecha = document.getElementById('reserva-fecha').value;
+      const horario = document.getElementById('reserva-horario').value;
+      const personas = document.getElementById('reserva-personas').value;
+      const mensaje = document.getElementById('reserva-mensaje');
+      if (!espacio || !fecha || !horario || !personas) {
+        mensaje.style.display = 'block';
+        mensaje.className = 'reserva-mensaje reserva-error';
+        mensaje.textContent = 'Por favor completá todos los campos.';
+        return;
+      }
+      mensaje.style.display = 'block';
+      mensaje.className = 'reserva-mensaje reserva-exito';
+      mensaje.innerHTML = '<i class="fa-solid fa-check-circle"></i> ¡Reserva enviada! Recibirás confirmación por WhatsApp.';
+      setTimeout(() => {
+        cerrarModal('reservas');
+        mensaje.style.display = 'none';
+        document.getElementById('reserva-espacio').value = '';
+        document.getElementById('reserva-fecha').value = '';
+        document.getElementById('reserva-horario').value = '';
+        document.getElementById('reserva-personas').value = '';
+      }, 3000);
+    }
 
-  if (!espacio || !fecha || !horario || !personas) {
-    mensaje.style.display = 'block';
-    mensaje.className = 'reserva-mensaje reserva-error';
-    mensaje.textContent = 'Por favor completá todos los campos.';
-    return;
-  }
+    // Visitas
+    function enviarVisita() {
+      const nombre = document.getElementById('visita-nombre').value;
+      const dni = document.getElementById('visita-dni').value;
+      const fecha = document.getElementById('visita-fecha').value;
+      const mensaje = document.getElementById('visita-mensaje');
+      if (!nombre || !dni || !fecha) {
+        mensaje.style.display = 'block';
+        mensaje.className = 'reserva-mensaje reserva-error';
+        mensaje.textContent = 'Por favor completá todos los campos.';
+        return;
+      }
+      mensaje.style.display = 'block';
+      mensaje.className = 'reserva-mensaje reserva-exito';
+      mensaje.innerHTML = '<i class="fa-solid fa-check-circle"></i> ¡Visita autorizada! Se notificará a la guardia.';
+      setTimeout(() => {
+        cerrarModal('visitas');
+        mensaje.style.display = 'none';
+        document.getElementById('visita-nombre').value = '';
+        document.getElementById('visita-dni').value = '';
+        document.getElementById('visita-fecha').value = '';
+      }, 3000);
+    }
 
-  mensaje.style.display = 'block';
-  mensaje.className = 'reserva-mensaje reserva-exito';
-  mensaje.innerHTML = '<i class="fa-solid fa-check-circle"></i> ¡Reserva enviada! Recibirás confirmación por WhatsApp.';
-
-  setTimeout(() => {
-    cerrarModal('reservas');
-    mensaje.style.display = 'none';
-    document.getElementById('reserva-espacio').value = '';
-    document.getElementById('reserva-fecha').value = '';
-    document.getElementById('reserva-horario').value = '';
-    document.getElementById('reserva-personas').value = '';
-  }, 3000);
-}
-
-// Fecha mínima = hoy
-document.addEventListener('DOMContentLoaded', () => {
-  const hoy = new Date().toISOString().split('T')[0];
-  const inputFecha = document.getElementById('reserva-fecha');
-  if (inputFecha) inputFecha.min = hoy;
-});
-
- // Visitas    
-function enviarVisita() {
-  const nombre = document.getElementById('visita-nombre').value;
-  const dni = document.getElementById('visita-dni').value;
-  const fecha = document.getElementById('visita-fecha').value;
-  const mensaje = document.getElementById('visita-mensaje');
-
-  if (!nombre || !dni || !fecha) {
-    mensaje.style.display = 'block';
-    mensaje.className = 'reserva-mensaje reserva-error';
-    mensaje.textContent = 'Por favor completá todos los campos.';
-    return;
-  }
-
-  mensaje.style.display = 'block';
-  mensaje.className = 'reserva-mensaje reserva-exito';
-  mensaje.innerHTML = '<i class="fa-solid fa-check-circle"></i> ¡Visita autorizada! Se notificará a la guardia.';
-
-  setTimeout(() => {
-    cerrarModal('visitas');
-    mensaje.style.display = 'none';
-    document.getElementById('visita-nombre').value = '';
-    document.getElementById('visita-dni').value = '';
-    document.getElementById('visita-fecha').value = '';
-  }, 3000);
-}
-function desbloquearCards() {
-  document.querySelectorAll('.card-overlay').forEach(overlay => {
-    overlay.style.display = 'none';
-  });
-  document.querySelectorAll('.card-contenido-blur').forEach(contenido => {
-    contenido.style.filter = 'none';
-    contenido.style.opacity = '1';
-  });
-  const cardReservas = document.getElementById('card-reservas-logueado');
-  if (cardReservas) cardReservas.style.display = 'block';
-  const cardSeguridad = document.getElementById('card-seguridad-logueado');
-  if (cardSeguridad) cardSeguridad.style.display = 'block';
-}
-
-function bloquearCards() {
-  document.querySelectorAll('.card-overlay').forEach(overlay => {
-    overlay.style.display = 'flex';
-  });
-  document.querySelectorAll('.card-contenido-blur').forEach(contenido => {
-    contenido.style.filter = 'blur(3px)';
-    contenido.style.opacity = '0.5';
-  });
-  const cardReservas = document.getElementById('card-reservas-logueado');
-  if (cardReservas) cardReservas.style.display = 'none';
-  const cardSeguridad = document.getElementById('card-seguridad-logueado');
-  if (cardSeguridad) cardSeguridad.style.display = 'none';
-}
-
-    
     // Login
     const USUARIO = 'residente';
     const PASSWORD = 'losalamos2024';
+
     function toggleLogin() {
       const logueado = sessionStorage.getItem('logueado');
       if (logueado === 'true') {
@@ -661,60 +712,55 @@ function bloquearCards() {
       actualizarEstadoLogin();
     }
     function actualizarEstadoLogin() {
-  const logueado = sessionStorage.getItem('logueado') === 'true';
-  const btn = document.getElementById('header-login-btn');
-  if (logueado) {
-    btn.innerHTML = '<i class="fa-solid fa-user"></i> Cerrar sesión';
-    btn.classList.add('logueado');
-    cargarDatos();
-    desbloquearCards();
-  } else {
-    btn.innerHTML = '<i class="fa-solid fa-user"></i> Ingresar';
-    btn.classList.remove('logueado');
-    document.getElementById('estado-expensas').textContent = '🔒 Solo para residentes';
-    document.getElementById('lista-avisos').innerHTML = '<li>🔒 Solo para residentes</li>';
-    bloquearCards();
-  }
-}
+      const logueado = sessionStorage.getItem('logueado') === 'true';
+      const btn = document.getElementById('header-login-btn');
+      if (logueado) {
+        btn.innerHTML = '<i class="fa-solid fa-user"></i> Cerrar sesión';
+        btn.classList.add('logueado');
+        cargarDatos();
+        desbloquearCards();
+      } else {
+        btn.innerHTML = '<i class="fa-solid fa-user"></i> Ingresar';
+        btn.classList.remove('logueado');
+        bloquearCards();
+      }
+    }
+    function desbloquearCards() {
+      document.querySelectorAll('.card-overlay').forEach(overlay => {
+        overlay.style.display = 'none';
+      });
+      document.querySelectorAll('.card-contenido-blur').forEach(contenido => {
+        contenido.style.filter = 'none';
+        contenido.style.opacity = '1';
+      });
+      const cardReservas = document.getElementById('card-reservas-logueado');
+      if (cardReservas) cardReservas.style.display = 'block';
+      const cardSeguridad = document.getElementById('card-seguridad-logueado');
+      if (cardSeguridad) cardSeguridad.style.display = 'block';
+    }
+    function bloquearCards() {
+      document.querySelectorAll('.card-overlay').forEach(overlay => {
+        overlay.style.display = 'flex';
+      });
+      document.querySelectorAll('.card-contenido-blur').forEach(contenido => {
+        contenido.style.filter = 'blur(3px)';
+        contenido.style.opacity = '0.5';
+      });
+      const cardReservas = document.getElementById('card-reservas-logueado');
+      if (cardReservas) cardReservas.style.display = 'none';
+      const cardSeguridad = document.getElementById('card-seguridad-logueado');
+      if (cardSeguridad) cardSeguridad.style.display = 'none';
+    }
 
-function desbloquearCards() {
-  document.querySelectorAll('.card-overlay').forEach(overlay => {
-    overlay.style.display = 'none';
-  });
-  document.querySelectorAll('.card-contenido-blur').forEach(contenido => {
-    contenido.style.filter = 'none';
-    contenido.style.opacity = '1';
-  });
-  const cardReservas = document.getElementById('card-reservas-logueado');
-  if (cardReservas) cardReservas.style.display = 'block';
-}
-
-function bloquearCards() {
-  document.querySelectorAll('.card-overlay').forEach(overlay => {
-    overlay.style.display = 'flex';
-  });
-  document.querySelectorAll('.card-contenido-blur').forEach(contenido => {
-    contenido.style.filter = 'blur(3px)';
-    contenido.style.opacity = '0.5';
-  });
-  const cardReservas = document.getElementById('card-reservas-logueado');
-  if (cardReservas) cardReservas.style.display = 'none';
-}
-
-function bloquearCards() {
-  document.querySelectorAll('.card-overlay').forEach(overlay => {
-    overlay.style.display = 'flex';
-  });
-  document.querySelectorAll('.card-contenido-blur').forEach(contenido => {
-    contenido.style.filter = 'blur(3px)';
-    contenido.style.opacity = '0.5';
-  });
-}
-
-    // ═══════════════════════════════════════════
-    //  Menú hamburguesa — JS agregado
-    // ═══════════════════════════════════════════
+    // Menú hamburguesa
     document.addEventListener('DOMContentLoaded', function () {
+      // Fecha mínima en formularios
+      const hoy = new Date().toISOString().split('T')[0];
+      const inputFechaReserva = document.getElementById('reserva-fecha');
+      if (inputFechaReserva) inputFechaReserva.min = hoy;
+      const inputFechaVisita = document.getElementById('visita-fecha');
+      if (inputFechaVisita) inputFechaVisita.min = hoy;
+
       const toggle = document.getElementById('menuToggle');
       const nav = document.getElementById('nav-secundaria-menu');
       if (toggle && nav) {
@@ -759,92 +805,5 @@ function bloquearCards() {
 
   <script src="app.js"></script>
 
-  <!-- WhatsApp flotante -->
-  <a href="https://wa.me/5491167367021" target="_blank" class="whatsapp-flotante" aria-label="WhatsApp">
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
-
-<!-- MODAL RESERVAS -->
-<div id="modal-reservas" class="modal-overlay" onclick="cerrarModal('reservas')">
-  <div class="modal-contenido" onclick="event.stopPropagation()" style="max-width: 500px;">
-    <button class="modal-cerrar" onclick="cerrarModal('reservas')">✕</button>
-    <h2><i class="fa-solid fa-calendar-check" style="color:#2E75B6; margin-right:10px;"></i>Reservar espacio</h2>
-    <p style="color:#666; margin-bottom: 24px;">Completá los datos para solicitar tu reserva.</p>
-
-    <div class="reserva-form">
-      <div class="reserva-campo">
-        <label>Espacio</label>
-        <select id="reserva-espacio">
-          <option value="">Seleccioná un espacio</option>
-          <option value="sum">SUM — Salón de usos múltiples</option>
-          <option value="tenis">Cancha de tenis</option>
-          <option value="futbol5">Cancha de fútbol 5</option>
-          <option value="futbol11">Cancha de fútbol 11</option>
-        </select>
-      </div>
-
-      <div class="reserva-campo">
-        <label>Fecha</label>
-        <input type="date" id="reserva-fecha" min="">
-      </div>
-
-      <div class="reserva-campo">
-        <label>Horario</label>
-        <select id="reserva-horario">
-          <option value="">Seleccioná un horario</option>
-          <option value="08:00">08:00 — 10:00</option>
-          <option value="10:00">10:00 — 12:00</option>
-          <option value="12:00">12:00 — 14:00</option>
-          <option value="14:00">14:00 — 16:00</option>
-          <option value="16:00">16:00 — 18:00</option>
-          <option value="18:00">18:00 — 20:00</option>
-          <option value="20:00">20:00 — 22:00</option>
-        </select>
-      </div>
-
-      <div class="reserva-campo">
-        <label>Cantidad de personas</label>
-        <input type="number" id="reserva-personas" min="1" max="200" placeholder="Ej: 10">
-      </div>
-
-      <div id="reserva-mensaje" class="reserva-mensaje" style="display:none;"></div>
-
-      <button class="reserva-btn" onclick="enviarReserva()">
-        <i class="fa-solid fa-check"></i> Confirmar reserva
-      </button>
-    </div>
-  </div>
-</div>
-
-<!-- MODAL VISITAS -->
-<div id="modal-visitas" class="modal-overlay" onclick="cerrarModal('visitas')">
-  <div class="modal-contenido" onclick="event.stopPropagation()" style="max-width: 500px;">
-    <button class="modal-cerrar" onclick="cerrarModal('visitas')">✕</button>
-    <h2><i class="fa-solid fa-user-check" style="color:#2E75B6; margin-right:10px;"></i>Autorizar visita</h2>
-    <p style="color:#666; margin-bottom: 24px;">Completá los datos del visitante para autorizar su ingreso.</p>
-
-    <div class="reserva-form">
-      <div class="reserva-campo">
-        <label>Nombre completo del visitante</label>
-        <input type="text" id="visita-nombre" placeholder="Ej: Juan Pérez">
-      </div>
-      <div class="reserva-campo">
-        <label>DNI</label>
-        <input type="number" id="visita-dni" placeholder="Ej: 35123456">
-      </div>
-      <div class="reserva-campo">
-        <label>Fecha de visita</label>
-        <input type="date" id="visita-fecha" min="">
-      </div>
-
-      <div id="visita-mensaje" class="reserva-mensaje" style="display:none;"></div>
-
-      <button class="reserva-btn" onclick="enviarVisita()">
-        <i class="fa-solid fa-check"></i> Confirmar autorización
-      </button>
-    </div>
-  </div>
-</div>
-  
 </body>
 </html>
