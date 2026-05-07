@@ -531,6 +531,42 @@
       });
     }
 
+// Reservas
+function enviarReserva() {
+  const espacio = document.getElementById('reserva-espacio').value;
+  const fecha = document.getElementById('reserva-fecha').value;
+  const horario = document.getElementById('reserva-horario').value;
+  const personas = document.getElementById('reserva-personas').value;
+  const mensaje = document.getElementById('reserva-mensaje');
+
+  if (!espacio || !fecha || !horario || !personas) {
+    mensaje.style.display = 'block';
+    mensaje.className = 'reserva-mensaje reserva-error';
+    mensaje.textContent = 'Por favor completá todos los campos.';
+    return;
+  }
+
+  mensaje.style.display = 'block';
+  mensaje.className = 'reserva-mensaje reserva-exito';
+  mensaje.innerHTML = '<i class="fa-solid fa-check-circle"></i> ¡Reserva enviada! Recibirás confirmación por WhatsApp.';
+
+  setTimeout(() => {
+    cerrarModal('reservas');
+    mensaje.style.display = 'none';
+    document.getElementById('reserva-espacio').value = '';
+    document.getElementById('reserva-fecha').value = '';
+    document.getElementById('reserva-horario').value = '';
+    document.getElementById('reserva-personas').value = '';
+  }, 3000);
+}
+
+// Fecha mínima = hoy
+document.addEventListener('DOMContentLoaded', () => {
+  const hoy = new Date().toISOString().split('T')[0];
+  const inputFecha = document.getElementById('reserva-fecha');
+  if (inputFecha) inputFecha.min = hoy;
+});
+    
     // Login
     const USUARIO = 'residente';
     const PASSWORD = 'losalamos2024';
@@ -588,6 +624,20 @@ function desbloquearCards() {
     contenido.style.filter = 'none';
     contenido.style.opacity = '1';
   });
+  const cardReservas = document.getElementById('card-reservas-logueado');
+  if (cardReservas) cardReservas.style.display = 'block';
+}
+
+function bloquearCards() {
+  document.querySelectorAll('.card-overlay').forEach(overlay => {
+    overlay.style.display = 'flex';
+  });
+  document.querySelectorAll('.card-contenido-blur').forEach(contenido => {
+    contenido.style.filter = 'blur(3px)';
+    contenido.style.opacity = '0.5';
+  });
+  const cardReservas = document.getElementById('card-reservas-logueado');
+  if (cardReservas) cardReservas.style.display = 'none';
 }
 
 function bloquearCards() {
