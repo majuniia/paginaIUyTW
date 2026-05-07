@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Inter', Arial, sans-serif;
   background: #f5f7fb;
   color: #222;
 }
@@ -664,4 +664,21 @@ footer a:hover {
     height: 52px;
     font-size: 1.7rem;
   }
+}
+/* TIPOGRAFÍA PREMIUM */
+h1, h2, h3, .logo, .section-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  letter-spacing: 0.5px;
+}
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+nav a, .card p, .card button, footer {
+  font-family: 'Inter', Arial, sans-serif;
 }
