@@ -92,17 +92,30 @@
     <li>Torneo de tenis: inscripciones abiertas hasta el viernes.</li>
   </ul>
 </div>
-      <div class="card">
-        <h3>Reservas</h3>
-        <p>SUM, canchas y espacios</p>
-        <button>Reservar</button>
-      </div>
-      <div class="card">
-        <h3>Seguridad</h3>
-        <p>Accesos y notificaciones</p>
-        <button>Ver</button>
-      </div>
-    </div>
+      <div class="card card-bloqueada">
+  <h3>Reservas</h3>
+  <div class="card-contenido-blur">
+    <p>SUM, canchas y espacios</p>
+    <p>Reservá tu turno online</p>
+  </div>
+  <div class="card-overlay">
+    <i class="fa-solid fa-lock"></i>
+    <span>Solo para residentes</span>
+    <button onclick="toggleLogin()">Ingresar</button>
+  </div>
+</div>
+   <div class="card card-bloqueada">
+  <h3>Seguridad</h3>
+  <div class="card-contenido-blur">
+    <p>Accesos y notificaciones</p>
+    <p>Autorizá visitas online</p>
+  </div>
+  <div class="card-overlay">
+    <i class="fa-solid fa-lock"></i>
+    <span>Solo para residentes</span>
+    <button onclick="toggleLogin()">Ingresar</button>
+  </div>
+</div>   
   </section>
 
   <section id="noticias" class="seccion-texto">
