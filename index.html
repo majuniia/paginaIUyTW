@@ -558,18 +558,41 @@
       actualizarEstadoLogin();
     }
     function actualizarEstadoLogin() {
-      const logueado = sessionStorage.getItem('logueado') === 'true';
-      const btn = document.getElementById('header-login-btn');
-      if (logueado) {
-        btn.innerHTML = '<i class="fa-solid fa-user"></i> Cerrar sesión';
-        btn.classList.add('logueado');
-        cargarDatos();
-      } else {
-        btn.innerHTML = '<i class="fa-solid fa-user"></i> Ingresar';
-        btn.classList.remove('logueado');
-        document.getElementById('estado-expensas').textContent = '🔒 Solo para residentes';
-        document.getElementById('lista-avisos').innerHTML = '<li>🔒 Solo para residentes</li>';
-      }
+  const logueado = sessionStorage.getItem('logueado') === 'true';
+  const btn = document.getElementById('header-login-btn');
+  if (logueado) {
+    btn.innerHTML = '<i class="fa-solid fa-user"></i> Cerrar sesión';
+    btn.classList.add('logueado');
+    cargarDatos();
+    desbloquearCards();
+  } else {
+    btn.innerHTML = '<i class="fa-solid fa-user"></i> Ingresar';
+    btn.classList.remove('logueado');
+    document.getElementById('estado-expensas').textContent = '🔒 Solo para residentes';
+    document.getElementById('lista-avisos').innerHTML = '<li>🔒 Solo para residentes</li>';
+    bloquearCards();
+  }
+}
+
+function desbloquearCards() {
+  document.querySelectorAll('.card-overlay').forEach(overlay => {
+    overlay.style.display = 'none';
+  });
+  document.querySelectorAll('.card-contenido-blur').forEach(contenido => {
+    contenido.style.filter = 'none';
+    contenido.style.opacity = '1';
+  });
+}
+
+function bloquearCards() {
+  document.querySelectorAll('.card-overlay').forEach(overlay => {
+    overlay.style.display = 'flex';
+  });
+  document.querySelectorAll('.card-contenido-blur').forEach(contenido => {
+    contenido.style.filter = 'blur(3px)';
+    contenido.style.opacity = '0.5';
+  });
+}
     }
 
     // ═══════════════════════════════════════════
