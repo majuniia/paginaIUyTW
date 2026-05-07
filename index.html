@@ -573,6 +573,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (inputFecha) inputFecha.min = hoy;
 });
 
+ // Visitas    
 function enviarVisita() {
   const nombre = document.getElementById('visita-nombre').value;
   const dni = document.getElementById('visita-dni').value;
@@ -598,6 +599,34 @@ function enviarVisita() {
     document.getElementById('visita-fecha').value = '';
   }, 3000);
 }
+function desbloquearCards() {
+  document.querySelectorAll('.card-overlay').forEach(overlay => {
+    overlay.style.display = 'none';
+  });
+  document.querySelectorAll('.card-contenido-blur').forEach(contenido => {
+    contenido.style.filter = 'none';
+    contenido.style.opacity = '1';
+  });
+  const cardReservas = document.getElementById('card-reservas-logueado');
+  if (cardReservas) cardReservas.style.display = 'block';
+  const cardSeguridad = document.getElementById('card-seguridad-logueado');
+  if (cardSeguridad) cardSeguridad.style.display = 'block';
+}
+
+function bloquearCards() {
+  document.querySelectorAll('.card-overlay').forEach(overlay => {
+    overlay.style.display = 'flex';
+  });
+  document.querySelectorAll('.card-contenido-blur').forEach(contenido => {
+    contenido.style.filter = 'blur(3px)';
+    contenido.style.opacity = '0.5';
+  });
+  const cardReservas = document.getElementById('card-reservas-logueado');
+  if (cardReservas) cardReservas.style.display = 'none';
+  const cardSeguridad = document.getElementById('card-seguridad-logueado');
+  if (cardSeguridad) cardSeguridad.style.display = 'none';
+}
+
     
     // Login
     const USUARIO = 'residente';
