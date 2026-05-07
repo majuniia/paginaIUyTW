@@ -1395,3 +1395,17 @@ p, li {
     margin-left: 72px;
   }
 }
+
+.seccion-texto {
+  padding: 60px 48px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.seccion-centrada {
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .seccion-texto {
+    padding: 40px 24px;
+  }
+}
