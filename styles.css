@@ -1409,3 +1409,78 @@ p, li {
     padding: 40px 24px;
   }
 }
+
+/* FORMULARIO RESERVAS */
+.reserva-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.reserva-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.reserva-campo label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #003366;
+}
+.reserva-campo input,
+.reserva-campo select {
+  padding: 10px 14px;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #222;
+  transition: border 0.2s;
+}
+.reserva-campo input:focus,
+.reserva-campo select:focus {
+  outline: none;
+  border-color: #003366;
+}
+.reserva-btn {
+  background: #003366;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 8px;
+}
+.reserva-btn:hover {
+  background: #2E75B6;
+}
+.reserva-mensaje {
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+.reserva-error {
+  background: #fdecea;
+  color: #c0392b;
+}
+.reserva-exito {
+  background: #e8f5e9;
+  color: #1b5e20;
+}
+.card-reservas-logueado {
+  padding: 4px 0;
+}
+.card-btn-reservar {
+  width: 100%;
+  background: #003366;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.card-btn-reservar:hover {
+  background: #2E75B6;
+}
