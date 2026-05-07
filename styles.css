@@ -808,3 +808,63 @@ nav a, .card p, .card button, footer {
   height: 80px;
   display: block;
 }
+
+/* ================================
+   ESCALA TIPOGRÁFICA Y JERARQUÍA
+   ================================ */
+
+/* Variables de color y texto */
+:root {
+  --texto-primario: #0D1B2A;
+  --texto-secundario: #6B7280;
+  --texto-acento: #F5C842;
+  --texto-acento-azul: #2E75B6;
+}
+
+/* Escala fija */
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--texto-primario);
+  line-height: 1.6;
+}
+
+/* Títulos — medium, no bold */
+h1, h2, h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 500;
+  color: var(--texto-primario);
+  margin-top: 0;
+}
+h1 { font-size: 2.8rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.1rem; }
+
+/* Cuerpo secundario */
+p, li {
+  font-size: 1rem;
+  color: var(--texto-secundario);
+  font-weight: 400;
+}
+
+/* Etiquetas eyebrow */
+.eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--texto-acento);
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* Section titles */
+.section-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--texto-primario);
+  margin-bottom: 8px;
+}
