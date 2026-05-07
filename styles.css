@@ -868,3 +868,356 @@ p, li {
   color: var(--texto-primario);
   margin-bottom: 8px;
 }
+
+/* ================================================
+   MEJORAS RESPONSIVAS — Country Los Alamos
+   Agregá este bloque al FINAL de tu styles.css
+   ================================================ */
+
+/* ————————————————————————————
+   1. HEADER — hamburger menu móvil
+   ———————————————————————————— */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,0.4);
+  color: white;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.menu-toggle:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+    padding: 12px 16px;
+    gap: 0;
+  }
+  .logo {
+    flex: 1;
+    font-size: 1.1rem;
+  }
+  .menu-toggle {
+    display: flex;
+  }
+  /* Nav oculta por defecto en móvil */
+  nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+    padding: 8px 0 4px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 10px;
+  }
+  nav.abierto {
+    display: flex;
+  }
+  nav a {
+    padding: 10px 4px;
+    font-size: 0.95rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  nav a:last-child {
+    border-bottom: none;
+  }
+  /* Botón login al lado del hamburguesa */
+  .header-login-btn {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    margin-right: 8px;
+  }
+}
+
+/* ————————————————————————————
+   2. NAV SECUNDARIA — scroll horizontal en móvil
+   ———————————————————————————— */
+@media (max-width: 768px) {
+  .nav-secundaria {
+    justify-content: flex-start;
+    gap: 0;
+    padding: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .nav-secundaria::-webkit-scrollbar {
+    display: none;
+  }
+  .nav-secundaria a {
+    flex-shrink: 0;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+}
+
+/* ————————————————————————————
+   3. HERO SLIDER — imagen y overlay móvil
+   ———————————————————————————— */
+@media (max-width: 768px) {
+  .slide img {
+    height: 420px;
+    object-position: center center;
+  }
+  .hero-overlay {
+    width: 100%;
+    padding: 0 20px;
+    justify-content: flex-end;
+    padding-bottom: 60px;
+    background: linear-gradient(to top, rgba(5,15,31,0.9) 40%, rgba(5,15,31,0.2) 100%);
+  }
+  .hero-titulo {
+    font-size: 2.4rem;
+    line-height: 1.1;
+  }
+  .hero-subtitulo {
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+  }
+  .hero-descripcion {
+    font-size: 0.88rem;
+    max-width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .control {
+    padding: 8px 10px;
+    font-size: 1.2rem;
+  }
+  .slider-controls {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slide img {
+    height: 340px;
+  }
+  .hero-titulo {
+    font-size: 2rem;
+  }
+}
+
+/* ————————————————————————————
+   4. DASHBOARD — cards de acceso rápido
+   ———————————————————————————— */
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 28px 16px;
+  }
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .card {
+    padding: 16px;
+    border-radius: 12px;
+  }
+  .card h3 {
+    font-size: 0.95rem;
+  }
+  .card p, .card ul {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .card {
+    padding: 14px 12px;
+  }
+}
+
+/* ————————————————————————————
+   5. GALERÍA — columnas adaptables
+   ———————————————————————————— */
+@media (max-width: 768px) {
+  .galeria {
+    padding: 40px 16px;
+  }
+  .galeria-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .galeria-grid img {
+    height: 160px;
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .galeria-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .galeria-grid img {
+    height: 130px;
+  }
+}
+
+/* ————————————————————————————
+   6. HISTORIA — texto y padding
+   ———————————————————————————— */
+@media (max-width: 768px) {
+  .historia {
+    padding: 40px 16px;
+  }
+  .historia h2 {
+    font-size: 1.6rem;
+  }
+  .historia p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+}
+
+/* ————————————————————————————
+   7. NÚMEROS — compactos en móvil
+   ———————————————————————————— */
+@media (max-width: 768px) {
+  .numeros {
+    padding: 36px 16px;
+  }
+  .numeros-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .numero-valor {
+    font-size: 2.4rem;
+  }
+  .numero-label {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .numero-valor {
+    font-size: 2rem;
+  }
+}
+
+/* ————————————————————————————
+   8. AMENITIES — grid responsivo
+   ———————————————————————————— */
+@media (max-width: 768px) {
+  .amenities {
+    padding: 40px 16px;
+  }
+  .amenities h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  .amenities-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .amenity-item {
+    padding: 18px 14px;
+    border-radius: 12px;
+  }
+  .amenity-item h3 {
+    font-size: 0.92rem;
+  }
+  .amenity-item p {
+    font-size: 0.82rem;
+  }
+  .amenity-icono i {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .amenities-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+}
+
+/* ————————————————————————————
+   9. MODAL — pantalla completa en móvil
+   ———————————————————————————— */
+@media (max-width: 768px) {
+  .modal-overlay {
+    padding: 0;
+    align-items: flex-end;
+  }
+  .modal-contenido {
+    border-radius: 20px 20px 0 0;
+    padding: 28px 20px 32px;
+    max-height: 88vh;
+  }
+  .modal-contenido h2 {
+    font-size: 1.3rem;
+    padding-right: 36px;
+  }
+  .modal-contenido p,
+  .modal-contenido li {
+    font-size: 0.9rem;
+  }
+  .modal-imagenes {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .modal-imagenes img {
+    height: 140px;
+  }
+  .modal-cerrar {
+    top: 14px;
+    right: 14px;
+  }
+}
+
+/* ————————————————————————————
+   10. FOOTER — apilado en móvil
+   ———————————————————————————— */
+@media (max-width: 480px) {
+  footer {
+    padding: 28px 16px;
+    font-size: 0.9rem;
+    line-height: 2;
+  }
+}
+
+/* ————————————————————————————
+   11. ACCESO / CONVIVENCIA — padding general
+   ———————————————————————————— */
+@media (max-width: 768px) {
+  section {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .section-title {
+    font-size: 1.4rem;
+  }
+}
+
+/* ————————————————————————————
+   12. LIGHTBOX — controles móvil
+   ———————————————————————————— */
+@media (max-width: 480px) {
+  .lightbox-prev,
+  .lightbox-next {
+    font-size: 1.5rem;
+    padding: 8px 12px;
+  }
+  .lightbox-prev { left: 8px; }
+  .lightbox-next { right: 8px; }
+  .lightbox img {
+    max-width: 96%;
+    max-height: 80vh;
+  }
+}
