@@ -28,10 +28,6 @@
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════════════
-       CAMBIO 1: Se agregó el botón hamburguesa ☰
-       entre el .logo y el .header-login-btn
-  ════════════════════════════════════════════════ -->
   <header>
     <div class="logo">Los Alamos</div>
     <!-- NUEVO: botón hamburguesa visible solo en móvil -->
@@ -40,18 +36,6 @@
       <i class="fa-solid fa-user"></i> Ingresar
     </button>
   </header>
-
-  <!-- ═══════════════════════════════════════════════
-       CAMBIO 2: El <nav> se movió DENTRO del header
-       para que el menú hamburguesa lo pueda controlar.
-       Antes estaba fuera del header como .nav-secundaria.
-       Ahora hay DOS navs:
-         - nav#nav-principal → dentro del header (links del header)
-         - nav.nav-secundaria → sigue igual debajo del hero
-       NOTA: tu header original no tenía nav con links,
-       así que simplemente se agrega el id al nav-secundaria
-       para que el JS lo pueda abrir/cerrar en móvil.
-  ════════════════════════════════════════════════ -->
 
   <section class="hero" id="inicio">
     <div class="hero-overlay">
@@ -76,10 +60,6 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════
-       CAMBIO 3: Se agregó id="nav-secundaria-menu"
-       para que el JS del hamburguesa la controle en móvil
-  ════════════════════════════════════════════════ -->
   <nav class="nav-secundaria" id="nav-secundaria-menu">
     <a href="#inicio">Inicio</a>
     <a href="#noticias">Novedades</a>
@@ -92,16 +72,31 @@
   <section class="dashboard">
     <h2 class="section-title">Accesos rápidos</h2>
     <div class="cards">
-      <div class="card">
-        <h3>Expensas</h3>
-        <p id="estado-expensas">🔒 Solo para residentes</p>
-        <button>Ver más</button>
-      </div>
-      <div class="card">
-        <h3>Avisos</h3>
-        <ul id="lista-avisos"><li>🔒 Solo para residentes</li></ul>
-        <button>Ver más</button>
-      </div>
+     <div class="card card-bloqueada">
+  <h3>Expensas</h3>
+  <div class="card-contenido-blur">
+    <div class="badge-estado">Al día</div>
+    <div class="monto">$42.500</div>
+    <p>Vencimiento: 10 de mayo</p>
+  </div>
+  <div class="card-overlay">
+    <i class="fa-solid fa-lock"></i>
+    <span>Solo para residentes</span>
+    <button onclick="toggleLogin()">Ingresar</button>
+  </div>
+</div>
+     <div class="card card-bloqueada">
+  <h3>Avisos</h3>
+  <div class="card-contenido-blur">
+    <p>Corte de agua programado el martes.</p>
+    <p>Torneo de tenis: inscripciones abiertas.</p>
+  </div>
+  <div class="card-overlay">
+    <i class="fa-solid fa-lock"></i>
+    <span>Solo para residentes</span>
+    <button onclick="toggleLogin()">Ingresar</button>
+  </div>
+</div>
       <div class="card">
         <h3>Reservas</h3>
         <p>SUM, canchas y espacios</p>
