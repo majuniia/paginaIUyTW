@@ -708,12 +708,15 @@ nav a, .card p, .card button, footer {
 /* HERO OVERLAY */
 .hero {
   position: relative;
+  background: linear-gradient(to right, rgba(5,15,31,0.75) 30%, rgba(5,15,31,0) 70%);
 }
 .hero-overlay {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
+  max-width: 1180px;
   height: 100%;
   z-index: 5;
   display: flex;
@@ -722,8 +725,8 @@ nav a, .card p, .card button, footer {
   align-items: flex-start;
   padding: 0 60px;
   box-sizing: border-box;
-  background: linear-gradient(to right, rgba(5,15,31,0.75) 40%, rgba(5,15,31,0) 100%);
   pointer-events: none;
+}
 }
 .hero-subtitulo {
   font-family: 'Inter', sans-serif;
