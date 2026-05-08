@@ -7,7 +7,8 @@ const ASSETS = [
   'https://seqqueiralourdes.github.io/paginaIUyTW/app.js',
   'https://seqqueiralourdes.github.io/paginaIUyTW/manifest.json',
   'https://seqqueiralourdes.github.io/paginaIUyTW/icons/icon-192.png',
-  'https://seqqueiralourdes.github.io/paginaIUyTW/icons/icon-512.png'
+  'https://seqqueiralourdes.github.io/paginaIUyTW/icons/icon-512.png',
+  'https://seqqueiralourdes.github.io/paginaIUyTW/reglamento-completo.pdf'
 ];
 
 self.addEventListener('install', event => {
