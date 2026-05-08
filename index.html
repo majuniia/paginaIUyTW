@@ -8,30 +8,35 @@
   <meta name="theme-color" content="#003366">
   <link rel="icon" type="image/png" href="icons/favicon.png">
   <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="./icons/Slider/senderos.png" fetchpriority="high">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <!-- LOGIN MODAL -->
-  <div class="login-overlay" id="login-overlay" onclick="cerrarLoginOverlay(event)">
+  <div class="login-overlay" id="login-overlay">
     <div class="login-box">
-      <button class="modal-cerrar" onclick="cerrarLogin()" style="position:absolute; top:16px; right:16px;">✕</button>
-      <img src="./icons/icon-192.png" alt="Country Los Alamos">
+      <button class="modal-cerrar" id="login-close" type="button">✕</button>
+      <img src="./icons/icon-192.png" alt="Country Los Alamos" width="120" height="120" decoding="async">
       <h2>Country Los Alamos</h2>
       <p>Ingresá con tus credenciales de residente</p>
-      <input type="text" id="login-usuario" placeholder="Usuario" />
-      <input type="password" id="login-password" placeholder="Contraseña" />
-      <button class="login-btn" onclick="iniciarSesion()">Ingresar</button>
+      <input type="text" id="login-usuario" placeholder="Usuario" autocomplete="username" aria-label="Usuario" />
+      <input type="password" id="login-password" placeholder="Contraseña" autocomplete="current-password" aria-label="Contraseña" />
+      <button class="login-btn" id="login-submit" type="button">Ingresar</button>
       <p class="login-error" id="login-error">Usuario o contraseña incorrectos.</p>
     </div>
   </div>
 
   <header>
     <div class="logo">Los Alamos</div>
-    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">&#9776;</button>
-    <button class="header-login-btn" id="header-login-btn" onclick="toggleLogin()">
+    <!-- NUEVO: botón hamburguesa visible solo en móvil -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-controls="nav-secundaria-menu" aria-expanded="false">&#9776;</button>
+    <button class="header-login-btn" id="header-login-btn" type="button">
       <i class="fa-solid fa-user"></i> Ingresar
     </button>
   </header>
@@ -44,13 +49,13 @@
     </div>
     <div class="slider" id="slider">
       <div class="slide active">
-        <img src="./icons/Slider/senderos.png" alt="Senderos ecológicos">
+        <img src="./icons/Slider/senderos.png" alt="Senderos ecológicos" fetchpriority="high" decoding="async">
       </div>
       <div class="slide">
-        <img src="./icons/Slider/Eventos.png" alt="Eventos de la semana">
+        <img src="./icons/Slider/Eventos.png" alt="Eventos de la semana" loading="lazy" decoding="async">
       </div>
       <div class="slide">
-        <img src="./icons/Slider/Noticias.png" alt="Noticias del country">
+        <img src="./icons/Slider/Noticias.png" alt="Noticias del country" loading="lazy" decoding="async">
       </div>
       <div class="slider-controls">
         <button class="control" id="prev">&#10094;</button>
@@ -71,140 +76,128 @@
   <section class="dashboard">
     <h2 class="section-title">Accesos rápidos</h2>
     <div class="cards">
-
-      <div class="card card-bloqueada">
-        <h3>Expensas</h3>
-        <div class="card-contenido-blur">
-          <div class="badge-estado">Al día</div>
-          <div class="monto">$42.500</div>
-          <p>Vencimiento: 10 de mayo</p>
-        </div>
-        <div class="card-overlay">
-          <i class="fa-solid fa-lock"></i>
-          <span>Solo para residentes</span>
-          <button onclick="toggleLogin()">Ingresar</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Avisos</h3>
-        <ul id="lista-avisos">
-          <li>Corte de agua programado el martes 14 de mayo de 9 a 13hs.</li>
-          <li>Torneo de tenis: inscripciones abiertas hasta el viernes.</li>
-        </ul>
-      </div>
-
-      <div class="card card-bloqueada" id="card-reservas">
-        <h3>Reservas</h3>
-        <div class="card-contenido-blur">
-          <p>SUM, canchas y espacios</p>
-          <p>Reservá tu turno online</p>
-        </div>
-        <div class="card-overlay" id="overlay-reservas">
-          <i class="fa-solid fa-lock"></i>
-          <span>Solo para residentes</span>
-          <button onclick="toggleLogin()">Ingresar</button>
-        </div>
-        <div class="card-reservas-logueado" id="card-reservas-logueado" style="display:none;">
-          <p style="color:#555; font-size:0.9rem; margin-bottom:12px;">SUM, canchas y salón de eventos</p>
-          <button class="card-btn-reservar" onclick="abrirModal('reservas')">
-            <i class="fa-solid fa-calendar-plus"></i> Reservar espacio
-          </button>
-        </div>
-      </div>
-
-      <div class="card card-bloqueada" id="card-seguridad">
-        <h3>Seguridad</h3>
-        <div class="card-contenido-blur">
-          <p>Accesos y notificaciones</p>
-          <p>Autorizá visitas online</p>
-        </div>
-        <div class="card-overlay" id="overlay-seguridad">
-          <i class="fa-solid fa-lock"></i>
-          <span>Solo para residentes</span>
-          <button onclick="toggleLogin()">Ingresar</button>
-        </div>
-        <div class="card-seguridad-logueado" id="card-seguridad-logueado" style="display:none;">
-          <p style="color:#555; font-size:0.9rem; margin-bottom:12px;">Autorizá el ingreso de visitas al barrio</p>
-          <button class="card-btn-reservar" onclick="abrirModal('visitas')">
-            <i class="fa-solid fa-user-check"></i> Autorizar visita
-          </button>
-        </div>
-      </div>
-
-    </div>
+     <div class="card card-bloqueada card-expensas" id="card-expensas">
+  <h3>Expensas</h3>
+  <div class="card-contenido-blur">
+    <div class="badge-estado">Al día</div>
+    <div class="monto monto-privado" data-monto="$42.500">$ •••••</div>
+    <p>Vencimiento: 10 de mayo</p>
+  </div>
+  <div class="card-overlay">
+    <i class="fa-solid fa-lock"></i>
+    <span>Solo para residentes</span>
+    <button class="js-login-trigger" type="button">Ingresar</button>
+  </div>
+</div>
+     <div class="card">
+  <h3>Avisos</h3>
+  <ul id="lista-avisos">
+    <li>Corte de agua programado el martes 14 de mayo de 9 a 13hs.</li>
+    <li>Torneo de tenis: inscripciones abiertas hasta el viernes.</li>
+  </ul>
+</div>
+     <div class="card card-bloqueada" id="card-reservas">
+  <h3>Reservas</h3>
+  <div class="card-contenido-blur">
+    <p>SUM, canchas y espacios</p>
+    <p>Reservá tu turno online</p>
+  </div>
+  <div class="card-overlay" id="overlay-reservas">
+    <i class="fa-solid fa-lock"></i>
+    <span>Solo para residentes</span>
+    <button class="js-login-trigger" type="button">Ingresar</button>
+  </div>
+  <div class="card-reservas-logueado is-hidden" id="card-reservas-logueado">
+    <p class="card-reservas-subtitle">SUM y canchas</p>
+    <button class="card-btn-reservar" type="button" data-modal-target="reservas">
+      <i class="fa-solid fa-calendar-plus"></i> Reservar espacio
+    </button>
+  </div>
+</div>
+   <div class="card card-bloqueada">
+  <h3>Seguridad</h3>
+  <div class="card-contenido-blur">
+    <p>Accesos y notificaciones</p>
+    <p>Autorizá visitas online</p>
+  </div>
+  <div class="card-overlay">
+    <i class="fa-solid fa-lock"></i>
+    <span>Solo para residentes</span>
+    <button class="js-login-trigger" type="button">Ingresar</button>
+  </div>
+</div>   
   </section>
 
-  <section id="noticias" style="padding: 32px 24px; max-width: 1180px; margin: 0 auto;">
-    <h2 style="margin-bottom: 8px; color: #003366;">Novedades destacadas</h2>
-    <p style="margin: 0 0 28px; line-height: 1.6; color: #555;">Bienvenido al portal del country. Aquí encontrarás las últimas noticias, actividades y servicios que se renuevan constantemente para tu comodidad y seguridad.</p>
+ <section id="noticias" class="noticias">
+  <h2>Novedades destacadas</h2>
+  <p class="noticias-intro">Bienvenido al portal del country. Aquí encontrarás las últimas noticias, actividades y servicios que se renuevan constantemente para tu comodidad y seguridad.</p>
 
-    <h3 style="color: #003366; margin-bottom: 16px; font-size: 1.1rem; letter-spacing: 0.5px;">Próximos eventos</h3>
-    <div class="eventos-lista">
+  <h3>Próximos eventos</h3>
+  <div class="eventos-lista">
 
-      <div class="evento-item">
-        <div class="evento-fecha">
-          <span class="evento-dia">10</span>
-          <span class="evento-mes">MAY</span>
-        </div>
-        <div class="evento-info">
-          <h4>Torneo de tenis — inscripciones abiertas</h4>
-          <p>Torneo interno mensual en canchas de polvo de ladrillo. Categorías: primera, segunda y damas.</p>
-        </div>
-        <span class="evento-badge">Deporte</span>
+    <div class="evento-item">
+      <div class="evento-fecha">
+        <span class="evento-dia">10</span>
+        <span class="evento-mes">MAY</span>
       </div>
-
-      <div class="evento-item">
-        <div class="evento-fecha">
-          <span class="evento-dia">14</span>
-          <span class="evento-mes">MAY</span>
-        </div>
-        <div class="evento-info">
-          <h4>Corte de agua programado</h4>
-          <p>Mantenimiento de red hídrica. Sin suministro de 9 a 13hs en sector norte del barrio.</p>
-        </div>
-        <span class="evento-badge evento-badge-aviso">Aviso</span>
+      <div class="evento-info">
+        <h4>Torneo de tenis — inscripciones abiertas</h4>
+        <p>Torneo interno mensual en canchas de polvo de ladrillo. Categorías: primera, segunda y damas.</p>
       </div>
-
-      <div class="evento-item">
-        <div class="evento-fecha">
-          <span class="evento-dia">18</span>
-          <span class="evento-mes">MAY</span>
-        </div>
-        <div class="evento-info">
-          <h4>Feria de productores — Club House</h4>
-          <p>Feria mensual con productores locales. Frutas, verduras, conservas y productos artesanales.</p>
-        </div>
-        <span class="evento-badge evento-badge-comunidad">Comunidad</span>
-      </div>
-
-      <div class="evento-item">
-        <div class="evento-fecha">
-          <span class="evento-dia">24</span>
-          <span class="evento-mes">MAY</span>
-        </div>
-        <div class="evento-info">
-          <h4>Clases de kayak — inicio de temporada</h4>
-          <p>Clases grupales para todas las edades en el lago. Inscripción previa requerida en Seguridad.</p>
-        </div>
-        <span class="evento-badge">Deporte</span>
-      </div>
-
+      <span class="evento-badge">Deporte</span>
     </div>
-  </section>
+
+    <div class="evento-item">
+      <div class="evento-fecha">
+        <span class="evento-dia">14</span>
+        <span class="evento-mes">MAY</span>
+      </div>
+      <div class="evento-info">
+        <h4>Corte de agua programado</h4>
+        <p>Mantenimiento de red hídrica. Sin suministro de 9 a 13hs en sector norte del barrio.</p>
+      </div>
+      <span class="evento-badge evento-badge-aviso">Aviso</span>
+    </div>
+
+    <div class="evento-item">
+      <div class="evento-fecha">
+        <span class="evento-dia">18</span>
+        <span class="evento-mes">MAY</span>
+      </div>
+      <div class="evento-info">
+        <h4>Feria de productores — Club House</h4>
+        <p>Feria mensual con productores locales. Frutas, verduras, conservas y productos artesanales.</p>
+      </div>
+      <span class="evento-badge evento-badge-comunidad">Comunidad</span>
+    </div>
+
+    <div class="evento-item">
+      <div class="evento-fecha">
+        <span class="evento-dia">24</span>
+        <span class="evento-mes">MAY</span>
+      </div>
+      <div class="evento-info">
+        <h4>Clases de kayak — inicio de temporada</h4>
+        <p>Clases grupales para todas las edades en el lago. Inscripción previa requerida en Seguridad.</p>
+      </div>
+      <span class="evento-badge">Deporte</span>
+    </div>
+
+  </div>
+</section>
 
   <!-- GALERÍA -->
   <section class="galeria" id="galeria">
     <h2>Galería</h2>
     <div class="galeria-grid">
-      <img src="./icons/Fondos/galeria-1.jpg" alt="Country Los Alamos" onclick="abrirLightbox(['./icons/Fondos/galeria-1.jpg','./icons/Fondos/galeria-2.jpg','./icons/Fondos/galeria-3.jpg','./icons/Fondos/galeria-4.jpg','./icons/Fondos/galeria-5.jpg','./icons/Fondos/galeria-6.jpg','./icons/Fondos/galeria-7.jpg','./icons/Fondos/galeria-8.jpg'], 0)">
-      <img src="./icons/Fondos/galeria-2.jpg" alt="Country Los Alamos" onclick="abrirLightbox(['./icons/Fondos/galeria-1.jpg','./icons/Fondos/galeria-2.jpg','./icons/Fondos/galeria-3.jpg','./icons/Fondos/galeria-4.jpg','./icons/Fondos/galeria-5.jpg','./icons/Fondos/galeria-6.jpg','./icons/Fondos/galeria-7.jpg','./icons/Fondos/galeria-8.jpg'], 1)">
-      <img src="./icons/Fondos/galeria-3.jpg" alt="Country Los Alamos" onclick="abrirLightbox(['./icons/Fondos/galeria-1.jpg','./icons/Fondos/galeria-2.jpg','./icons/Fondos/galeria-3.jpg','./icons/Fondos/galeria-4.jpg','./icons/Fondos/galeria-5.jpg','./icons/Fondos/galeria-6.jpg','./icons/Fondos/galeria-7.jpg','./icons/Fondos/galeria-8.jpg'], 2)">
-      <img src="./icons/Fondos/galeria-4.jpg" alt="Country Los Alamos" onclick="abrirLightbox(['./icons/Fondos/galeria-1.jpg','./icons/Fondos/galeria-2.jpg','./icons/Fondos/galeria-3.jpg','./icons/Fondos/galeria-4.jpg','./icons/Fondos/galeria-5.jpg','./icons/Fondos/galeria-6.jpg','./icons/Fondos/galeria-7.jpg','./icons/Fondos/galeria-8.jpg'], 3)">
-      <img src="./icons/Fondos/galeria-5.jpg" alt="Country Los Alamos" onclick="abrirLightbox(['./icons/Fondos/galeria-1.jpg','./icons/Fondos/galeria-2.jpg','./icons/Fondos/galeria-3.jpg','./icons/Fondos/galeria-4.jpg','./icons/Fondos/galeria-5.jpg','./icons/Fondos/galeria-6.jpg','./icons/Fondos/galeria-7.jpg','./icons/Fondos/galeria-8.jpg'], 4)">
-      <img src="./icons/Fondos/galeria-6.jpg" alt="Country Los Alamos" onclick="abrirLightbox(['./icons/Fondos/galeria-1.jpg','./icons/Fondos/galeria-2.jpg','./icons/Fondos/galeria-3.jpg','./icons/Fondos/galeria-4.jpg','./icons/Fondos/galeria-5.jpg','./icons/Fondos/galeria-6.jpg','./icons/Fondos/galeria-7.jpg','./icons/Fondos/galeria-8.jpg'], 5)">
-      <img src="./icons/Fondos/galeria-7.jpg" alt="Country Los Alamos" onclick="abrirLightbox(['./icons/Fondos/galeria-1.jpg','./icons/Fondos/galeria-2.jpg','./icons/Fondos/galeria-3.jpg','./icons/Fondos/galeria-4.jpg','./icons/Fondos/galeria-5.jpg','./icons/Fondos/galeria-6.jpg','./icons/Fondos/galeria-7.jpg','./icons/Fondos/galeria-8.jpg'], 6)">
-      <img src="./icons/Fondos/galeria-8.jpg" alt="Country Los Alamos" onclick="abrirLightbox(['./icons/Fondos/galeria-1.jpg','./icons/Fondos/galeria-2.jpg','./icons/Fondos/galeria-3.jpg','./icons/Fondos/galeria-4.jpg','./icons/Fondos/galeria-5.jpg','./icons/Fondos/galeria-6.jpg','./icons/Fondos/galeria-7.jpg','./icons/Fondos/galeria-8.jpg'], 7)">
+      <img src="./icons/Fondos/galeria-1.jpg" alt="Country Los Alamos" loading="lazy" decoding="async" data-lightbox-group="galeria" data-lightbox-index="0">
+      <img src="./icons/Fondos/galeria-2.jpg" alt="Country Los Alamos" loading="lazy" decoding="async" data-lightbox-group="galeria" data-lightbox-index="1">
+      <img src="./icons/Fondos/galeria-3.jpg" alt="Country Los Alamos" loading="lazy" decoding="async" data-lightbox-group="galeria" data-lightbox-index="2">
+      <img src="./icons/Fondos/galeria-4.jpg" alt="Country Los Alamos" loading="lazy" decoding="async" data-lightbox-group="galeria" data-lightbox-index="3">
+      <img src="./icons/Fondos/galeria-5.jpg" alt="Country Los Alamos" loading="lazy" decoding="async" data-lightbox-group="galeria" data-lightbox-index="4">
+      <img src="./icons/Fondos/galeria-6.jpg" alt="Country Los Alamos" loading="lazy" decoding="async" data-lightbox-group="galeria" data-lightbox-index="5">
+      <img src="./icons/Fondos/galeria-7.jpg" alt="Country Los Alamos" loading="lazy" decoding="async" data-lightbox-group="galeria" data-lightbox-index="6">
+      <img src="./icons/Fondos/galeria-8.jpg" alt="Country Los Alamos" loading="lazy" decoding="async" data-lightbox-group="galeria" data-lightbox-index="7">
     </div>
   </section>
 
@@ -247,42 +240,42 @@
   <section class="amenities" id="amenities">
     <h2>Amenities e instalaciones</h2>
     <div class="amenities-grid">
-      <div class="amenity-item" onclick="abrirModal('pileta')" style="cursor:pointer;">
+      <div class="amenity-item" data-modal-target="pileta">
         <span class="amenity-icono"><i class="fa-solid fa-water-ladder"></i></span>
         <h3>Pileta olímpica</h3>
         <p>Piscina climatizada con solarium y área de descanso para toda la familia.</p>
       </div>
-      <div class="amenity-item" onclick="abrirModal('tenis')" style="cursor:pointer;">
+      <div class="amenity-item" data-modal-target="tenis">
         <span class="amenity-icono"><i class="fa-solid fa-table-tennis-paddle-ball"></i></span>
         <h3>Canchas de tenis</h3>
         <p>4 canchas de polvo de ladrillo con iluminación nocturna y clases profesionales.</p>
       </div>
-      <div class="amenity-item" onclick="abrirModal('nauticos')" style="cursor:pointer;">
+      <div class="amenity-item" data-modal-target="nauticos">
         <span class="amenity-icono"><i class="fa-solid fa-sailboat"></i></span>
         <h3>Deportes náuticos</h3>
         <p>Lago de 8 hectáreas habilitado para kayak, pesca deportiva y paseos en lancha sin motor.</p>
       </div>
-      <div class="amenity-item" onclick="abrirModal('futbol')" style="cursor:pointer;">
+      <div class="amenity-item" data-modal-target="futbol">
         <span class="amenity-icono"><i class="fa-solid fa-futbol"></i></span>
         <h3>Canchas de fútbol</h3>
         <p>Cancha de fútbol 11 y dos canchas de fútbol 5 con césped sintético.</p>
       </div>
-      <div class="amenity-item" onclick="abrirModal('gimnasio')" style="cursor:pointer;">
+      <div class="amenity-item" data-modal-target="gimnasio">
         <span class="amenity-icono"><i class="fa-solid fa-dumbbell"></i></span>
         <h3>Gimnasio</h3>
         <p>Equipamiento completo con área de musculación, cardio y clases grupales.</p>
       </div>
-      <div class="amenity-item" onclick="abrirModal('verdes')" style="cursor:pointer;">
+      <div class="amenity-item" data-modal-target="verdes">
         <span class="amenity-icono"><i class="fa-solid fa-tree"></i></span>
         <h3>Espacios verdes</h3>
         <p>Más de 40 hectáreas de parques, senderos y reserva forestal de arboleda añosa.</p>
       </div>
-      <div class="amenity-item" onclick="abrirModal('clubhouse')" style="cursor:pointer;">
+      <div class="amenity-item" data-modal-target="clubhouse">
         <span class="amenity-icono"><i class="fa-solid fa-house-chimney"></i></span>
         <h3>Club House & SUM</h3>
         <p>Salón de usos múltiples, restaurante, bar y espacios para eventos y reuniones.</p>
       </div>
-      <div class="amenity-item" onclick="abrirModal('ciclovias')" style="cursor:pointer;">
+      <div class="amenity-item" data-modal-target="ciclovias">
         <span class="amenity-icono"><i class="fa-solid fa-person-biking"></i></span>
         <h3>Ciclovías</h3>
         <p>Circuito de 6 km de ciclovías y senderos peatonales que recorren todo el barrio.</p>
@@ -299,23 +292,23 @@
     <h2 class="section-title">Reglamento de convivencia</h2>
     <p>El reglamento de convivencia establece las normas que nos permiten a todos los residentes disfrutar en armonía de la vida en el barrio. Su cumplimiento es responsabilidad de cada vecino y contribuye al bienestar de toda la comunidad.</p>
     <p>Entre los puntos principales se incluyen normas sobre el uso de espacios comunes, circulación vehicular, tenencia responsable de mascotas, niveles de ruido y horarios de descanso, gestión de residuos y acceso de visitas.</p>
-    <a href="#" class="btn-reglamento">
-      <i class="fa-solid fa-file-pdf" style="margin-right: 8px;"></i>Descargar reglamento completo
+<a href="./reglamento-completo.pdf" target="_blank" class="btn-reglamento" download="Reglamento completo - Los Alamos.pdf">
+      <i class="fa-solid fa-file-pdf"></i>Descargar reglamento completo
     </a>
   </section>
 
   <footer id="contacto">
-    <p><i class="fa-solid fa-envelope" style="margin-right: 8px;"></i>Contacto: <a href="mailto:gallojuan813@gmail.com">gallojuan813@gmail.com</a></p>
-    <p><i class="fa-brands fa-whatsapp" style="margin-right: 8px; color: #25D366;"></i>WhatsApp: <a href="https://wa.me/1167367021" target="_blank" rel="noopener">+54 9 11 6736 7021</a></p>
-    <p><i class="fa-solid fa-phone" style="margin-right: 8px;"></i>Teléfono: <a href="tel:+541167367021">+54 11 6736 7021</a></p>
+    <p><i class="fa-solid fa-envelope"></i>Contacto: <a href="mailto:gallojuan813@gmail.com">gallojuan813@gmail.com</a></p>
+    <p><i class="fa-brands fa-whatsapp"></i>WhatsApp: <a href="https://wa.me/1167367021" target="_blank" rel="noopener">+54 9 11 6736 7021</a></p>
+    <p><i class="fa-solid fa-phone"></i>Teléfono: <a href="tel:+541167367021">+54 11 6736 7021</a></p>
   </footer>
 
-  <!-- MODAL PILETA -->
-  <div id="modal-pileta" class="modal-overlay" onclick="cerrarModal('pileta')">
-    <div class="modal-contenido" onclick="event.stopPropagation()">
-      <button class="modal-cerrar" onclick="cerrarModal('pileta')">✕</button>
-      <h2><i class="fa-solid fa-water-ladder" style="color:#2E75B6; margin-right:10px;"></i>Pileta olímpica</h2>
-      <p>Nuestra piscina olímpica de 50 metros es el corazón del área recreativa de Los Alamos.</p>
+  <!-- MODALES (sin cambios) -->
+  <div id="modal-pileta" class="modal-overlay">
+    <div class="modal-contenido">
+      <button class="modal-cerrar" type="button" data-close-modal="pileta">✕</button>
+      <h2><i class="fa-solid fa-water-ladder"></i>Pileta olímpica</h2>
+      <p>Nuestra piscina olímpica de 50 metros es el corazón del área recreativa de Los Alamos. Rodeada de vegetación y con cerramiento de vidrio, ofrece una experiencia única en cualquier época del año.</p>
       <ul>
         <li>Piscina de 50m × 25m con 8 carriles</li>
         <li>Temperatura regulada todo el año</li>
@@ -325,19 +318,18 @@
         <li>Guardia de seguridad permanente</li>
       </ul>
       <div class="modal-imagenes">
-        <img src="./icons/Fondos/pileta-1.jpg" alt="Pileta olímpica">
-        <img src="./icons/Fondos/pileta-2.jpg" alt="Pileta olímpica">
-        <img src="./icons/Fondos/pileta-3.jpg" alt="Pileta olímpica">
+        <img src="./icons/Fondos/pileta-1.jpg" alt="Pileta olímpica" loading="lazy" decoding="async">
+        <img src="./icons/Fondos/pileta-2.jpg" alt="Pileta olímpica" loading="lazy" decoding="async">
+        <img src="./icons/Fondos/pileta-3.jpg" alt="Pileta olímpica" loading="lazy" decoding="async">
       </div>
     </div>
   </div>
 
-  <!-- MODAL TENIS -->
-  <div id="modal-tenis" class="modal-overlay" onclick="cerrarModal('tenis')">
-    <div class="modal-contenido" onclick="event.stopPropagation()">
-      <button class="modal-cerrar" onclick="cerrarModal('tenis')">✕</button>
-      <h2><i class="fa-solid fa-table-tennis-paddle-ball" style="color:#2E75B6; margin-right:10px;"></i>Canchas de tenis</h2>
-      <p>Nuestras canchas de tenis son un punto de encuentro para jugadores de todos los niveles.</p>
+  <div id="modal-tenis" class="modal-overlay">
+    <div class="modal-contenido">
+      <button class="modal-cerrar" type="button" data-close-modal="tenis">✕</button>
+      <h2><i class="fa-solid fa-table-tennis-paddle-ball"></i>Canchas de tenis</h2>
+      <p>Nuestras canchas de tenis son un punto de encuentro para jugadores de todos los niveles. Rodeadas de vegetación y con iluminación nocturna, permiten disfrutar del juego en cualquier momento del día.</p>
       <ul>
         <li>4 canchas de polvo de ladrillo reglamentarias</li>
         <li>Iluminación LED nocturna en todas las canchas</li>
@@ -347,19 +339,18 @@
         <li>Reservas online desde la app</li>
       </ul>
       <div class="modal-imagenes">
-        <img src="./icons/Fondos/tenis-1.jpg" alt="Canchas de tenis">
-        <img src="./icons/Fondos/tenis-2.jpg" alt="Canchas de tenis">
-        <img src="./icons/Fondos/tenis-3.jpg" alt="Canchas de tenis">
+        <img src="./icons/Fondos/tenis-1.jpg" alt="Canchas de tenis" loading="lazy" decoding="async">
+        <img src="./icons/Fondos/tenis-2.jpg" alt="Canchas de tenis" loading="lazy" decoding="async">
+        <img src="./icons/Fondos/tenis-3.jpg" alt="Canchas de tenis" loading="lazy" decoding="async">
       </div>
     </div>
   </div>
 
-  <!-- MODAL NÁUTICOS -->
-  <div id="modal-nauticos" class="modal-overlay" onclick="cerrarModal('nauticos')">
-    <div class="modal-contenido" onclick="event.stopPropagation()">
-      <button class="modal-cerrar" onclick="cerrarModal('nauticos')">✕</button>
-      <h2><i class="fa-solid fa-sailboat" style="color:#2E75B6; margin-right:10px;"></i>Deportes náuticos</h2>
-      <p>El lago natural de 8 hectáreas es el corazón de Los Alamos.</p>
+  <div id="modal-nauticos" class="modal-overlay">
+    <div class="modal-contenido">
+      <button class="modal-cerrar" type="button" data-close-modal="nauticos">✕</button>
+      <h2><i class="fa-solid fa-sailboat"></i>Deportes náuticos</h2>
+      <p>El lago natural de 8 hectáreas es el corazón de Los Alamos y el escenario ideal para disfrutar de actividades náuticas en contacto pleno con la naturaleza.</p>
       <ul>
         <li>Lago de 8 hectáreas de agua cristalina</li>
         <li>Kayak y canoas disponibles para residentes</li>
@@ -369,20 +360,19 @@
         <li>Muelle y área de embarque</li>
       </ul>
       <div class="modal-imagenes">
-        <img src="./icons/Fondos/nauticos-1.jpg" alt="Deportes náuticos">
-        <img src="./icons/Fondos/nauticos-2.jpg" alt="Deportes náuticos">
-        <img src="./icons/Fondos/nauticos-3.jpg" alt="Deportes náuticos">
-        <img src="./icons/Fondos/nauticos-4.jpg" alt="Deportes náuticos">
+        <img src="./icons/Fondos/nauticos-1.jpg" alt="Deportes náuticos" loading="lazy" decoding="async">
+        <img src="./icons/Fondos/nauticos-2.jpg" alt="Deportes náuticos" loading="lazy" decoding="async">
+        <img src="./icons/Fondos/nauticos-3.jpg" alt="Deportes náuticos" loading="lazy" decoding="async">
+        <img src="./icons/Fondos/nauticos-4.jpg" alt="Deportes náuticos" loading="lazy" decoding="async">
       </div>
     </div>
   </div>
 
-  <!-- MODAL FÚTBOL -->
-  <div id="modal-futbol" class="modal-overlay" onclick="cerrarModal('futbol')">
-    <div class="modal-contenido" onclick="event.stopPropagation()">
-      <button class="modal-cerrar" onclick="cerrarModal('futbol')">✕</button>
-      <h2><i class="fa-solid fa-futbol" style="color:#2E75B6; margin-right:10px;"></i>Canchas de fútbol</h2>
-      <p>Nuestras canchas de fútbol son el escenario ideal para disfrutar del deporte más popular del país.</p>
+  <div id="modal-futbol" class="modal-overlay">
+    <div class="modal-contenido">
+      <button class="modal-cerrar" type="button" data-close-modal="futbol">✕</button>
+      <h2><i class="fa-solid fa-futbol"></i>Canchas de fútbol</h2>
+      <p>Nuestras canchas de fútbol son el escenario ideal para disfrutar del deporte más popular del país. Con césped sintético de última generación e iluminación nocturna, permiten jugar en cualquier condición climática.</p>
       <ul>
         <li>1 cancha de fútbol 11 reglamentaria</li>
         <li>2 canchas de fútbol 5 con césped sintético</li>
@@ -392,19 +382,18 @@
         <li>Reservas online desde la app</li>
       </ul>
       <div class="modal-imagenes">
-        <img src="./icons/Fondos/futbol-1.jpg" alt="Canchas de fútbol">
-        <img src="./icons/Fondos/futbol-2.jpg" alt="Canchas de fútbol">
-        <img src="./icons/Fondos/futbol-3.jpg" alt="Canchas de fútbol">
+        <img src="./icons/Fondos/futbol-1.jpg" alt="Canchas de fútbol" loading="lazy" decoding="async">
+        <img src="./icons/Fondos/futbol-2.jpg" alt="Canchas de fútbol" loading="lazy" decoding="async">
+        <img src="./icons/Fondos/futbol-3.jpg" alt="Canchas de fútbol" loading="lazy" decoding="async">
       </div>
     </div>
   </div>
 
-  <!-- MODAL GIMNASIO -->
-  <div id="modal-gimnasio" class="modal-overlay" onclick="cerrarModal('gimnasio')">
-    <div class="modal-contenido" onclick="event.stopPropagation()">
-      <button class="modal-cerrar" onclick="cerrarModal('gimnasio')">✕</button>
-      <h2><i class="fa-solid fa-dumbbell" style="color:#2E75B6; margin-right:10px;"></i>Gimnasio</h2>
-      <p>Nuestro gimnasio cuenta con equipamiento de última generación.</p>
+  <div id="modal-gimnasio" class="modal-overlay">
+    <div class="modal-contenido">
+      <button class="modal-cerrar" type="button" data-close-modal="gimnasio">✕</button>
+      <h2><i class="fa-solid fa-dumbbell"></i>Gimnasio</h2>
+      <p>Nuestro gimnasio cuenta con equipamiento de última generación y profesores especializados para acompañarte en cada etapa de tu entrenamiento, desde principiantes hasta deportistas avanzados.</p>
       <ul>
         <li>Área de musculación con equipamiento completo</li>
         <li>Zona de cardio con cintas, bicicletas y elípticas</li>
@@ -415,19 +404,18 @@
         <li>Abierto de lunes a domingo</li>
       </ul>
       <div class="modal-imagenes">
-        <img src="./icons/Fondos/gimnasio-1.jpg" alt="Gimnasio">
-        <img src="./icons/Fondos/gimnasio-2.jpg" alt="Gimnasio">
-        <img src="./icons/Fondos/gimnasio-3.jpg" alt="Gimnasio">
+        <img src="./icons/Fondos/gimnasio-1.jpg" alt="Gimnasio" loading="lazy" decoding="async">
+        <img src="./icons/Fondos/gimnasio-2.jpg" alt="Gimnasio" loading="lazy" decoding="async">
+        <img src="./icons/Fondos/gimnasio-3.jpg" alt="Gimnasio" loading="lazy" decoding="async">
       </div>
     </div>
   </div>
 
-  <!-- MODAL ESPACIOS VERDES -->
-  <div id="modal-verdes" class="modal-overlay" onclick="cerrarModal('verdes')">
-    <div class="modal-contenido" onclick="event.stopPropagation()">
-      <button class="modal-cerrar" onclick="cerrarModal('verdes')">✕</button>
-      <h2><i class="fa-solid fa-tree" style="color:#2E75B6; margin-right:10px;"></i>Espacios verdes</h2>
-      <p>Los Alamos cuenta con más de 40 hectáreas de espacios verdes cuidados y preservados.</p>
+  <div id="modal-verdes" class="modal-overlay">
+    <div class="modal-contenido">
+      <button class="modal-cerrar" type="button" data-close-modal="verdes">✕</button>
+      <h2><i class="fa-solid fa-tree"></i>Espacios verdes</h2>
+      <p>Los Alamos cuenta con más de 40 hectáreas de espacios verdes cuidados y preservados, donde la naturaleza convive con la vida cotidiana de los residentes.</p>
       <ul>
         <li>40 hectáreas de parques y jardines</li>
         <li>Reserva forestal de arboleda añosa</li>
@@ -437,19 +425,18 @@
         <li>Mantenimiento profesional permanente</li>
       </ul>
       <div class="modal-imagenes">
-        <img src="./icons/Fondos/verdes-1.jpg" alt="Espacios verdes">
-        <img src="./icons/Fondos/verdes-2.jpg" alt="Espacios verdes">
-        <img src="./icons/Fondos/verdes-3.jpg" alt="Espacios verdes">
+        <img src="./icons/Fondos/verdes-1.jpg" alt="Espacios verdes" loading="lazy" decoding="async">
+        <img src="./icons/Fondos/verdes-2.jpg" alt="Espacios verdes" loading="lazy" decoding="async">
+        <img src="./icons/Fondos/verdes-3.jpg" alt="Espacios verdes" loading="lazy" decoding="async">
       </div>
     </div>
   </div>
 
-  <!-- MODAL CLUB HOUSE -->
-  <div id="modal-clubhouse" class="modal-overlay" onclick="cerrarModal('clubhouse')">
-    <div class="modal-contenido" onclick="event.stopPropagation()">
-      <button class="modal-cerrar" onclick="cerrarModal('clubhouse')">✕</button>
-      <h2><i class="fa-solid fa-house-chimney" style="color:#2E75B6; margin-right:10px;"></i>Club House & SUM</h2>
-      <p>El Club House es el corazón social de Los Alamos.</p>
+  <div id="modal-clubhouse" class="modal-overlay">
+    <div class="modal-contenido">
+      <button class="modal-cerrar" type="button" data-close-modal="clubhouse">✕</button>
+      <h2><i class="fa-solid fa-house-chimney"></i>Club House & SUM</h2>
+      <p>El Club House es el corazón social de Los Alamos. Un espacio moderno y amplio diseñado para que los residentes disfruten de momentos únicos en familia o con amigos.</p>
       <ul>
         <li>Salón de usos múltiples con capacidad para 200 personas</li>
         <li>Restaurante con cocina de autor</li>
@@ -459,19 +446,18 @@
         <li>Wi-Fi de alta velocidad en todas las instalaciones</li>
       </ul>
       <div class="modal-imagenes">
-        <img src="./icons/Fondos/clubhouse-1.jpg" alt="Club House">
-        <img src="./icons/Fondos/clubhouse-2.jpg" alt="Club House">
-        <img src="./icons/Fondos/clubhouse-3.jpg" alt="Club House">
+        <img src="./icons/Fondos/clubhouse-1.jpg" alt="Club House" loading="lazy" decoding="async">
+        <img src="./icons/Fondos/clubhouse-2.jpg" alt="Club House" loading="lazy" decoding="async">
+        <img src="./icons/Fondos/clubhouse-3.jpg" alt="Club House" loading="lazy" decoding="async">
       </div>
     </div>
   </div>
 
-  <!-- MODAL CICLOVÍAS -->
-  <div id="modal-ciclovias" class="modal-overlay" onclick="cerrarModal('ciclovias')">
-    <div class="modal-contenido" onclick="event.stopPropagation()">
-      <button class="modal-cerrar" onclick="cerrarModal('ciclovias')">✕</button>
-      <h2><i class="fa-solid fa-person-biking" style="color:#2E75B6; margin-right:10px;"></i>Ciclovías</h2>
-      <p>Nuestro circuito de ciclovías recorre todo el barrio.</p>
+  <div id="modal-ciclovias" class="modal-overlay">
+    <div class="modal-contenido">
+      <button class="modal-cerrar" type="button" data-close-modal="ciclovias">✕</button>
+      <h2><i class="fa-solid fa-person-biking"></i>Ciclovías</h2>
+      <p>Nuestro circuito de ciclovías recorre todo el barrio conectando los principales espacios verdes, el lago y las instalaciones deportivas, ideal para disfrutar al aire libre en familia.</p>
       <ul>
         <li>6 km de ciclovías señalizadas</li>
         <li>Senderos peatonales paralelos</li>
@@ -481,329 +467,84 @@
         <li>Conecta todos los amenities del barrio</li>
       </ul>
       <div class="modal-imagenes">
-        <img src="./icons/Fondos/ciclovias-1.jpg" alt="Ciclovías">
-        <img src="./icons/Fondos/ciclovias-2.jpg" alt="Ciclovías">
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL RESERVAS -->
-  <div id="modal-reservas" class="modal-overlay" onclick="cerrarModal('reservas')">
-    <div class="modal-contenido" onclick="event.stopPropagation()" style="max-width: 500px;">
-      <button class="modal-cerrar" onclick="cerrarModal('reservas')">✕</button>
-      <h2><i class="fa-solid fa-calendar-check" style="color:#2E75B6; margin-right:10px;"></i>Reservar espacio</h2>
-      <p style="color:#666; margin-bottom: 24px;">Completá los datos para solicitar tu reserva.</p>
-      <div class="reserva-form">
-        <div class="reserva-campo">
-          <label>Espacio</label>
-          <select id="reserva-espacio">
-            <option value="">Seleccioná un espacio</option>
-            <option value="sum">SUM — Salón de usos múltiples</option>
-            <option value="tenis">Cancha de tenis</option>
-            <option value="futbol5">Cancha de fútbol 5</option>
-            <option value="futbol11">Cancha de fútbol 11</option>
-            <option value="salon">Salón de eventos</option>
-          </select>
-        </div>
-        <div class="reserva-campo">
-          <label>Fecha</label>
-          <input type="date" id="reserva-fecha" min="">
-        </div>
-        <div class="reserva-campo">
-          <label>Horario</label>
-          <select id="reserva-horario">
-            <option value="">Seleccioná un horario</option>
-            <option value="08:00">08:00 — 10:00</option>
-            <option value="10:00">10:00 — 12:00</option>
-            <option value="12:00">12:00 — 14:00</option>
-            <option value="14:00">14:00 — 16:00</option>
-            <option value="16:00">16:00 — 18:00</option>
-            <option value="18:00">18:00 — 20:00</option>
-            <option value="20:00">20:00 — 22:00</option>
-          </select>
-        </div>
-        <div class="reserva-campo">
-          <label>Cantidad de personas</label>
-          <input type="number" id="reserva-personas" min="1" max="200" placeholder="Ej: 10">
-        </div>
-        <div id="reserva-mensaje" class="reserva-mensaje" style="display:none;"></div>
-        <button class="reserva-btn" onclick="enviarReserva()">
-          <i class="fa-solid fa-check"></i> Confirmar reserva
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL VISITAS -->
-  <div id="modal-visitas" class="modal-overlay" onclick="cerrarModal('visitas')">
-    <div class="modal-contenido" onclick="event.stopPropagation()" style="max-width: 500px;">
-      <button class="modal-cerrar" onclick="cerrarModal('visitas')">✕</button>
-      <h2><i class="fa-solid fa-user-check" style="color:#2E75B6; margin-right:10px;"></i>Autorizar visita</h2>
-      <p style="color:#666; margin-bottom: 24px;">Completá los datos del visitante para autorizar su ingreso.</p>
-      <div class="reserva-form">
-        <div class="reserva-campo">
-          <label>Nombre completo del visitante</label>
-          <input type="text" id="visita-nombre" placeholder="Ej: Juan Pérez">
-        </div>
-        <div class="reserva-campo">
-          <label>DNI</label>
-          <input type="number" id="visita-dni" placeholder="Ej: 35123456">
-        </div>
-        <div class="reserva-campo">
-          <label>Fecha de visita</label>
-          <input type="date" id="visita-fecha" min="">
-        </div>
-        <div id="visita-mensaje" class="reserva-mensaje" style="display:none;"></div>
-        <button class="reserva-btn" onclick="enviarVisita()">
-          <i class="fa-solid fa-check"></i> Confirmar autorización
-        </button>
+        <img src="./icons/Fondos/ciclovias-1.jpg" alt="Ciclovías" loading="lazy" decoding="async">
+        <img src="./icons/Fondos/ciclovias-2.jpg" alt="Ciclovías" loading="lazy" decoding="async">
       </div>
     </div>
   </div>
 
   <!-- LIGHTBOX -->
-  <div class="lightbox" id="lightbox" onclick="cerrarLightbox()">
-    <button class="lightbox-cerrar" onclick="cerrarLightbox()">✕</button>
-    <button class="lightbox-prev" onclick="event.stopPropagation(); cambiarLightbox(-1)">&#10094;</button>
-    <img id="lightbox-img" src="" alt="">
-    <button class="lightbox-next" onclick="event.stopPropagation(); cambiarLightbox(1)">&#10095;</button>
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-cerrar" id="lightbox-close" type="button">✕</button>
+    <button class="lightbox-prev" id="lightbox-prev" type="button">&#10094;</button>
+    <img id="lightbox-img" src="" alt="" decoding="async">
+    <button class="lightbox-next" id="lightbox-next" type="button">&#10095;</button>
     <span class="lightbox-contador" id="lightbox-contador"></span>
   </div>
 
-  <!-- WhatsApp flotante -->
-  <a href="https://wa.me/5491167367021" target="_blank" class="whatsapp-flotante" aria-label="WhatsApp">
+  <script src="auth.js" defer></script>
+  <script src="app.js" defer></script>
+
+  <!-- Botones flotantes -->
+  <a href="https://www.google.com/maps/search/?api=1&query=B1722%20Merlo%2C%20Provincia%20de%20Buenos%20Aires%2C%20Argentina" target="_blank" class="boton-flotante maps-flotante" aria-label="Ver ubicación en Google Maps" title="Ver ubicación">
+    <i class="fa-solid fa-location-dot"></i>
+  </a>
+
+  <a href="https://wa.me/5491167367021" target="_blank" class="whatsapp-flotante" aria-label="WhatsApp" title="Escribir por WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
   </a>
 
-  <script>
-    // Carrusel
-    const slides = document.querySelectorAll('.slide');
-    const nextBtn = document.getElementById('next');
-    const prevBtn = document.getElementById('prev');
-    let current = 0;
-    function showSlide(index) {
-      slides[current].classList.remove('active');
-      current = (index + slides.length) % slides.length;
-      slides[current].classList.add('active');
-    }
-    nextBtn.addEventListener('click', () => showSlide(current + 1));
-    prevBtn.addEventListener('click', () => showSlide(current - 1));
-    setInterval(() => showSlide(current + 1), 6000);
+<!-- MODAL RESERVAS -->
+<div id="modal-reservas" class="modal-overlay">
+  <div class="modal-contenido modal-contenido-reservas">
+    <button class="modal-cerrar" type="button" data-close-modal="reservas">✕</button>
+    <h2><i class="fa-solid fa-calendar-check"></i>Reservar espacio</h2>
+    <p class="modal-intro">Completá los datos para solicitar tu reserva.</p>
 
-    // Modal
-    function abrirModal(id) {
-      document.getElementById('modal-' + id).classList.add('activo');
-      document.body.style.overflow = 'hidden';
-    }
-    function cerrarModal(id) {
-      document.getElementById('modal-' + id).classList.remove('activo');
-      document.body.style.overflow = '';
-    }
+    <div class="reserva-form">
+      <div class="reserva-campo">
+        <label>Espacio</label>
+        <select id="reserva-espacio">
+          <option value="">Seleccioná un espacio</option>
+          <option value="sum">SUM — Salón de usos múltiples</option>
+          <option value="tenis">Cancha de tenis</option>
+          <option value="futbol5">Cancha de fútbol 5</option>
+          <option value="futbol11">Cancha de fútbol 11</option>
+        </select>
+      </div>
 
-    // Lightbox
-    let lightboxImagenes = [];
-    let lightboxIndex = 0;
-    function abrirLightbox(imagenes, index) {
-      lightboxImagenes = imagenes;
-      lightboxIndex = index;
-      document.getElementById('lightbox-img').src = imagenes[index];
-      document.getElementById('lightbox-contador').textContent = (index + 1) + ' / ' + imagenes.length;
-      document.getElementById('lightbox').classList.add('activo');
-    }
-    function cerrarLightbox() {
-      document.getElementById('lightbox').classList.remove('activo');
-    }
-    function cambiarLightbox(direccion) {
-      lightboxIndex = (lightboxIndex + direccion + lightboxImagenes.length) % lightboxImagenes.length;
-      document.getElementById('lightbox-img').src = lightboxImagenes[lightboxIndex];
-      document.getElementById('lightbox-contador').textContent = (lightboxIndex + 1) + ' / ' + lightboxImagenes.length;
-    }
-    function activarLightboxEnModal(modalId, rutas) {
-      const imgs = document.querySelectorAll('#modal-' + modalId + ' .modal-imagenes img');
-      imgs.forEach((img, i) => {
-        img.onclick = (e) => {
-          e.stopPropagation();
-          abrirLightbox(rutas, i);
-        };
-      });
-    }
+      <div class="reserva-campo">
+        <label>Fecha</label>
+        <input type="date" id="reserva-fecha" min="">
+      </div>
 
-    // Reservas
-    function enviarReserva() {
-      const espacio = document.getElementById('reserva-espacio').value;
-      const fecha = document.getElementById('reserva-fecha').value;
-      const horario = document.getElementById('reserva-horario').value;
-      const personas = document.getElementById('reserva-personas').value;
-      const mensaje = document.getElementById('reserva-mensaje');
-      if (!espacio || !fecha || !horario || !personas) {
-        mensaje.style.display = 'block';
-        mensaje.className = 'reserva-mensaje reserva-error';
-        mensaje.textContent = 'Por favor completá todos los campos.';
-        return;
-      }
-      mensaje.style.display = 'block';
-      mensaje.className = 'reserva-mensaje reserva-exito';
-      mensaje.innerHTML = '<i class="fa-solid fa-check-circle"></i> ¡Reserva enviada! Recibirás confirmación por WhatsApp.';
-      setTimeout(() => {
-        cerrarModal('reservas');
-        mensaje.style.display = 'none';
-        document.getElementById('reserva-espacio').value = '';
-        document.getElementById('reserva-fecha').value = '';
-        document.getElementById('reserva-horario').value = '';
-        document.getElementById('reserva-personas').value = '';
-      }, 3000);
-    }
+      <div class="reserva-campo">
+        <label>Horario</label>
+        <select id="reserva-horario">
+          <option value="">Seleccioná un horario</option>
+          <option value="08:00">08:00 — 10:00</option>
+          <option value="10:00">10:00 — 12:00</option>
+          <option value="12:00">12:00 — 14:00</option>
+          <option value="14:00">14:00 — 16:00</option>
+          <option value="16:00">16:00 — 18:00</option>
+          <option value="18:00">18:00 — 20:00</option>
+          <option value="20:00">20:00 — 22:00</option>
+        </select>
+      </div>
 
-    // Visitas
-    function enviarVisita() {
-      const nombre = document.getElementById('visita-nombre').value;
-      const dni = document.getElementById('visita-dni').value;
-      const fecha = document.getElementById('visita-fecha').value;
-      const mensaje = document.getElementById('visita-mensaje');
-      if (!nombre || !dni || !fecha) {
-        mensaje.style.display = 'block';
-        mensaje.className = 'reserva-mensaje reserva-error';
-        mensaje.textContent = 'Por favor completá todos los campos.';
-        return;
-      }
-      mensaje.style.display = 'block';
-      mensaje.className = 'reserva-mensaje reserva-exito';
-      mensaje.innerHTML = '<i class="fa-solid fa-check-circle"></i> ¡Visita autorizada! Se notificará a la guardia.';
-      setTimeout(() => {
-        cerrarModal('visitas');
-        mensaje.style.display = 'none';
-        document.getElementById('visita-nombre').value = '';
-        document.getElementById('visita-dni').value = '';
-        document.getElementById('visita-fecha').value = '';
-      }, 3000);
-    }
+      <div class="reserva-campo">
+        <label>Cantidad de personas</label>
+        <input type="number" id="reserva-personas" min="1" max="200" placeholder="Ej: 10">
+      </div>
 
-    // Login
-    const USUARIO = 'residente';
-    const PASSWORD = 'losalamos2024';
+      <div id="reserva-mensaje" class="reserva-mensaje is-hidden"></div>
 
-    function toggleLogin() {
-      const logueado = sessionStorage.getItem('logueado');
-      if (logueado === 'true') {
-        cerrarSesion();
-      } else {
-        document.getElementById('login-overlay').classList.add('activo');
-      }
-    }
-    function cerrarLogin() {
-      document.getElementById('login-overlay').classList.remove('activo');
-    }
-    function cerrarLoginOverlay(e) {
-      if (e.target === document.getElementById('login-overlay')) cerrarLogin();
-    }
-    function iniciarSesion() {
-      const usuario = document.getElementById('login-usuario').value;
-      const password = document.getElementById('login-password').value;
-      if (usuario === USUARIO && password === PASSWORD) {
-        cerrarLogin();
-        sessionStorage.setItem('logueado', 'true');
-        actualizarEstadoLogin();
-      } else {
-        document.getElementById('login-error').style.display = 'block';
-      }
-    }
-    function cerrarSesion() {
-      sessionStorage.removeItem('logueado');
-      actualizarEstadoLogin();
-    }
-    function actualizarEstadoLogin() {
-      const logueado = sessionStorage.getItem('logueado') === 'true';
-      const btn = document.getElementById('header-login-btn');
-      if (logueado) {
-        btn.innerHTML = '<i class="fa-solid fa-user"></i> Cerrar sesión';
-        btn.classList.add('logueado');
-        cargarDatos();
-        desbloquearCards();
-      } else {
-        btn.innerHTML = '<i class="fa-solid fa-user"></i> Ingresar';
-        btn.classList.remove('logueado');
-        bloquearCards();
-      }
-    }
-    function desbloquearCards() {
-      document.querySelectorAll('.card-overlay').forEach(overlay => {
-        overlay.style.display = 'none';
-      });
-      document.querySelectorAll('.card-contenido-blur').forEach(contenido => {
-        contenido.style.filter = 'none';
-        contenido.style.opacity = '1';
-      });
-      const cardReservas = document.getElementById('card-reservas-logueado');
-      if (cardReservas) cardReservas.style.display = 'block';
-      const cardSeguridad = document.getElementById('card-seguridad-logueado');
-      if (cardSeguridad) cardSeguridad.style.display = 'block';
-    }
-    function bloquearCards() {
-      document.querySelectorAll('.card-overlay').forEach(overlay => {
-        overlay.style.display = 'flex';
-      });
-      document.querySelectorAll('.card-contenido-blur').forEach(contenido => {
-        contenido.style.filter = 'blur(3px)';
-        contenido.style.opacity = '0.5';
-      });
-      const cardReservas = document.getElementById('card-reservas-logueado');
-      if (cardReservas) cardReservas.style.display = 'none';
-      const cardSeguridad = document.getElementById('card-seguridad-logueado');
-      if (cardSeguridad) cardSeguridad.style.display = 'none';
-    }
-
-    // Menú hamburguesa
-    document.addEventListener('DOMContentLoaded', function () {
-      // Fecha mínima en formularios
-      const hoy = new Date().toISOString().split('T')[0];
-      const inputFechaReserva = document.getElementById('reserva-fecha');
-      if (inputFechaReserva) inputFechaReserva.min = hoy;
-      const inputFechaVisita = document.getElementById('visita-fecha');
-      if (inputFechaVisita) inputFechaVisita.min = hoy;
-
-      const toggle = document.getElementById('menuToggle');
-      const nav = document.getElementById('nav-secundaria-menu');
-      if (toggle && nav) {
-        toggle.addEventListener('click', function () {
-          nav.classList.toggle('nav-abierta');
-          toggle.innerHTML = nav.classList.contains('nav-abierta') ? '✕' : '&#9776;';
-        });
-        nav.querySelectorAll('a').forEach(function (link) {
-          link.addEventListener('click', function () {
-            nav.classList.remove('nav-abierta');
-            toggle.innerHTML = '&#9776;';
-          });
-        });
-      }
-    });
-
-    window.addEventListener('load', () => {
-      actualizarEstadoLogin();
-      activarLightboxEnModal('pileta', ['./icons/Fondos/pileta-1.jpg','./icons/Fondos/pileta-2.jpg','./icons/Fondos/pileta-3.jpg']);
-      activarLightboxEnModal('tenis', ['./icons/Fondos/tenis-1.jpg','./icons/Fondos/tenis-2.jpg','./icons/Fondos/tenis-3.jpg']);
-      activarLightboxEnModal('nauticos', ['./icons/Fondos/nauticos-1.jpg','./icons/Fondos/nauticos-2.jpg','./icons/Fondos/nauticos-3.jpg','./icons/Fondos/nauticos-4.jpg']);
-      activarLightboxEnModal('futbol', ['./icons/Fondos/futbol-1.jpg','./icons/Fondos/futbol-2.jpg','./icons/Fondos/futbol-3.jpg']);
-      activarLightboxEnModal('gimnasio', ['./icons/Fondos/gimnasio-1.jpg','./icons/Fondos/gimnasio-2.jpg','./icons/Fondos/gimnasio-3.jpg']);
-      activarLightboxEnModal('verdes', ['./icons/Fondos/verdes-1.jpg','./icons/Fondos/verdes-2.jpg','./icons/Fondos/verdes-3.jpg']);
-      activarLightboxEnModal('clubhouse', ['./icons/Fondos/clubhouse-1.jpg','./icons/Fondos/clubhouse-2.jpg','./icons/Fondos/clubhouse-3.jpg']);
-      activarLightboxEnModal('ciclovias', ['./icons/Fondos/ciclovias-1.jpg','./icons/Fondos/ciclovias-2.jpg']);
-      document.addEventListener('keydown', e => {
-        if (document.getElementById('lightbox').classList.contains('activo')) {
-          if (e.key === 'ArrowRight') cambiarLightbox(1);
-          if (e.key === 'ArrowLeft') cambiarLightbox(-1);
-          if (e.key === 'Escape') cerrarLightbox();
-        }
-        if (e.key === 'Escape') {
-          document.querySelectorAll('.modal-overlay.activo').forEach(m => {
-            m.classList.remove('activo');
-            document.body.style.overflow = '';
-          });
-        }
-      });
-    });
-  </script>
-
-  <script src="app.js"></script>
-
+      <button class="reserva-btn" id="reserva-submit" type="button">
+        <i class="fa-solid fa-check"></i> Confirmar reserva
+      </button>
+    </div>
+  </div>
+</div>
+  
 </body>
 </html>
