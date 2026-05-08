@@ -634,12 +634,11 @@ footer a:hover {
   box-shadow: 0 12px 30px rgba(0,0,0,0.2);
 }
 
-/* WHATSAPP FLOTANTE */
+/* BOTONES FLOTANTES */
+.boton-flotante,
 .whatsapp-flotante {
   position: fixed;
-  bottom: 28px;
   right: 28px;
-  background: #25D366;
   color: white;
   width: 60px;
   height: 60px;
@@ -653,17 +652,32 @@ footer a:hover {
   text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+.whatsapp-flotante {
+  bottom: 28px;
+  background: #25D366;
+}
+.maps-flotante {
+  bottom: 100px;
+  background: #EA4335;
+}
+.boton-flotante:hover,
 .whatsapp-flotante:hover {
   transform: scale(1.1);
   box-shadow: 0 10px 28px rgba(0,0,0,0.35);
 }
 @media (max-width: 480px) {
+  .boton-flotante,
   .whatsapp-flotante {
-    bottom: 18px;
     right: 18px;
     width: 52px;
     height: 52px;
     font-size: 1.7rem;
+  }
+  .whatsapp-flotante {
+    bottom: 18px;
+  }
+  .maps-flotante {
+    bottom: 82px;
   }
 }
 /* TIPOGRAFÍA PREMIUM */
@@ -988,6 +1002,7 @@ p, li {
     max-width: 100%;
     display: -webkit-box;
     -webkit-line-clamp: 3;
+    line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
@@ -1265,6 +1280,20 @@ p, li {
   color: #003366;
   margin-bottom: 4px;
 }
+.monto-privado {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 2px;
+}
+.monto-privado::after {
+  content: "\f070";
+  font-family: "Font Awesome 6 Free";
+  font-size: 0.95rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  color: rgba(0, 51, 102, 0.68);
+}
 .card-bloqueada .card-contenido-blur p {
   font-size: 0.88rem;
   color: #555;
@@ -1470,6 +1499,7 @@ p, li {
 .card-reservas-logueado {
   padding: 4px 0;
 }
+
 .card-btn-reservar {
   width: 100%;
   background: #003366;
@@ -1483,4 +1513,636 @@ p, li {
 }
 .card-btn-reservar:hover {
   background: #2E75B6;
+}
+
+.is-hidden {
+  display: none !important;
+}
+
+.noticias {
+  padding: 32px 24px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.noticias h2,
+.noticias h3 {
+  color: #003366;
+}
+
+.noticias h2 {
+  margin-bottom: 8px;
+}
+
+.noticias h3 {
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+.noticias-intro {
+  margin: 0 0 28px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.amenity-item {
+  cursor: pointer;
+}
+
+.card-reservas-subtitle {
+  color: #555;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.modal-contenido-reservas {
+  max-width: 500px;
+}
+
+.modal-intro {
+  color: #666;
+  margin-bottom: 24px;
+}
+
+.fa-file-pdf,
+footer .fa-envelope,
+footer .fa-phone {
+  margin-right: 8px;
+}
+
+footer .fa-whatsapp {
+  margin-right: 8px;
+  color: #25D366;
+}
+
+.modal-contenido h2 i {
+  color: #2E75B6;
+  margin-right: 10px;
+}
+
+/* AJUSTES DE CONSISTENCIA VISUAL */
+:root {
+  --color-primary: #003366;
+  --color-primary-dark: #050F1F;
+  --color-secondary: #2E75B6;
+  --color-accent: #F5C842;
+  --color-surface: #ffffff;
+  --color-page: #f5f7fb;
+  --color-text: #0D1B2A;
+  --color-muted: #6B7280;
+  --color-border: #dce3ee;
+  --color-danger: #c0392b;
+  --color-success: #1b5e20;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 4px 14px rgba(13, 27, 42, 0.08);
+  --shadow-md: 0 12px 30px rgba(13, 27, 42, 0.12);
+  --shadow-lg: 0 24px 70px rgba(5, 15, 31, 0.32);
+  --transition-fast: 160ms ease;
+}
+
+body {
+  background: var(--color-page);
+  color: var(--color-text);
+}
+
+header {
+  background: rgba(5, 15, 31, 0.96);
+  box-shadow: 0 8px 24px rgba(5, 15, 31, 0.18);
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  letter-spacing: 1.6px;
+}
+
+.header-login-btn,
+.menu-toggle {
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+}
+
+.header-login-btn {
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.header-login-btn:hover,
+.menu-toggle:hover {
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateY(-1px);
+}
+
+.header-login-btn.logueado {
+  background: rgba(245, 200, 66, 0.12);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.card,
+.amenity-item,
+.evento-item,
+.eventos-lista,
+.galeria-grid img,
+.slide,
+.modal-imagenes img {
+  border-radius: var(--radius-md);
+}
+
+.card,
+.amenity-item,
+.eventos-lista {
+  box-shadow: var(--shadow-sm);
+}
+
+.card:hover,
+.amenity-item:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.card button,
+.login-btn,
+.reserva-btn,
+.card-btn-reservar,
+.card-overlay button,
+.btn-reglamento {
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.card button:hover,
+.login-btn:hover,
+.reserva-btn:hover,
+.card-btn-reservar:hover,
+.btn-reglamento:hover {
+  transform: translateY(-1px);
+}
+
+.boton-flotante,
+.whatsapp-flotante {
+  box-shadow: var(--shadow-md);
+  outline: 0;
+}
+
+.boton-flotante {
+  background: #4285F4;
+}
+
+.maps-flotante {
+  background: linear-gradient(135deg, #4285F4 0%, #34A853 50%, #EA4335 100%);
+}
+
+.whatsapp-flotante {
+  background: #25D366;
+}
+
+.boton-flotante:hover,
+.whatsapp-flotante:hover {
+  transform: translateY(-2px) scale(1.06);
+}
+
+.boton-flotante:focus-visible,
+.whatsapp-flotante:focus-visible,
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid rgba(245, 200, 66, 0.9);
+  outline-offset: 3px;
+}
+
+.fa-file-pdf,
+footer .fa-envelope,
+footer .fa-phone,
+footer .fa-whatsapp,
+.header-login-btn i,
+.card-btn-reservar i,
+.reserva-btn i,
+.login-btn i,
+.btn-reglamento i {
+  margin-right: 8px;
+}
+
+.modal-contenido h2 i {
+  margin-right: 10px;
+}
+
+.login-overlay {
+  background: rgba(5, 15, 31, 0.72);
+  backdrop-filter: blur(8px);
+}
+
+.login-box {
+  max-width: 430px;
+  border-radius: var(--radius-lg);
+  padding: 44px 38px 38px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+}
+
+.login-box img {
+  width: 96px;
+  margin-bottom: 18px;
+  border-radius: 22px;
+  box-shadow: var(--shadow-sm);
+}
+
+.login-box h2 {
+  color: var(--color-primary);
+  font-size: 1.65rem;
+  margin-bottom: 6px;
+}
+
+.login-box p {
+  color: var(--color-muted);
+  margin-bottom: 26px;
+}
+
+.login-box input {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: #fbfcff;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+}
+
+.login-box input:hover {
+  border-color: #b9c6d8;
+}
+
+.login-box input:focus {
+  border-color: var(--color-secondary);
+  background: var(--color-surface);
+  box-shadow: 0 0 0 4px rgba(46, 117, 182, 0.14);
+}
+
+.login-btn {
+  background: var(--color-primary);
+  box-shadow: 0 10px 22px rgba(0, 51, 102, 0.18);
+}
+
+.login-btn:hover {
+  background: var(--color-secondary);
+}
+
+.login-error {
+  background: #fdecea;
+  color: var(--color-danger);
+  border: 1px solid #f5c6bf;
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  margin: 14px 0 0;
+}
+
+.modal-cerrar {
+  background: var(--color-primary);
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.modal-cerrar:hover {
+  background: var(--color-secondary);
+  transform: rotate(90deg);
+}
+
+@media (max-width: 768px) {
+  header {
+    align-items: center;
+    gap: 8px;
+  }
+
+  .header-login-btn {
+    min-height: 38px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-box {
+    max-width: calc(100% - 32px);
+    padding: 38px 24px 30px;
+  }
+}
+
+/* ANIMACIONES SUTILES */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 700ms ease, transform 700ms ease;
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide.active img {
+  animation: heroImageDrift 6800ms ease-in-out forwards;
+}
+
+@keyframes heroImageDrift {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.035);
+  }
+}
+
+.modal-overlay {
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+.modal-overlay.activo {
+  opacity: 1;
+}
+
+.modal-contenido,
+.login-box {
+  transform: translateY(10px) scale(0.98);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.modal-overlay.activo .modal-contenido,
+.login-overlay.activo .login-box {
+  transform: translateY(0) scale(1);
+}
+
+.card:hover .card-overlay i,
+.amenity-item:hover .amenity-icono i {
+  animation: iconLift 420ms ease;
+}
+
+@keyframes iconLift {
+  0% {
+    transform: translateY(0);
+  }
+  45% {
+    transform: translateY(-4px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.boton-flotante,
+.whatsapp-flotante {
+  animation: floatingPulse 4200ms ease-in-out infinite;
+}
+
+.whatsapp-flotante {
+  animation-delay: 900ms;
+}
+
+@keyframes floatingPulse {
+  0%,
+  72%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  82% {
+    transform: translateY(-2px) scale(1.045);
+  }
+}
+
+.boton-flotante:hover,
+.whatsapp-flotante:hover {
+  animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+  .nav-secundaria {
+    transition: box-shadow 220ms ease, transform 220ms ease, opacity 220ms ease;
+  }
+
+  .nav-secundaria.nav-abierta {
+    animation: mobileMenuDrop 220ms ease both;
+  }
+}
+
+@keyframes mobileMenuDrop {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
+
+  .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@supports (content-visibility: auto) {
+  .dashboard,
+  #noticias,
+  .galeria,
+  .historia,
+  .numeros,
+  .amenities,
+  #acceso,
+  #convivencia,
+  footer {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 520px;
+  }
+}
+
+/* FIX STICKY HEADER/NAV */
+header {
+  position: relative;
+  top: auto;
+}
+
+.nav-secundaria {
+  top: 0;
+  z-index: 30;
+}
+
+/* ESCALA TIPOGRAFICA FINAL */
+:root {
+  --font-body: 'Inter', Arial, sans-serif;
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.45rem;
+  --text-2xl: 1.85rem;
+  --text-hero: clamp(3rem, 7vw, 4.75rem);
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  line-height: 1.65;
+}
+
+h1,
+h2,
+h3,
+.logo,
+.section-title {
+  font-family: var(--font-heading);
+  letter-spacing: 0;
+}
+
+.logo {
+  font-size: 1.35rem;
+  line-height: 1;
+  letter-spacing: 1.4px;
+}
+
+.hero-subtitulo {
+  font-size: var(--text-sm);
+  letter-spacing: 0.22em;
+}
+
+.hero-titulo {
+  font-size: var(--text-hero);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+}
+
+.hero-descripcion {
+  font-size: var(--text-md);
+  line-height: 1.7;
+}
+
+.section-title,
+.historia h2,
+.amenities h2,
+.galeria h2,
+.noticias h2,
+.seccion-texto h2 {
+  font-size: var(--text-2xl);
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.noticias h3 {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  line-height: 1.3;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.card h3,
+.amenity-item h3 {
+  font-size: var(--text-lg);
+  line-height: 1.25;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.card p,
+.card li,
+.amenity-item p,
+.historia p,
+.seccion-texto p,
+.noticias-intro,
+.modal-contenido p,
+.modal-contenido li {
+  font-size: var(--text-md);
+  line-height: 1.65;
+}
+
+.nav-secundaria a,
+.header-login-btn,
+.card button,
+.card-overlay span,
+.card-overlay button,
+.card-reservas-subtitle,
+.evento-info p,
+.reserva-campo label,
+.reserva-campo input,
+.reserva-campo select {
+  font-size: var(--text-sm);
+  letter-spacing: 0;
+}
+
+.evento-info h4 {
+  font-size: var(--text-md);
+  line-height: 1.35;
+  font-weight: 600;
+}
+
+.evento-badge,
+.evento-mes,
+.badge-estado {
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+}
+
+.modal-contenido h2,
+.login-box h2 {
+  font-size: var(--text-xl);
+  line-height: 1.18;
+  letter-spacing: 0;
+}
+
+.login-box p,
+.login-error,
+.reserva-mensaje,
+footer {
+  font-size: var(--text-sm);
+}
+
+.monto {
+  font-size: 1.55rem;
+  line-height: 1.15;
+}
+
+.numero-valor {
+  font-size: clamp(2.3rem, 5vw, 3rem);
+  line-height: 1;
+}
+
+.numero-label {
+  font-size: var(--text-sm);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --text-md: 0.95rem;
+    --text-lg: 1.02rem;
+    --text-xl: 1.32rem;
+    --text-2xl: 1.55rem;
+    --text-hero: clamp(2.35rem, 13vw, 3rem);
+  }
+
+  .logo {
+    font-size: 1.08rem;
+  }
+
+  .hero-subtitulo {
+    font-size: 0.78rem;
+  }
+
+  .nav-secundaria a {
+    font-size: 0.84rem;
+  }
+}
+
+@media (max-width: 420px) {
+  :root {
+    --text-hero: 2.25rem;
+  }
 }
