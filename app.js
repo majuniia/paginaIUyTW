@@ -342,4 +342,11 @@ document.addEventListener('DOMContentLoaded', () => {
       toggle.setAttribute('aria-expanded', 'false');
     }
   }, { passive: true });
+
+  <script>
+document.querySelectorAll('.contacto-pill').forEach(pill => {
+  pill.addEventListener('click', () => pill.classList.toggle('sel'));
+});
+</script>
+                          
 });
