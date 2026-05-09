@@ -331,4 +331,15 @@ document.addEventListener('DOMContentLoaded', () => {
   configurarAnimacionesScroll();
   configurarEventos();
   actualizarEstadoLogin();
+
+  // Cierra el menú al hacer scroll
+  window.addEventListener('scroll', function () {
+    const nav = document.getElementById('nav-secundaria-menu');
+    const toggle = document.getElementById('menuToggle');
+    if (nav && nav.classList.contains('nav-abierta')) {
+      nav.classList.remove('nav-abierta');
+      toggle.innerHTML = '&#9776;';
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  }, { passive: true });
 });
