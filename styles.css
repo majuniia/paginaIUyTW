@@ -295,6 +295,42 @@ footer a:hover {
   margin-bottom: 32px;
   text-align: center;
 }
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+.amenity-item {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+  text-align: center;
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+.amenity-item:hover {
+  transform: translateY(-4px);
+}
+.amenity-icono {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.amenity-icono i {
+  font-size: 1.8rem;
+  color: #2E75B6;
+  opacity: 0.85;
+}
+.amenity-item h3 {
+  color: #003366;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
 /* AMENITY BADGE Y HINT */
 .amenity-badge {
   display: inline-flex;
@@ -309,7 +345,6 @@ footer a:hover {
   margin-top: 10px;
   letter-spacing: 0.03em;
 }
-
 .amenity-hint {
   display: none;
 }
