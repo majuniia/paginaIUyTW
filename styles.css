@@ -911,9 +911,12 @@ p, li {
 
 @media (max-width: 768px) {
   header {
-    flex-wrap: wrap;
-    padding: 12px 16px;
-    gap: 0;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    gap: 8px;
   }
   .logo {
     flex: 1;
@@ -921,8 +924,14 @@ p, li {
   }
   .menu-toggle {
     display: flex;
+    order: 2;
+    margin-right: 6px;
   }
-  /* Nav oculta por defecto en móvil */
+  .header-login-btn {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    order: 3;
+  }
   nav {
     display: none;
     flex-direction: column;
@@ -942,12 +951,6 @@ p, li {
   }
   nav a:last-child {
     border-bottom: none;
-  }
-  /* Botón login al lado del hamburguesa */
-  .header-login-btn {
-    font-size: 0.8rem;
-    padding: 6px 12px;
-    margin-right: 8px;
   }
 }
 
