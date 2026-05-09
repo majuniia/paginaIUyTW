@@ -343,10 +343,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, { passive: true });
 
-  <script>
-document.querySelectorAll('.contacto-pill').forEach(pill => {
-  pill.addEventListener('click', () => pill.classList.toggle('sel'));
-});
-</script>
-                          
+  // Pills del formulario de contacto
+  document.querySelectorAll('.contacto-pill').forEach(pill => {
+    pill.addEventListener('click', () => pill.classList.toggle('sel'));
+  });
+
 });
