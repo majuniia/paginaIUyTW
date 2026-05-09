@@ -365,7 +365,7 @@
       <p class="contacto-direccion">Country Los Alamos · Rubén A. Martí s/n · Villa Ciudad de América · Córdoba, Argentina</p>
     </div>
  
-    <!-- COLUMNA DERECHA: formulario -->
+        <!-- COLUMNA DERECHA: formulario -->
     <div class="contacto-form">
       <p class="contacto-eyebrow">Contacto</p>
       <h2 class="contacto-titulo">Escribinos</h2>
@@ -374,40 +374,39 @@
       <div class="contacto-field-row">
         <div class="contacto-field">
           <label>Nombre y apellido</label>
-          <input type="text" placeholder="Juan García" autocomplete="name">
+          <input type="text" id="contacto-nombre" placeholder="Juan García" autocomplete="name">
         </div>
         <div class="contacto-field">
           <label>Email</label>
-          <input type="email" placeholder="juan@email.com" autocomplete="email">
+          <input type="email" id="contacto-email" placeholder="juan@email.com" autocomplete="email">
         </div>
       </div>
  
       <div class="contacto-field">
         <label>Teléfono / WhatsApp</label>
-        <input type="tel" placeholder="+54 9 11 0000 0000" autocomplete="tel">
+        <input type="tel" id="contacto-tel" placeholder="+54 9 11 0000 0000" autocomplete="tel">
       </div>
  
       <div class="contacto-field">
         <label>Mensaje</label>
-        <textarea placeholder="¿En qué podemos ayudarte?"></textarea>
+        <textarea id="contacto-mensaje" placeholder="¿En qué podemos ayudarte?"></textarea>
       </div>
  
       <p class="contacto-checks-label">Motivo de contacto</p>
-      <div class="contacto-checks">
-        <label class="contacto-pill"><input type="checkbox"><span>Información general</span></label>
-        <label class="contacto-pill"><input type="checkbox"><span>Reservas</span></label>
-        <label class="contacto-pill"><input type="checkbox"><span>Expensas</span></label>
-        <label class="contacto-pill"><input type="checkbox"><span>Seguridad</span></label>
-        <label class="contacto-pill"><input type="checkbox"><span>Mantenimiento</span></label>
-        <label class="contacto-pill"><input type="checkbox"><span>Otros</span></label>
+      <div class="contacto-checks" id="contacto-motivos">
+        <label class="contacto-pill"><input type="checkbox" value="Información general"><span>Información general</span></label>
+        <label class="contacto-pill"><input type="checkbox" value="Reservas"><span>Reservas</span></label>
+        <label class="contacto-pill"><input type="checkbox" value="Expensas"><span>Expensas</span></label>
+        <label class="contacto-pill"><input type="checkbox" value="Seguridad"><span>Seguridad</span></label>
+        <label class="contacto-pill"><input type="checkbox" value="Mantenimiento"><span>Mantenimiento</span></label>
+        <label class="contacto-pill"><input type="checkbox" value="Otros"><span>Otros</span></label>
       </div>
  
-      <button class="contacto-btn" type="button">
-        <i class="fa-solid fa-paper-plane" style="margin-right:8px;"></i>Enviar mensaje
+      <button class="contacto-btn" id="contacto-submit" type="button">
+        <i class="fa-solid fa-paper-plane"></i>Enviar mensaje
       </button>
+      <div id="contacto-mensaje-estado"></div>
     </div>
- 
-  </div>
 </section>
 
   <!-- MODALES (sin cambios) -->
