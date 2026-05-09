@@ -951,28 +951,6 @@ p, li {
   }
 }
 
-/* ————————————————————————————
-   2. NAV SECUNDARIA — scroll horizontal en móvil
-   ———————————————————————————— */
-@media (max-width: 768px) {
-  .nav-secundaria {
-    justify-content: flex-start;
-    gap: 0;
-    padding: 0;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-  .nav-secundaria::-webkit-scrollbar {
-    display: none;
-  }
-  .nav-secundaria a {
-    flex-shrink: 0;
-    padding: 14px 16px;
-    font-size: 0.85rem;
-    white-space: nowrap;
-  }
-}
 
 /* ————————————————————————————
    3. HERO SLIDER — imagen y overlay móvil
@@ -1237,21 +1215,6 @@ p, li {
   }
 }
 
-/* — FIX: menú móvil compacto y que no tape la página — */
-@media (max-width: 768px) {
-  .nav-secundaria.nav-abierta {
-    position: fixed;
-    top: 57px;
-    left: 0;
-    width: 100%;
-    z-index: 999;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-  }
-  .nav-secundaria a {
-    padding: 11px 20px;
-    font-size: 0.9rem;
-  }
-}
 
 /* CARD BLOQUEADA CON OVERLAY */
 .card-bloqueada {
@@ -2144,5 +2107,36 @@ footer {
 @media (max-width: 420px) {
   :root {
     --text-hero: 2.25rem;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .nav-secundaria {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 57px;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background: #ffffff;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    padding: 4px 0;
+    gap: 0;
+    overflow-x: unset;
+  }
+  .nav-secundaria.nav-abierta {
+    display: flex;
+  }
+  .nav-secundaria a {
+    padding: 13px 20px;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(0,51,102,0.07);
+    flex-shrink: unset;
+    white-space: nowrap;
+  }
+  .nav-secundaria a:last-child {
+    border-bottom: none;
   }
 }
