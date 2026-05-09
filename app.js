@@ -283,6 +283,16 @@ function configurarEventos() {
       document.body.style.overflow = '';
     }
   });
+
+  // Galería acordeón
+const galeriaToggle = document.getElementById('galeria-toggle');
+const galeriaContenido = document.getElementById('galeria-contenido');
+if (galeriaToggle && galeriaContenido) {
+  galeriaToggle.addEventListener('click', () => {
+    const abierto = galeriaContenido.classList.toggle('abierto');
+    galeriaToggle.setAttribute('aria-expanded', String(abierto));
+  });
+}
 }
 
 function configurarAnimacionesScroll() {
