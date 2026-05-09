@@ -2181,7 +2181,7 @@ footer {
 }
 .contacto-info {
   padding: 60px 48px;
-  background: #f5f7fb;
+  background: #e8eef7;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -2189,7 +2189,7 @@ footer {
 }
 .contacto-form {
   padding: 60px 48px;
-  background: #e8eef7;
+  background: #d8e2f0;
 }
 .contacto-eyebrow {
   font-size: 11px;
