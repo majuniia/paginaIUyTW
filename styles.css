@@ -690,13 +690,14 @@ footer a:hover {
 /* GALERÍA */
 /* GALERÍA ACORDEÓN */
 .galeria {
-  background: #f0f7f0;
+  background: #e8f0e8;
 }
 .galeria-toggle {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 12px;
   padding: 24px 48px;
   background: none;
   border: none;
