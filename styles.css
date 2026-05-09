@@ -2144,3 +2144,28 @@ footer {
     border-bottom: none;
   }
 }
+
+/* FIX: slider ocupa todo el ancho sin recuadro */
+.hero {
+  padding: 0;
+  min-height: unset;
+  align-items: stretch;
+}
+
+.slider {
+  max-width: 100%;
+  width: 100%;
+}
+
+.slide {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.slide img {
+  height: 65vh;
+  min-height: 320px;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 0;
+}
