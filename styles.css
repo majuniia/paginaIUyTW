@@ -653,15 +653,42 @@ footer a:hover {
 }
 
 /* GALERÍA */
+/* GALERÍA ACORDEÓN */
 .galeria {
-  padding: 60px 24px;
   background: #f0f7f0;
 }
-.galeria h2 {
-  color: #003366;
+.galeria-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 48px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1.8rem;
-  text-align: center;
-  margin-bottom: 32px;
+  font-weight: 600;
+  color: #003366;
+  transition: color 0.2s ease;
+}
+.galeria-toggle:hover {
+  color: #2E75B6;
+}
+.galeria-chevron {
+  font-size: 1.2rem;
+  transition: transform 0.4s ease;
+}
+.galeria-toggle[aria-expanded="true"] .galeria-chevron {
+  transform: rotate(180deg);
+}
+.galeria-contenido {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+.galeria-contenido.abierto {
+  max-height: 2000px;
 }
 .galeria-grid {
   max-width: 1180px;
@@ -669,6 +696,7 @@ footer a:hover {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 16px;
+  padding: 0 48px 48px;
 }
 .galeria-grid img {
   width: 100%;
@@ -681,6 +709,20 @@ footer a:hover {
 .galeria-grid img:hover {
   transform: scale(1.03);
   box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+@media (max-width: 768px) {
+  .galeria-toggle {
+    padding: 20px 24px;
+    font-size: 1.4rem;
+  }
+  .galeria-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 0 16px 32px;
+  }
+  .galeria-grid img {
+    height: 160px;
+  }
 }
 
 /* BOTONES FLOTANTES */
