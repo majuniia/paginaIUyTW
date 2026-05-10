@@ -167,10 +167,9 @@ function desbloquearCards() {
   document.querySelectorAll('.card-overlay').forEach((overlay) => {
     overlay.style.display = 'none';
   });
-  document.querySelectorAll('.card-contenido-blur').forEach((contenido) => {
-    contenido.style.filter = 'none';
-    contenido.style.opacity = '1';
-  });
+ document.querySelectorAll('.card-contenido-blur').forEach((contenido) => {
+  contenido.style.display = 'none';
+});
   document.getElementById('card-reservas-logueado')?.classList.remove('is-hidden');
 
   document.getElementById('card-seguridad-logueado')?.classList.remove('is-hidden');
@@ -187,12 +186,12 @@ function bloquearCards() {
   document.querySelectorAll('.card-overlay').forEach((overlay) => {
     overlay.style.display = 'flex';
   });
-  document.querySelectorAll('.card-contenido-blur').forEach((contenido) => {
-    contenido.style.filter = 'blur(3px)';
-    contenido.style.opacity = '0.5';
-  });
+ document.querySelectorAll('.card-contenido-blur').forEach((contenido) => {
+  contenido.style.display = '';
+  contenido.style.filter = 'blur(3px)';
+  contenido.style.opacity = '0.5';
+});
   document.getElementById('card-reservas-logueado')?.classList.add('is-hidden');
-
   document.getElementById('card-seguridad-logueado')?.classList.add('is-hidden');
 }
 
