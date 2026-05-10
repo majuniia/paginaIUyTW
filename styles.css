@@ -2522,6 +2522,57 @@ footer {
   overflow: hidden;
   margin-bottom: 18px;
 }
+/* Tarjeta de visita autorizada */
+.visita-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: #f9fafb;
+  border: 0.5px solid #dce3ee;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.visita-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #e8eef7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #003366;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.visita-info {
+  flex: 1;
+}
+
+.visita-nombre {
+  font-size: 13px;
+  font-weight: 500;
+  color: #0D1B2A;
+  margin: 0 0 2px;
+}
+
+.visita-detalle {
+  font-size: 11px;
+  color: #9CA3AF;
+  margin: 0;
+}
+
+.visita-badge {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 20px;
+  background: #e6f4ea;
+  color: #1b5e20;
+}
 .seg-tab {
   flex: 1;
   padding: 9px 4px;
