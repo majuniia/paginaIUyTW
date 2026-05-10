@@ -2293,7 +2293,6 @@ footer {
 }
 
 
-<style>
 .contacto-section {
   padding: 0;
 }
@@ -2515,7 +2514,6 @@ footer {
     grid-template-columns: 1fr;
   }
 }
-</style>
 
 .seg-tabs {
   display: flex;
@@ -2540,4 +2538,5 @@ footer {
 .seg-tab.active {
   background: #003366;
   color: white;
+}
 }
