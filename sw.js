@@ -1,14 +1,17 @@
-const CACHE_NAME = 'country-app-v6';
+const CACHE_NAME = 'country-app-v7';
+const BASE = 'https://majuniia.github.io/paginaIUyTW';
 
 const ASSETS = [
-  'https://seqqueiralourdes.github.io/paginaIUyTW/',
-  'https://seqqueiralourdes.github.io/paginaIUyTW/index.html',
-  'https://seqqueiralourdes.github.io/paginaIUyTW/styles.css',
-  'https://seqqueiralourdes.github.io/paginaIUyTW/app.js',
-  'https://seqqueiralourdes.github.io/paginaIUyTW/manifest.json',
-  'https://seqqueiralourdes.github.io/paginaIUyTW/icons/icon-192.png',
-  'https://seqqueiralourdes.github.io/paginaIUyTW/icons/icon-512.png',
-  'https://seqqueiralourdes.github.io/paginaIUyTW/reglamento-completo.pdf'
+  BASE + '/',
+  BASE + '/index.html',
+  BASE + '/styles.css',
+  BASE + '/app.js',
+  BASE + '/auth.js',
+  BASE + '/form-handler.js',
+  BASE + '/manifest.json',
+  BASE + '/icons/icon-192.png',
+  BASE + '/icons/icon-512.png',
+  BASE + '/reglamento-completo.pdf'
 ];
 
 self.addEventListener('install', event => {
@@ -41,7 +44,7 @@ self.addEventListener('fetch', event => {
       })
       .catch(() => {
         return caches.match(event.request)
-          .then(response => response || caches.match('https://seqqueiralourdes.github.io/paginaIUyTW/index.html'));
+          .then(response => response || caches.match(BASE + '/index.html'));
       })
   );
 });
