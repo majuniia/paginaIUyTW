@@ -9,6 +9,7 @@
 // ---------------------------------------------------
 const FORM_CONTACTO_URL = 'https://formspree.io/f/xzdokrky';   // ← endpoint de Contacto
 const FORM_RESERVAS_URL = 'https://formspree.io/f/xeenpgpn'; // ← endpoint de Reservas
+const FORM_SEGURIDAD_URL = 'https://formspree.io/f/mnjwoegb'; // ← endpoint Seguridad
 
 // Clave que usamos para guardar los formularios pendientes en localStorage
 const STORAGE_KEY = 'country_pending_forms';
@@ -288,6 +289,36 @@ function configurarManejadores() {
       }
     });
   }
+
+    /**
+ * Obtiene los datos del formulario de seguridad (valida que estén completos).
+ * @returns {Object} Datos de la autorización
+ * @throws {Error} Si falta nombre, horario o cantidad de personas
+ */
+function obtenerDatosSeguridad() {
+  const nombre = document.getElementById('seg-nombre')?.value.trim();
+  const horario = document.getElementById('seg-horario')?.value;
+  const personas = document.getElementById('seg-personas')?.value;
+
+  if (!nombre || !horario || !personas) {
+    throw new Error('Completá todos los campos.');
+  }
+
+  // Obtenemos el nombre del usuario logueado (si hay sesión iniciada)
+  let nombreUsuario = 'Invitado';
+  if (typeof Auth !== 'undefined' && Auth.estaLogueado()) {
+    const usuario = Auth.obtenerUsuario();
+    if (usuario) nombreUsuario = usuario.nombre;
+  }
+
+  return {
+    name: nombreUsuario,
+    email: 'seguridad@losalamos.com',  // email genérico identificatorio
+    visitante: nombre,
+    horario: horario,
+    personas: personas
+  };
+}
 
   // ─── Evento: cuando el dispositivo recupera la conexión ────
   window.addEventListener('online', () => {
