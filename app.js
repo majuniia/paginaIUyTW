@@ -27,7 +27,6 @@ let lightboxIndex = 0;
 function showSlide(index) {
   const slides = document.querySelectorAll('.slide');
   if (!slides.length) return;
-
   slides[currentSlide].classList.remove('active');
   currentSlide = (index + slides.length) % slides.length;
   slides[currentSlide].classList.add('active');
@@ -36,7 +35,6 @@ function showSlide(index) {
 function abrirModal(id) {
   const modal = document.getElementById('modal-' + id);
   if (!modal) return;
-
   modal.classList.add('activo');
   document.body.style.overflow = 'hidden';
 }
@@ -44,7 +42,6 @@ function abrirModal(id) {
 function cerrarModal(id) {
   const modal = document.getElementById('modal-' + id);
   if (!modal) return;
-
   modal.classList.remove('activo');
   document.body.style.overflow = '';
 }
@@ -54,7 +51,6 @@ function abrirLightbox(imagenes, index) {
   const image = document.getElementById('lightbox-img');
   const counter = document.getElementById('lightbox-contador');
   if (!lightbox || !image || !counter) return;
-
   lightboxImagenes = imagenes;
   lightboxIndex = index;
   image.src = imagenes[index];
@@ -68,7 +64,6 @@ function cerrarLightbox() {
 
 function cambiarLightbox(direccion) {
   if (!lightboxImagenes.length) return;
-
   lightboxIndex = (lightboxIndex + direccion + lightboxImagenes.length) % lightboxImagenes.length;
   document.getElementById('lightbox-img').src = lightboxImagenes[lightboxIndex];
   document.getElementById('lightbox-contador').textContent = (lightboxIndex + 1) + ' / ' + lightboxImagenes.length;
@@ -107,7 +102,6 @@ function toggleLogin() {
     cerrarSesion();
     return;
   }
-
   document.getElementById('login-overlay')?.classList.add('activo');
 }
 
@@ -167,11 +161,10 @@ function desbloquearCards() {
   document.querySelectorAll('.card-overlay').forEach((overlay) => {
     overlay.style.display = 'none';
   });
- document.querySelectorAll('.card-contenido-blur').forEach((contenido) => {
-  contenido.style.display = 'none';
-});
+  document.querySelectorAll('.card-contenido-blur').forEach((contenido) => {
+    contenido.style.display = 'none';
+  });
   document.getElementById('card-reservas-logueado')?.classList.remove('is-hidden');
-
   document.getElementById('card-seguridad-logueado')?.classList.remove('is-hidden');
 }
 
@@ -186,11 +179,11 @@ function bloquearCards() {
   document.querySelectorAll('.card-overlay').forEach((overlay) => {
     overlay.style.display = 'flex';
   });
- document.querySelectorAll('.card-contenido-blur').forEach((contenido) => {
-  contenido.style.display = '';
-  contenido.style.filter = 'blur(3px)';
-  contenido.style.opacity = '0.5';
-});
+  document.querySelectorAll('.card-contenido-blur').forEach((contenido) => {
+    contenido.style.display = '';
+    contenido.style.filter = 'blur(3px)';
+    contenido.style.opacity = '0.5';
+  });
   document.getElementById('card-reservas-logueado')?.classList.add('is-hidden');
   document.getElementById('card-seguridad-logueado')?.classList.add('is-hidden');
 }
@@ -272,13 +265,11 @@ function configurarEventos() {
     if (event.key === 'Enter' && document.getElementById('login-overlay')?.classList.contains('activo')) {
       iniciarSesion();
     }
-
     if (document.getElementById('lightbox')?.classList.contains('activo')) {
       if (event.key === 'ArrowRight') cambiarLightbox(1);
       if (event.key === 'ArrowLeft') cambiarLightbox(-1);
       if (event.key === 'Escape') cerrarLightbox();
     }
-
     if (event.key === 'Escape') {
       document.querySelectorAll('.modal-overlay.activo').forEach((modal) => {
         modal.classList.remove('activo');
@@ -288,94 +279,69 @@ function configurarEventos() {
   });
 
   // Galería acordeón
-const galeriaToggle = document.getElementById('galeria-toggle');
-const galeriaContenido = document.getElementById('galeria-contenido');
-if (galeriaToggle && galeriaContenido) {
-  galeriaToggle.addEventListener('click', () => {
-    const abierto = galeriaContenido.classList.toggle('abierto');
-    galeriaToggle.setAttribute('aria-expanded', String(abierto));
-  });
-}
-
-// Tabs del modal de seguridad
-document.querySelectorAll('.seg-tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.seg-tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.seg-panel').forEach(p => p.classList.add('is-hidden'));
-    tab.classList.add('active');
-    document.getElementById('seg-panel-' + tab.dataset.tab).classList.remove('is-hidden');
-  });
-});
-
-// Confirmar visita en seguridad
-document.getElementById('seg-submit')?.addEventListener('click', () => {
-  const nombre = document.getElementById('seg-nombre').value.trim();
-  const horario = document.getElementById('seg-horario').value;
-  const personas = document.getElementById('seg-personas').value;
-  const mensaje = document.getElementById('seg-mensaje');
-
-  mensaje.classList.remove('is-hidden', 'reserva-error', 'reserva-exito');
-  mensaje.style.display = '';
-
-  if (!nombre || !horario || !personas) {
-    mensaje.classList.add('reserva-error');
-    mensaje.textContent = 'Completá todos los campos.';
-    mensaje.style.display = 'block';
-    return;
+  const galeriaToggle = document.getElementById('galeria-toggle');
+  const galeriaContenido = document.getElementById('galeria-contenido');
+  if (galeriaToggle && galeriaContenido) {
+    galeriaToggle.addEventListener('click', () => {
+      const abierto = galeriaContenido.classList.toggle('abierto');
+      galeriaToggle.setAttribute('aria-expanded', String(abierto));
+    });
   }
 
-  const lista = document.getElementById('seg-visita-lista');
-  if (lista.querySelector('p')) lista.innerHTML = '';
-  const initials = nombre.split(' ').map(n => n[0]).join('').substring(0,2).toUpperCase();
-  const item = document.createElement('div');
-  item.style.cssText = 'display:flex;align-items:center;gap:10px;padding:10px 12px;background:#f9fafb;border:0.5px solid #dce3ee;border-radius:8px;margin-bottom:8px;';
-  item.innerHTML = `
-    <div style="width:32px;height:32px;border-radius:50%;background:#e8eef7;display:flex;align-items:center;justify-content:center;color:#003366;font-size:12px;font-weight:700;flex-shrink:0;">${initials}</div>
-    <div style="flex:1;">
-      <p style="font-size:13px;font-weight:500;color:#0D1B2A;margin:0 0 2px;">${nombre}</p>
-      <p style="font-size:11px;color:#9CA3AF;margin:0;">Hoy · ${horario} · ${personas} persona${personas > 1 ? 's' : ''}</p>
-    </div>
-    <span style="font-size:10px;font-weight:600;padding:3px 8px;border-radius:20px;background:#e6f4ea;color:#1b5e20;">Confirmada</span>`;
-  lista.prepend(item);
+  // Tabs del modal de seguridad
+  document.querySelectorAll('.seg-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.seg-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.seg-panel').forEach(p => p.classList.add('is-hidden'));
+      tab.classList.add('active');
+      document.getElementById('seg-panel-' + tab.dataset.tab).classList.remove('is-hidden');
+    });
+  });
 
-  mensaje.classList.add('reserva-exito');
-  mensaje.innerHTML = '<i class="fa-solid fa-check-circle"></i> ¡Visita autorizada! Seguridad fue notificado.';
-  mensaje.style.display = 'block';
+  // Confirmar visita en seguridad
+  document.getElementById('seg-submit')?.addEventListener('click', () => {
+    const nombre = document.getElementById('seg-nombre').value.trim();
+    const horario = document.getElementById('seg-horario').value;
+    const personas = document.getElementById('seg-personas').value;
+    const mensaje = document.getElementById('seg-mensaje');
 
-  document.getElementById('seg-nombre').value = '';
-  document.getElementById('seg-horario').value = '';
-  document.getElementById('seg-personas').value = '';
-
-  setTimeout(() => {
-    mensaje.classList.add('is-hidden');
+    mensaje.classList.remove('is-hidden', 'reserva-error', 'reserva-exito');
     mensaje.style.display = '';
-  }, 4000);
-});
 
-  // Agregar a la lista
-  const lista = document.getElementById('seg-visita-lista');
-  lista.innerHTML = lista.querySelector('p') ? '' : lista.innerHTML;
-  const initials = nombre.split(' ').map(n => n[0]).join('').substring(0,2).toUpperCase();
-  const item = document.createElement('div');
-  item.style.cssText = 'display:flex;align-items:center;gap:10px;padding:10px 12px;background:#f9fafb;border:0.5px solid #dce3ee;border-radius:8px;margin-bottom:8px;';
-  item.innerHTML = `
-    <div style="width:32px;height:32px;border-radius:50%;background:#e8eef7;display:flex;align-items:center;justify-content:center;color:#003366;font-size:12px;font-weight:700;flex-shrink:0;">${initials}</div>
-    <div style="flex:1;">
-      <p style="font-size:13px;font-weight:500;color:#0D1B2A;margin:0 0 2px;">${nombre}</p>
-      <p style="font-size:11px;color:#9CA3AF;margin:0;">Hoy · ${horario} · ${personas} persona${personas > 1 ? 's' : ''}</p>
-    </div>
-    <span style="font-size:10px;font-weight:600;padding:3px 8px;border-radius:20px;background:#e6f4ea;color:#1b5e20;">Confirmada</span>`;
-  lista.prepend(item);
+    if (!nombre || !horario || !personas) {
+      mensaje.classList.add('reserva-error');
+      mensaje.textContent = 'Completá todos los campos.';
+      mensaje.style.display = 'block';
+      return;
+    }
 
-  mensaje.classList.add('reserva-exito');
-  mensaje.innerHTML = '<i class="fa-solid fa-check-circle"></i> ¡Visita autorizada! Seguridad fue notificado.';
+    const lista = document.getElementById('seg-visita-lista');
+    if (lista.querySelector('p')) lista.innerHTML = '';
+    const initials = nombre.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+    const item = document.createElement('div');
+    item.style.cssText = 'display:flex;align-items:center;gap:10px;padding:10px 12px;background:#f9fafb;border:0.5px solid #dce3ee;border-radius:8px;margin-bottom:8px;';
+    item.innerHTML = `
+      <div style="width:32px;height:32px;border-radius:50%;background:#e8eef7;display:flex;align-items:center;justify-content:center;color:#003366;font-size:12px;font-weight:700;flex-shrink:0;">${initials}</div>
+      <div style="flex:1;">
+        <p style="font-size:13px;font-weight:500;color:#0D1B2A;margin:0 0 2px;">${nombre}</p>
+        <p style="font-size:11px;color:#9CA3AF;margin:0;">Hoy · ${horario} · ${personas} persona${personas > 1 ? 's' : ''}</p>
+      </div>
+      <span style="font-size:10px;font-weight:600;padding:3px 8px;border-radius:20px;background:#e6f4ea;color:#1b5e20;">Confirmada</span>`;
+    lista.prepend(item);
 
-  document.getElementById('seg-nombre').value = '';
-  document.getElementById('seg-horario').value = '';
-  document.getElementById('seg-personas').value = '';
+    mensaje.classList.add('reserva-exito');
+    mensaje.innerHTML = '<i class="fa-solid fa-check-circle"></i> ¡Visita autorizada! Seguridad fue notificado.';
+    mensaje.style.display = 'block';
 
-  setTimeout(() => mensaje.classList.add('is-hidden'), 4000);
-});  
+    document.getElementById('seg-nombre').value = '';
+    document.getElementById('seg-horario').value = '';
+    document.getElementById('seg-personas').value = '';
+
+    setTimeout(() => {
+      mensaje.classList.add('is-hidden');
+      mensaje.style.display = '';
+    }, 4000);
+  });
 }
 
 function configurarAnimacionesScroll() {
@@ -405,7 +371,6 @@ function configurarAnimacionesScroll() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
-
       entry.target.classList.add('is-visible');
       observer.unobserve(entry.target);
     });
@@ -440,5 +405,4 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.contacto-pill').forEach(pill => {
     pill.addEventListener('click', () => pill.classList.toggle('sel'));
   });
-
 });
