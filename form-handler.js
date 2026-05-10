@@ -8,7 +8,7 @@
 // 1. CONFIGURACIÓN: Endpoints de Formspree
 // ---------------------------------------------------
 const FORM_CONTACTO_URL = 'https://formspree.io/f/xzdokrky';   // ← endpoint de Contacto
-const FORM_RESERVAS_URL = 'https://formspree.io/f/tu-id-reservas'; // ← endpoint de Reservas
+const FORM_RESERVAS_URL = 'https://formspree.io/f/xeenpgpn'; // ← endpoint de Reservas
 
 // Clave que usamos para guardar los formularios pendientes en localStorage
 const STORAGE_KEY = 'country_pending_forms';
