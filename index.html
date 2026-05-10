@@ -650,6 +650,22 @@
     </div>
   </div>
 </div>
+
+  <!-- Carga el módulo de autenticación (login de residentes).
+     Se carga con defer para que no bloquee el renderizado de la página,
+     pero se ejecuta en orden antes de app.js -->
+<script src="auth.js" defer></script>
+
+<!-- Carga la lógica principal de la interfaz:
+     slider, modales, galería, lightbox, animaciones, etc.
+     Depende de auth.js para el login. -->
+<script src="app.js" defer></script>
+
+<!-- Maneja el envío de los formularios de Contacto y Reservas
+     a Formspree, con soporte offline.
+     Usa Auth (de auth.js) para obtener el nombre del usuario en Reservas.
+     Se carga después de app.js para no interferir con sus listeners. -->
+<script src="form-handler.js" defer></script>
   
 </body>
 </html>
