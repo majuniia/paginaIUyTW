@@ -4,7 +4,6 @@
 // usando Formspree.io
 // ═══════════════════════════════════════════
 
-// ⚠️ REEMPLAZÁ ESTAS DOS URLs con las que te da Formspree
 const FORM_CONTACTO_URL = 'https://formspree.io/f/xzdokrky';
 const FORM_RESERVAS_URL = 'https://formspree.io/f/xeenpgpn';
 
