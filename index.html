@@ -133,9 +133,9 @@
   </div>
   <div class="card-seguridad-logueado is-hidden" id="card-seguridad-logueado">
     <p class="card-reservas-subtitle">Accesos y visitas</p>
-    <button class="card-btn-reservar" type="button">
-      <i class="fa-solid fa-user-check"></i> Autorizar visita
-    </button>
+   <button class="card-btn-reservar" type="button" data-modal-target="seguridad">
+  <i class="fa-solid fa-user-check"></i> Autorizar visita
+</button>
   </div>
 </div>
   </section>
@@ -654,6 +654,68 @@
   </div>
 </div>
 
+<!-- MODAL SEGURIDAD -->
+<div id="modal-seguridad" class="modal-overlay">
+  <div class="modal-contenido modal-contenido-reservas">
+    <button class="modal-cerrar" type="button" data-close-modal="seguridad">✕</button>
+    <h2><i class="fa-solid fa-shield-halved"></i> Seguridad</h2>
+    <p class="modal-intro">Gestión de accesos y visitas del barrio.</p>
+
+    <div class="seg-tabs">
+      <button class="seg-tab active" data-tab="autorizar">Autorizar visita</button>
+      <button class="seg-tab" data-tab="lista">Visitas autorizadas</button>
+      <button class="seg-tab" data-tab="llamar">Llamar a seguridad</button>
+    </div>
+
+    <!-- Autorizar -->
+    <div class="seg-panel active" id="seg-panel-autorizar">
+      <div class="reserva-campo">
+        <label>Nombre del visitante</label>
+        <input type="text" id="seg-nombre" placeholder="Ej: María González">
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+        <div class="reserva-campo">
+          <label>Hora de ingreso</label>
+          <select id="seg-horario">
+            <option value="">Seleccioná</option>
+            <option>08:00</option><option>09:00</option><option>10:00</option>
+            <option>11:00</option><option>12:00</option><option>13:00</option>
+            <option>14:00</option><option>15:00</option><option>16:00</option>
+            <option>17:00</option><option>18:00</option><option>19:00</option>
+            <option>20:00</option><option>21:00</option><option>22:00</option>
+          </select>
+        </div>
+        <div class="reserva-campo">
+          <label>Cantidad de personas</label>
+          <input type="number" id="seg-personas" min="1" max="20" placeholder="Ej: 3">
+        </div>
+      </div>
+      <div id="seg-mensaje" class="reserva-mensaje is-hidden"></div>
+      <button class="reserva-btn" id="seg-submit" type="button">
+        <i class="fa-solid fa-check"></i> Confirmar autorización
+      </button>
+    </div>
+
+    <!-- Lista -->
+    <div class="seg-panel is-hidden" id="seg-panel-lista">
+      <div class="visita-lista" id="seg-visita-lista">
+        <p style="font-size:13px; color:#9CA3AF; text-align:center; padding:20px 0;">No hay visitas autorizadas aún.</p>
+      </div>
+    </div>
+
+    <!-- Llamar -->
+    <div class="seg-panel is-hidden" id="seg-panel-llamar">
+      <div style="background:#fef2f2; border:0.5px solid #fca5a5; border-radius:10px; padding:20px; text-align:center;">
+        <p style="font-size:13px; color:#7f1d1d; margin-bottom:14px; line-height:1.6;">En caso de emergencia o consulta urgente, contactá directamente al puesto de seguridad.</p>
+        <a href="tel:+541167367021" class="reserva-btn" style="display:flex; align-items:center; justify-content:center; gap:8px; background:#c0392b; text-decoration:none;">
+          <i class="fa-solid fa-phone"></i> Llamar a seguridad ahora
+        </a>
+      </div>
+      <p style="font-size:12px; color:#9CA3AF; text-align:center; margin-top:16px; line-height:1.6;">Guardia activa las 24hs · Puesto de acceso principal</p>
+    </div>
+  </div>
+</div>
+  
   <!-- Carga el módulo de autenticación (login de residentes).
      Se carga con defer para que no bloquee el renderizado de la página,
      pero se ejecuta en orden antes de app.js -->
