@@ -316,12 +316,42 @@ document.getElementById('seg-submit')?.addEventListener('click', () => {
   const mensaje = document.getElementById('seg-mensaje');
 
   mensaje.classList.remove('is-hidden', 'reserva-error', 'reserva-exito');
+  mensaje.style.display = '';
 
   if (!nombre || !horario || !personas) {
     mensaje.classList.add('reserva-error');
     mensaje.textContent = 'Completá todos los campos.';
+    mensaje.style.display = 'block';
     return;
   }
+
+  const lista = document.getElementById('seg-visita-lista');
+  if (lista.querySelector('p')) lista.innerHTML = '';
+  const initials = nombre.split(' ').map(n => n[0]).join('').substring(0,2).toUpperCase();
+  const item = document.createElement('div');
+  item.style.cssText = 'display:flex;align-items:center;gap:10px;padding:10px 12px;background:#f9fafb;border:0.5px solid #dce3ee;border-radius:8px;margin-bottom:8px;';
+  item.innerHTML = `
+    <div style="width:32px;height:32px;border-radius:50%;background:#e8eef7;display:flex;align-items:center;justify-content:center;color:#003366;font-size:12px;font-weight:700;flex-shrink:0;">${initials}</div>
+    <div style="flex:1;">
+      <p style="font-size:13px;font-weight:500;color:#0D1B2A;margin:0 0 2px;">${nombre}</p>
+      <p style="font-size:11px;color:#9CA3AF;margin:0;">Hoy · ${horario} · ${personas} persona${personas > 1 ? 's' : ''}</p>
+    </div>
+    <span style="font-size:10px;font-weight:600;padding:3px 8px;border-radius:20px;background:#e6f4ea;color:#1b5e20;">Confirmada</span>`;
+  lista.prepend(item);
+
+  mensaje.classList.add('reserva-exito');
+  mensaje.innerHTML = '<i class="fa-solid fa-check-circle"></i> ¡Visita autorizada! Seguridad fue notificado.';
+  mensaje.style.display = 'block';
+
+  document.getElementById('seg-nombre').value = '';
+  document.getElementById('seg-horario').value = '';
+  document.getElementById('seg-personas').value = '';
+
+  setTimeout(() => {
+    mensaje.classList.add('is-hidden');
+    mensaje.style.display = '';
+  }, 4000);
+});
 
   // Agregar a la lista
   const lista = document.getElementById('seg-visita-lista');
