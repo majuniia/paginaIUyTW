@@ -172,6 +172,8 @@ function desbloquearCards() {
     contenido.style.opacity = '1';
   });
   document.getElementById('card-reservas-logueado')?.classList.remove('is-hidden');
+
+  document.getElementById('card-seguridad-logueado')?.classList.remove('is-hidden');
 }
 
 function bloquearCards() {
@@ -190,6 +192,8 @@ function bloquearCards() {
     contenido.style.opacity = '0.5';
   });
   document.getElementById('card-reservas-logueado')?.classList.add('is-hidden');
+
+  document.getElementById('card-seguridad-logueado')?.classList.add('is-hidden');
 }
 
 function configurarEventos() {
