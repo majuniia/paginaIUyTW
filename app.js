@@ -162,7 +162,10 @@ function desbloquearCards() {
     overlay.style.display = 'none';
   });
   document.querySelectorAll('.card-contenido-blur').forEach((contenido) => {
-    contenido.style.display = 'none';
+    contenido.style.display = '';
+    contenido.style.filter = 'none';
+    contenido.style.opacity = '1';
+    contenido.style.pointerEvents = 'auto';
   });
   document.getElementById('card-reservas-logueado')?.classList.remove('is-hidden');
   document.getElementById('card-seguridad-logueado')?.classList.remove('is-hidden');
