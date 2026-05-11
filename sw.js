@@ -1,4 +1,4 @@
-const CACHE_NAME = 'country-app-v7';
+const CACHE_NAME = 'country-app-v8';
 const BASE = 'https://majuniia.github.io/paginaIUyTW';
 
 const ASSETS = [
