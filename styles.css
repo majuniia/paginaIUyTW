@@ -1,3 +1,6 @@
+/* ============================
+   ESTILOS GENERALES
+   ============================ */
 body {
   margin: 0;
   font-family: 'Inter', Arial, sans-serif;
@@ -32,6 +35,10 @@ nav a {
 nav a:hover {
   color: #ffcc00;
 }
+
+/* ============================
+   HERO / SLIDER
+   ============================ */
 .hero {
   position: relative;
   overflow: hidden;
@@ -108,27 +115,25 @@ nav a:hover {
 .control:hover {
   background: rgba(0,0,0,0.7);
 }
-/* DASHBOARD */
+
+/* ============================
+   DASHBOARD / CARDS
+   ============================ */
 .dashboard {
   padding: 40px 20px;
   max-width: 1180px;
   margin: auto;
 }
-
 .section-title {
   font-size: 1.5rem;
   color: #003366;
   margin-bottom: 20px;
 }
-
-/* GRID DE CARDS */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
 }
-
-/* CARD */
 .card {
   background: white;
   border-radius: 16px;
@@ -136,14 +141,10 @@ nav a:hover {
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
-/* HOVER EFECTO APP */
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 18px 40px rgba(0,0,0,0.15);
 }
-
-/* TEXTO */
 .card h3 {
   margin-bottom: 10px;
   color: #003366;
@@ -155,8 +156,6 @@ nav a:hover {
   margin-bottom: 15px;
   color: #555;
 }
-
-/* BOTONES */
 .card button {
   border: none;
   background: #0059b3;
@@ -166,10 +165,13 @@ nav a:hover {
   cursor: pointer;
   font-size: 0.9rem;
 }
-
 .card button:hover {
   background: #003366;
 }
+
+/* ============================
+   FOOTER
+   ============================ */
 footer {
   background: #081d3d;
   color: white;
@@ -183,10 +185,18 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
+
+/* ============================
+   ANIMACIÓN FADE
+   ============================ */
 @keyframes fade {
   from { opacity: 0.2; }
   to { opacity: 1; }
 }
+
+/* ============================
+   MEDIA QUERIES INICIALES
+   ============================ */
 @media (max-width: 768px) {
   .slide .caption {
     max-width: 90%;
@@ -203,7 +213,6 @@ footer a:hover {
     gap: 10px;
   }
 }
-/* Menú responsive en celular */
 @media (max-width: 480px) {
   header {
     flex-direction: column;
@@ -220,6 +229,9 @@ footer a:hover {
   }
 }
 
+/* ============================
+   LISTAS DENTRO DE CARDS
+   ============================ */
 .card ul {
   font-weight: normal;
   font-size: 0.9rem;
@@ -228,12 +240,13 @@ footer a:hover {
   margin-bottom: 15px;
   list-style: none;
 }
-
 .card p, .card ul {
   font-weight: normal;
 }
 
-/* HISTORIA */
+/* ============================
+   SECCIÓN HISTORIA
+   ============================ */
 .historia {
   background: #f0f7f0;
   padding: 60px 24px;
@@ -254,7 +267,9 @@ footer a:hover {
   font-size: 1rem;
 }
 
-/* NÚMEROS */
+/* ============================
+   SECCIÓN NÚMEROS
+   ============================ */
 .numeros {
   background: #003366;
   padding: 50px 24px;
@@ -283,7 +298,9 @@ footer a:hover {
   margin-top: 8px;
 }
 
-/* AMENITIES */
+/* ============================
+   SECCIÓN AMENITIES
+   ============================ */
 .amenities {
   padding: 60px 24px;
   max-width: 1180px;
@@ -331,7 +348,6 @@ footer a:hover {
   margin-bottom: 8px;
   font-size: 1rem;
 }
-/* AMENITY BADGE Y HINT */
 .amenity-badge {
   display: inline-flex;
   align-items: center;
@@ -349,7 +365,7 @@ footer a:hover {
   display: none;
 }
 
-/* DESKTOP: muestra badge, oculta hint */
+/* Amenities - Desktop */
 @media (min-width: 769px) {
   .amenity-item {
     flex-direction: column;
@@ -364,7 +380,7 @@ footer a:hover {
   }
 }
 
-/* MOBILE: cambia layout a lista con flecha */
+/* Amenities - Mobile */
 @media (max-width: 768px) {
   .amenities-grid {
     grid-template-columns: 1fr;
@@ -416,7 +432,9 @@ footer a:hover {
   }
 }
 
-/* RESPONSIVE NUEVAS SECCIONES */
+/* ============================
+   RESPONSIVE SECCIONES NUEVAS
+   ============================ */
 @media (max-width: 768px) {
   .numero-valor {
     font-size: 2.2rem;
@@ -426,7 +444,9 @@ footer a:hover {
   }
 }
 
-/* MODAL */
+/* ============================
+   MODALES
+   ============================ */
 .modal-overlay {
   display: none;
   position: fixed;
@@ -495,7 +515,10 @@ footer a:hover {
   object-fit: cover;
   height: 180px;
 }
-/* NAV SECUNDARIA */
+
+/* ============================
+   NAVEGACIÓN SECUNDARIA
+   ============================ */
 .nav-secundaria {
   background: #ffffff;
   display: flex;
@@ -518,7 +541,10 @@ footer a:hover {
 .nav-secundaria a:hover {
   color: #2E75B6;
 }
-/* LOGIN */
+
+/* ============================
+   LOGIN
+   ============================ */
 .login-overlay {
   position: fixed;
   top: 0;
@@ -620,7 +646,10 @@ footer a:hover {
   cursor: pointer;
   text-decoration: underline;
 }
-/* LIGHTBOX */
+
+/* ============================
+   LIGHTBOX
+   ============================ */
 .lightbox {
   display: none;
   position: fixed;
@@ -678,6 +707,8 @@ footer a:hover {
   font-size: 0.9rem;
   opacity: 0.7;
 }
+
+/* Imágenes dentro de modales */
 .modal-imagenes img {
   cursor: zoom-in;
   transition: transform 0.2s, opacity 0.2s;
@@ -687,8 +718,9 @@ footer a:hover {
   opacity: 0.9;
 }
 
-/* GALERÍA */
-/* GALERÍA ACORDEÓN */
+/* ============================
+   GALERÍA ACORDEÓN
+   ============================ */
 .galeria {
   background: #e8f0e8;
 }
@@ -746,6 +778,8 @@ footer a:hover {
   transform: scale(1.03);
   box-shadow: 0 12px 30px rgba(0,0,0,0.2);
 }
+
+/* Galería responsive */
 @media (max-width: 768px) {
   .galeria-toggle {
     padding: 20px 24px;
@@ -761,7 +795,9 @@ footer a:hover {
   }
 }
 
-/* BOTONES FLOTANTES */
+/* ============================
+   BOTONES FLOTANTES
+   ============================ */
 .boton-flotante,
 .whatsapp-flotante {
   position: fixed;
@@ -807,7 +843,10 @@ footer a:hover {
     bottom: 82px;
   }
 }
-/* TIPOGRAFÍA PREMIUM */
+
+/* ============================
+   TIPOGRAFÍA PREMIUM
+   ============================ */
 h1, h2, h3, .logo, .section-title {
   font-family: 'Cormorant Garamond', Georgia, serif;
   letter-spacing: 0.5px;
@@ -825,7 +864,7 @@ nav a, .card p, .card button, footer {
   font-family: 'Inter', Arial, sans-serif;
 }
 
-/* LOGO HEADER */
+/* logo header con animación */
 .logo {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1.5rem;
@@ -835,7 +874,6 @@ nav a, .card p, .card button, footer {
   color: white;
   animation: deslizarDesdeDerechaLogo 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
-
 @keyframes deslizarDesdeDerechaLogo {
   from {
     opacity: 0;
@@ -847,7 +885,9 @@ nav a, .card p, .card button, footer {
   }
 }
 
-/* HERO OVERLAY */
+/* ============================
+   HERO OVERLAY
+   ============================ */
 .hero {
   position: relative;
   background: none;
@@ -938,7 +978,9 @@ nav a, .card p, .card button, footer {
   }
 }
 
-/* SEPARADOR OLA */
+/* ============================
+   SEPARADOR OLA
+   ============================ */
 .separador-ola {
   display: block;
   margin-top: -2px;
@@ -950,11 +992,9 @@ nav a, .card p, .card button, footer {
   display: block;
 }
 
-/* ================================
-   ESCALA TIPOGRÁFICA Y JERARQUÍA
-   ================================ */
-
-/* Variables de color y texto */
+/* ============================
+   VARIABLES DE COLOR Y TEXTO
+   ============================ */
 :root {
   --texto-primario: #0D1B2A;
   --texto-secundario: #6B7280;
@@ -962,7 +1002,6 @@ nav a, .card p, .card button, footer {
   --texto-acento-azul: #2E75B6;
 }
 
-/* Escala fija */
 body {
   font-family: 'Inter', Arial, sans-serif;
   font-size: 16px;
@@ -971,7 +1010,6 @@ body {
   line-height: 1.6;
 }
 
-/* Títulos — medium, no bold */
 h1, h2, h3 {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-weight: 500;
@@ -982,14 +1020,12 @@ h1 { font-size: 2.8rem; }
 h2 { font-size: 1.8rem; }
 h3 { font-size: 1.1rem; }
 
-/* Cuerpo secundario */
 p, li {
   font-size: 1rem;
   color: var(--texto-secundario);
   font-weight: 400;
 }
 
-/* Etiquetas eyebrow */
 .eyebrow {
   font-family: 'Inter', sans-serif;
   font-size: 0.72rem;
@@ -1001,7 +1037,6 @@ p, li {
   margin-bottom: 8px;
 }
 
-/* Section titles */
 .section-title {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1.8rem;
@@ -1010,14 +1045,11 @@ p, li {
   margin-bottom: 8px;
 }
 
-/* ================================================
-   MEJORAS RESPONSIVAS — Country Los Alamos
-   Agregá este bloque al FINAL de tu styles.css
-   ================================================ */
+/* ============================
+   MEJORAS RESPONSIVAS
+   ============================ */
 
-/* ————————————————————————————
-   1. HEADER — hamburger menu móvil
-   ———————————————————————————— */
+/* 1. HEADER — hamburger menu móvil */
 .menu-toggle {
   display: none;
   background: transparent;
@@ -1081,10 +1113,7 @@ p, li {
   }
 }
 
-
-/* ————————————————————————————
-   3. HERO SLIDER — imagen y overlay móvil
-   ———————————————————————————— */
+/* 3. HERO SLIDER — imagen y overlay móvil */
 @media (max-width: 768px) {
   .slide img {
     height: 420px;
@@ -1132,9 +1161,7 @@ p, li {
   }
 }
 
-/* ————————————————————————————
-   4. DASHBOARD — cards de acceso rápido
-   ———————————————————————————— */
+/* 4. DASHBOARD — cards de acceso rápido */
 @media (max-width: 768px) {
   .dashboard {
     padding: 28px 16px;
@@ -1165,9 +1192,7 @@ p, li {
   }
 }
 
-/* ————————————————————————————
-   5. GALERÍA — columnas adaptables
-   ———————————————————————————— */
+/* 5. GALERÍA — columnas adaptables */
 @media (max-width: 768px) {
   .galeria {
     padding: 40px 16px;
@@ -1192,9 +1217,7 @@ p, li {
   }
 }
 
-/* ————————————————————————————
-   6. HISTORIA — texto y padding
-   ———————————————————————————— */
+/* 6. HISTORIA — texto y padding */
 @media (max-width: 768px) {
   .historia {
     padding: 40px 16px;
@@ -1208,9 +1231,7 @@ p, li {
   }
 }
 
-/* ————————————————————————————
-   7. NÚMEROS — compactos en móvil
-   ———————————————————————————— */
+/* 7. NÚMEROS — compactos en móvil */
 @media (max-width: 768px) {
   .numeros {
     padding: 36px 16px;
@@ -1233,9 +1254,7 @@ p, li {
   }
 }
 
-/* ————————————————————————————
-   8. AMENITIES — grid responsivo
-   ———————————————————————————— */
+/* 8. AMENITIES — grid responsivo */
 @media (max-width: 768px) {
   .amenities {
     padding: 40px 16px;
@@ -1270,9 +1289,7 @@ p, li {
   }
 }
 
-/* ————————————————————————————
-   9. MODAL — pantalla completa en móvil
-   ———————————————————————————— */
+/* 9. MODAL — pantalla completa en móvil */
 @media (max-width: 768px) {
   .modal-overlay {
     padding: 0;
@@ -1304,9 +1321,7 @@ p, li {
   }
 }
 
-/* ————————————————————————————
-   10. FOOTER — apilado en móvil
-   ———————————————————————————— */
+/* 10. FOOTER — apilado en móvil */
 @media (max-width: 480px) {
   footer {
     padding: 28px 16px;
@@ -1315,9 +1330,7 @@ p, li {
   }
 }
 
-/* ————————————————————————————
-   11. ACCESO / CONVIVENCIA — padding general
-   ———————————————————————————— */
+/* 11. ACCESO / CONVIVENCIA — padding general */
 @media (max-width: 768px) {
   section {
     padding-left: 16px;
@@ -1328,9 +1341,7 @@ p, li {
   }
 }
 
-/* ————————————————————————————
-   12. LIGHTBOX — controles móvil
-   ———————————————————————————— */
+/* 12. LIGHTBOX — controles móvil */
 @media (max-width: 480px) {
   .lightbox-prev,
   .lightbox-next {
@@ -1345,8 +1356,9 @@ p, li {
   }
 }
 
-
-/* CARD BLOQUEADA CON OVERLAY */
+/* ============================
+   CARDS BLOQUEADAS CON OVERLAY
+   ============================ */
 .card-bloqueada {
   position: relative;
   overflow: hidden;
@@ -1427,7 +1439,9 @@ p, li {
   background: #f0f4ff;
 }
 
-/* EVENTOS */
+/* ============================
+   EVENTOS
+   ============================ */
 .eventos-lista {
   display: flex;
   flex-direction: column;
@@ -1518,6 +1532,9 @@ p, li {
   }
 }
 
+/* ============================
+   SECCIONES DE TEXTO
+   ============================ */
 .seccion-texto {
   padding: 60px 48px;
   max-width: 900px;
@@ -1532,7 +1549,9 @@ p, li {
   }
 }
 
-/* FORMULARIO RESERVAS */
+/* ============================
+   FORMULARIO RESERVAS
+   ============================ */
 .reserva-form {
   display: flex;
   flex-direction: column;
@@ -1592,7 +1611,6 @@ p, li {
 .card-reservas-logueado {
   padding: 4px 0;
 }
-
 .card-btn-reservar {
   width: 100%;
   background: #003366;
@@ -1608,69 +1626,71 @@ p, li {
   background: #2E75B6;
 }
 
+/* ============================
+   UTILIDADES
+   ============================ */
 .is-hidden {
   display: none !important;
 }
 
+/* ============================
+   NOTICIAS
+   ============================ */
 .noticias {
   padding: 32px 24px;
   max-width: 1180px;
   margin: 0 auto;
 }
-
 .noticias h2,
 .noticias h3 {
   color: #003366;
 }
-
 .noticias h2 {
   margin-bottom: 8px;
 }
-
 .noticias h3 {
   margin-bottom: 16px;
   font-size: 1.1rem;
   letter-spacing: 0.5px;
 }
-
 .noticias-intro {
   margin: 0 0 28px;
   line-height: 1.6;
   color: #555;
 }
-
 .card-reservas-subtitle {
   color: #555;
   font-size: 0.9rem;
   margin-bottom: 12px;
 }
-
 .modal-contenido-reservas {
   max-width: 500px;
 }
-
 .modal-intro {
   color: #666;
   margin-bottom: 24px;
 }
 
+/* ============================
+   ICONOS
+   ============================ */
 .fa-file-pdf,
 footer .fa-envelope,
 footer .fa-phone {
   margin-right: 8px;
 }
-
 footer .fa-whatsapp {
   margin-right: 8px;
   color: #25D366;
 }
-
 .modal-contenido h2 i {
   color: #2E75B6;
   margin-right: 10px;
 }
 
-/* AJUSTES DE CONSISTENCIA VISUAL */
+/* ============================
+   VARIABLES DE CONSISTENCIA VISUAL
+   ============================ */
 :root {
   --color-primary: #003366;
   --color-primary-dark: #050F1F;
@@ -1696,40 +1716,33 @@ body {
   background: var(--color-page);
   color: var(--color-text);
 }
-
 header {
   background: rgba(5, 15, 31, 0.96);
   box-shadow: 0 8px 24px rgba(5, 15, 31, 0.18);
   backdrop-filter: blur(10px);
 }
-
 .logo {
   letter-spacing: 1.6px;
 }
-
 .header-login-btn,
 .menu-toggle {
   border-radius: var(--radius-sm);
   transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
 }
-
 .header-login-btn {
   border-color: rgba(255, 255, 255, 0.55);
   background: rgba(255, 255, 255, 0.04);
 }
-
 .header-login-btn:hover,
 .menu-toggle:hover {
   background: rgba(255, 255, 255, 0.14);
   transform: translateY(-1px);
 }
-
 .header-login-btn.logueado {
   background: rgba(245, 200, 66, 0.12);
   border-color: var(--color-accent);
   color: var(--color-accent);
 }
-
 .card,
 .amenity-item,
 .evento-item,
@@ -1739,18 +1752,15 @@ header {
 .modal-imagenes img {
   border-radius: var(--radius-md);
 }
-
 .card,
 .amenity-item,
 .eventos-lista {
   box-shadow: var(--shadow-sm);
 }
-
 .card:hover,
 .amenity-item:hover {
   box-shadow: var(--shadow-md);
 }
-
 .card button,
 .login-btn,
 .reserva-btn,
@@ -1760,7 +1770,6 @@ header {
   border-radius: var(--radius-sm);
   transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
 }
-
 .card button:hover,
 .login-btn:hover,
 .reserva-btn:hover,
@@ -1768,30 +1777,24 @@ header {
 .btn-reglamento:hover {
   transform: translateY(-1px);
 }
-
 .boton-flotante,
 .whatsapp-flotante {
   box-shadow: var(--shadow-md);
   outline: 0;
 }
-
 .boton-flotante {
   background: #4285F4;
 }
-
 .maps-flotante {
   background: linear-gradient(135deg, #4285F4 0%, #34A853 50%, #EA4335 100%);
 }
-
 .whatsapp-flotante {
   background: #25D366;
 }
-
 .boton-flotante:hover,
 .whatsapp-flotante:hover {
   transform: translateY(-2px) scale(1.06);
 }
-
 .boton-flotante:focus-visible,
 .whatsapp-flotante:focus-visible,
 button:focus-visible,
@@ -1801,7 +1804,6 @@ select:focus-visible {
   outline: 3px solid rgba(245, 200, 66, 0.9);
   outline-offset: 3px;
 }
-
 .fa-file-pdf,
 footer .fa-envelope,
 footer .fa-phone,
@@ -1813,16 +1815,13 @@ footer .fa-whatsapp,
 .btn-reglamento i {
   margin-right: 8px;
 }
-
 .modal-contenido h2 i {
   margin-right: 10px;
 }
-
 .login-overlay {
   background: rgba(5, 15, 31, 0.72);
   backdrop-filter: blur(8px);
 }
-
 .login-box {
   max-width: 430px;
   border-radius: var(--radius-lg);
@@ -1830,51 +1829,42 @@ footer .fa-whatsapp,
   box-shadow: var(--shadow-lg);
   border: 1px solid rgba(255, 255, 255, 0.72);
 }
-
 .login-box img {
   width: 96px;
   margin-bottom: 18px;
   border-radius: 22px;
   box-shadow: var(--shadow-sm);
 }
-
 .login-box h2 {
   color: var(--color-primary);
   font-size: 1.65rem;
   margin-bottom: 6px;
 }
-
 .login-box p {
   color: var(--color-muted);
   margin-bottom: 26px;
 }
-
 .login-box input {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   background: #fbfcff;
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
 }
-
 .login-box input:hover {
   border-color: #b9c6d8;
 }
-
 .login-box input:focus {
   border-color: var(--color-secondary);
   background: var(--color-surface);
   box-shadow: 0 0 0 4px rgba(46, 117, 182, 0.14);
 }
-
 .login-btn {
   background: var(--color-primary);
   box-shadow: 0 10px 22px rgba(0, 51, 102, 0.18);
 }
-
 .login-btn:hover {
   background: var(--color-secondary);
 }
-
 .login-error {
   background: #fdecea;
   color: var(--color-danger);
@@ -1883,28 +1873,23 @@ footer .fa-whatsapp,
   padding: 10px 12px;
   margin: 14px 0 0;
 }
-
 .modal-cerrar {
   background: var(--color-primary);
   transition: background var(--transition-fast), transform var(--transition-fast);
 }
-
 .modal-cerrar:hover {
   background: var(--color-secondary);
   transform: rotate(90deg);
 }
-
 @media (max-width: 768px) {
   header {
     align-items: center;
     gap: 8px;
   }
-
   .header-login-btn {
     min-height: 38px;
   }
 }
-
 @media (max-width: 480px) {
   .login-box {
     max-width: calc(100% - 32px);
@@ -1912,115 +1897,82 @@ footer .fa-whatsapp,
   }
 }
 
-/* ANIMACIONES SUTILES */
+/* ============================
+   ANIMACIONES SUTILES
+   ============================ */
 .reveal-on-scroll {
   opacity: 0;
   transform: translateY(22px);
   transition: opacity 700ms ease, transform 700ms ease;
   will-change: opacity, transform;
 }
-
 .reveal-on-scroll.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
-
 .slide.active img {
   animation: heroImageDrift 6800ms ease-in-out forwards;
 }
-
 @keyframes heroImageDrift {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.035);
-  }
+  from { transform: scale(1); }
+  to { transform: scale(1.035); }
 }
-
 .modal-overlay {
   opacity: 0;
   transition: opacity 220ms ease;
 }
-
 .modal-overlay.activo {
   opacity: 1;
 }
-
 .modal-contenido,
 .login-box {
   transform: translateY(10px) scale(0.98);
   transition: opacity 220ms ease, transform 220ms ease;
 }
-
 .modal-overlay.activo .modal-contenido,
 .login-overlay.activo .login-box {
   transform: translateY(0) scale(1);
 }
-
 .card:hover .card-overlay i,
 .amenity-item:hover .amenity-icono i {
   animation: iconLift 420ms ease;
 }
-
 @keyframes iconLift {
-  0% {
-    transform: translateY(0);
-  }
-  45% {
-    transform: translateY(-4px);
-  }
-  100% {
-    transform: translateY(0);
-  }
+  0%   { transform: translateY(0); }
+  45%  { transform: translateY(-4px); }
+  100% { transform: translateY(0); }
 }
-
 .boton-flotante,
 .whatsapp-flotante {
   animation: floatingPulse 4200ms ease-in-out infinite;
 }
-
 .whatsapp-flotante {
   animation-delay: 900ms;
 }
-
 @keyframes floatingPulse {
-  0%,
-  72%,
-  100% {
-    transform: translateY(0) scale(1);
-  }
-  82% {
-    transform: translateY(-2px) scale(1.045);
-  }
+  0%, 72%, 100% { transform: translateY(0) scale(1); }
+  82% { transform: translateY(-2px) scale(1.045); }
 }
-
 .boton-flotante:hover,
 .whatsapp-flotante:hover {
   animation-play-state: paused;
 }
-
 @media (max-width: 768px) {
   .nav-secundaria {
     transition: box-shadow 220ms ease, transform 220ms ease, opacity 220ms ease;
   }
-
   .nav-secundaria.nav-abierta {
     animation: mobileMenuDrop 220ms ease both;
   }
 }
-
 @keyframes mobileMenuDrop {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
+/* ============================
+   PREFIERE MOVIMIENTO REDUCIDO
+   ============================ */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -2030,13 +1982,15 @@ footer .fa-whatsapp,
     scroll-behavior: auto !important;
     transition-duration: 1ms !important;
   }
-
   .reveal-on-scroll {
     opacity: 1;
     transform: none;
   }
 }
 
+/* ============================
+   CONTENT-VISIBILITY PARA RENDIMIENTO
+   ============================ */
 @supports (content-visibility: auto) {
   .dashboard,
   #noticias,
@@ -2052,18 +2006,21 @@ footer .fa-whatsapp,
   }
 }
 
-/* FIX STICKY HEADER/NAV */
+/* ============================
+   FIX STICKY HEADER/NAV
+   ============================ */
 header {
   position: relative;
   top: auto;
 }
-
 .nav-secundaria {
   top: 0;
   z-index: 30;
 }
 
-/* ESCALA TIPOGRAFICA FINAL */
+/* ============================
+   ESCALA TIPOGRÁFICA FINAL
+   ============================ */
 :root {
   --font-body: 'Inter', Arial, sans-serif;
   --font-heading: 'Cormorant Garamond', Georgia, serif;
@@ -2075,44 +2032,33 @@ header {
   --text-2xl: 1.85rem;
   --text-hero: clamp(3rem, 7vw, 4.75rem);
 }
-
 body {
   font-family: var(--font-body);
   font-size: var(--text-md);
   line-height: 1.65;
 }
-
-h1,
-h2,
-h3,
-.logo,
-.section-title {
+h1, h2, h3, .logo, .section-title {
   font-family: var(--font-heading);
   letter-spacing: 0;
 }
-
 .logo {
   font-size: 1.35rem;
   line-height: 1;
   letter-spacing: 1.4px;
 }
-
 .hero-subtitulo {
   font-size: var(--text-sm);
   letter-spacing: 0.22em;
 }
-
 .hero-titulo {
   font-size: var(--text-hero);
   line-height: 0.95;
   letter-spacing: 0.02em;
 }
-
 .hero-descripcion {
   font-size: var(--text-md);
   line-height: 1.7;
 }
-
 .section-title,
 .historia h2,
 .amenities h2,
@@ -2124,7 +2070,6 @@ h3,
   font-weight: 600;
   letter-spacing: 0;
 }
-
 .noticias h3 {
   font-family: var(--font-body);
   font-size: var(--text-lg);
@@ -2132,7 +2077,6 @@ h3,
   font-weight: 600;
   letter-spacing: 0;
 }
-
 .card h3,
 .amenity-item h3 {
   font-size: var(--text-lg);
@@ -2140,7 +2084,6 @@ h3,
   font-weight: 600;
   letter-spacing: 0;
 }
-
 .card p,
 .card li,
 .amenity-item p,
@@ -2152,7 +2095,6 @@ h3,
   font-size: var(--text-md);
   line-height: 1.65;
 }
-
 .nav-secundaria a,
 .header-login-btn,
 .card button,
@@ -2166,48 +2108,44 @@ h3,
   font-size: var(--text-sm);
   letter-spacing: 0;
 }
-
 .evento-info h4 {
   font-size: var(--text-md);
   line-height: 1.35;
   font-weight: 600;
 }
-
 .evento-badge,
 .evento-mes,
 .badge-estado {
   font-size: var(--text-xs);
   letter-spacing: 0.08em;
 }
-
 .modal-contenido h2,
 .login-box h2 {
   font-size: var(--text-xl);
   line-height: 1.18;
   letter-spacing: 0;
 }
-
 .login-box p,
 .login-error,
 .reserva-mensaje,
 footer {
   font-size: var(--text-sm);
 }
-
 .monto {
   font-size: 1.55rem;
   line-height: 1.15;
 }
-
 .numero-valor {
   font-size: clamp(2.3rem, 5vw, 3rem);
   line-height: 1;
 }
-
 .numero-label {
   font-size: var(--text-sm);
 }
 
+/* ============================
+   MEDIA QUERIES TIPOGRÁFICAS
+   ============================ */
 @media (max-width: 768px) {
   :root {
     --text-md: 0.95rem;
@@ -2216,27 +2154,25 @@ footer {
     --text-2xl: 1.55rem;
     --text-hero: clamp(2.35rem, 13vw, 3rem);
   }
-
   .logo {
     font-size: 1.08rem;
   }
-
   .hero-subtitulo {
     font-size: 0.78rem;
   }
-
   .nav-secundaria a {
     font-size: 0.84rem;
   }
 }
-
 @media (max-width: 420px) {
   :root {
     --text-hero: 2.25rem;
   }
 }
 
-
+/* ============================
+   NAVEGACIÓN SECUNDARIA MÓVIL
+   ============================ */
 @media (max-width: 768px) {
   .nav-secundaria {
     display: none;
@@ -2267,23 +2203,22 @@ footer {
   }
 }
 
-/* FIX: slider ocupa todo el ancho sin recuadro */
+/* ============================
+   FIX SLIDER
+   ============================ */
 .hero {
   padding: 0;
   min-height: unset;
   align-items: stretch;
 }
-
 .slider {
   max-width: 100%;
   width: 100%;
 }
-
 .slide {
   border-radius: 0;
   box-shadow: none;
 }
-
 .slide img {
   height: 65vh;
   min-height: 320px;
@@ -2292,7 +2227,9 @@ footer {
   border-radius: 0;
 }
 
-
+/* ============================
+   FORMULARIO DE CONTACTO
+   ============================ */
 .contacto-section {
   padding: 0;
 }
@@ -2480,13 +2417,9 @@ footer {
   letter-spacing: 0.03em;
   font-family: inherit;
 }
-
-/* Separación del ícono en el botón de contacto */
 .contacto-btn i {
   margin-right: 8px;
 }
-
-/* Mensaje de estado del formulario de contacto */
 #contacto-mensaje-estado {
   margin-top: 12px;
   font-size: 0.9rem;
@@ -2496,8 +2429,8 @@ footer {
   background: #2E75B6;
   transform: translateY(-1px);
 }
- 
-/* RESPONSIVO */
+
+/* Contacto responsive */
 @media (max-width: 768px) {
   .contacto-wrap {
     grid-template-columns: 1fr;
@@ -2515,6 +2448,9 @@ footer {
   }
 }
 
+/* ============================
+   SEGURIDAD (TABS Y TARJETAS DE VISITA)
+   ============================ */
 .seg-tabs {
   display: flex;
   border: 0.5px solid #dce3ee;
@@ -2522,7 +2458,6 @@ footer {
   overflow: hidden;
   margin-bottom: 18px;
 }
-/* Tarjeta de visita autorizada */
 .visita-card {
   display: flex;
   align-items: center;
@@ -2533,7 +2468,6 @@ footer {
   border-radius: 8px;
   margin-bottom: 8px;
 }
-
 .visita-avatar {
   width: 32px;
   height: 32px;
@@ -2547,24 +2481,20 @@ footer {
   font-weight: 700;
   flex-shrink: 0;
 }
-
 .visita-info {
   flex: 1;
 }
-
 .visita-nombre {
   font-size: 13px;
   font-weight: 500;
   color: #0D1B2A;
   margin: 0 0 2px;
 }
-
 .visita-detalle {
   font-size: 11px;
   color: #9CA3AF;
   margin: 0;
 }
-
 .visita-badge {
   font-size: 10px;
   font-weight: 600;
@@ -2589,5 +2519,4 @@ footer {
 .seg-tab.active {
   background: #003366;
   color: white;
-}
 }
