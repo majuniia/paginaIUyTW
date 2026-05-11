@@ -424,6 +424,62 @@ function configurarEventos() {
   });
 }
 
+// Cargar eventos desde la API
+fetch('https://country-api-buu5.onrender.com/eventos')
+  .then(res => res.json())
+  .then(data => {
+    const lista = document.querySelector('.eventos-lista');
+    if (!lista || !data.eventos) return;
+
+    lista.innerHTML = '';
+    data.eventos.forEach(evento => {
+      const badgeClass = evento.categoria === 'Aviso'
+        ? 'evento-badge evento-badge-aviso'
+        : evento.categoria === 'Comunidad'
+        ? 'evento-badge evento-badge-comunidad'
+        : 'evento-badge';
+
+      lista.innerHTML += `
+        <div class="evento-item">
+          <div class="evento-fecha">
+            <span class="evento-dia">${evento.dia}</span>
+            <span class="evento-mes">${evento.mes}</span>
+          </div>
+          <div class="evento-info">
+            <h4>${evento.titulo}</h4>
+            <p>${evento.descripcion}</p>
+          </div>
+          <span class="${badgeClass}">${evento.categoria}</span>
+        </div>`;
+    });
+
+    // Guardar en localStorage para uso offline
+    localStorage.setItem('eventos_cache', JSON.stringify(data.eventos));
+  })
+  .catch(() => {
+    // Sin conexión: cargar desde caché
+    const cache = localStorage.getItem('eventos_cache');
+    if (cache) {
+      const lista = document.querySelector('.eventos-lista');
+      if (!lista) return;
+      lista.innerHTML = '';
+      JSON.parse(cache).forEach(evento => {
+        lista.innerHTML += `
+          <div class="evento-item">
+            <div class="evento-fecha">
+              <span class="evento-dia">${evento.dia}</span>
+              <span class="evento-mes">${evento.mes}</span>
+            </div>
+            <div class="evento-info">
+              <h4>${evento.titulo}</h4>
+              <p>${evento.descripcion}</p>
+            </div>
+            <span class="evento-badge">${evento.categoria}</span>
+          </div>`;
+      });
+    }
+  });
+
 // -----------------------------------------------
 // 9. ANIMACIONES AL HACER SCROLL
 // -----------------------------------------------
