@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
+<!-- ============================
+     HEAD: metadatos, estilos y fuentes
+     ============================ -->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Country Inicio</title>
+  <!-- Manifiesto para PWA (instalable) -->
   <link rel="manifest" href="manifest.json">
+  <!-- Color de la barra de estado en Android -->
   <meta name="theme-color" content="#003366">
+  <!-- Favicon e ícono para iOS -->
   <link rel="icon" type="image/png" href="icons/favicon.png">
   <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <!-- Preconexiones para cargar más rápido las fuentes y CDN -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!--link rel="preload" as="image" href="./icons/Slider/senderos.png" fetchpriority="high"-->
+  <!-- Font Awesome (íconos) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Estilos propios -->
   <link rel="stylesheet" href="styles.css">
+  <!-- Fuentes Google: Cormorant Garamond (títulos) e Inter (cuerpo) -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- LOGIN MODAL -->
+  <!-- ============================
+       MODAL DE LOGIN
+       ============================ -->
   <div class="login-overlay" id="login-overlay">
     <div class="login-box">
       <button class="modal-cerrar" id="login-close" type="button">✕</button>
@@ -32,15 +43,21 @@
     </div>
   </div>
 
+  <!-- ============================
+       HEADER PRINCIPAL
+       ============================ -->
   <header>
     <div class="logo">Los Alamos</div>
-    <!-- NUEVO: botón hamburguesa visible solo en móvil -->
+    <!-- Botón hamburguesa visible solo en móvil -->
     <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-controls="nav-secundaria-menu" aria-expanded="false">&#9776;</button>
     <button class="header-login-btn" id="header-login-btn" type="button">
       <i class="fa-solid fa-user"></i> Ingresar
     </button>
   </header>
 
+  <!-- ============================
+       HERO / SLIDER PRINCIPAL
+       ============================ -->
   <section class="hero" id="inicio">
     <div class="hero-overlay">
       <p class="hero-subtitulo">Bienvenido a</p>
@@ -70,6 +87,9 @@
     </div>
   </section>
 
+  <!-- ============================
+       NAVEGACIÓN SECUNDARIA
+       ============================ -->
   <nav class="nav-secundaria" id="nav-secundaria-menu">
     <a href="#inicio">Inicio</a>
     <a href="#noticias">Novedades</a>
@@ -79,6 +99,9 @@
     <a href="#contacto">Contacto</a>
   </nav>
 
+  <!-- ============================
+       DASHBOARD / ACCESOS RÁPIDOS
+       ============================ -->
   <section class="dashboard">
     <h2 class="section-title">Accesos rápidos</h2>
     <div class="cards">
@@ -140,6 +163,9 @@
 </div>
   </section>
 
+ <!-- ============================
+      NOTICIAS Y EVENTOS
+      ============================ -->
  <section id="noticias" class="noticias">
   <h2>Novedades destacadas</h2>
   <p class="noticias-intro">Bienvenido al portal del country. Aquí encontrarás las últimas noticias, actividades y servicios que se renuevan constantemente para tu comodidad y seguridad.</p>
@@ -198,7 +224,9 @@
   </div>
 </section>
 
-  <!-- GALERÍA -->
+  <!-- ============================
+       GALERÍA ACORDEÓN
+       ============================ -->
  <section class="galeria" id="galeria">
   <button class="galeria-toggle" id="galeria-toggle" aria-expanded="false" aria-controls="galeria-contenido">
     <span>Galería</span>
@@ -218,6 +246,9 @@
   </div>
 </section>
 
+  <!-- ============================
+       SECCIÓN HISTORIA
+       ============================ -->
   <section class="historia">
     <div class="historia-contenido">
       <h2>Nuestra historia</h2>
@@ -227,6 +258,9 @@
     </div>
   </section>
 
+  <!-- ============================
+       SECCIÓN NÚMEROS
+       ============================ -->
   <section class="numeros">
     <div class="numeros-grid">
       <div class="numero-item">
@@ -248,12 +282,18 @@
     </div>
   </section>
 
+  <!-- ============================
+       SEPARADOR OLA
+       ============================ -->
   <div class="separador-ola">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none">
       <path fill="#003366" d="M0,40 C360,80 1080,0 1440,40 L1440,0 L0,0 Z"/>
     </svg>
   </div>
 
+  <!-- ============================
+       SECCIÓN AMENITIES
+       ============================ -->
   <section class="amenities" id="amenities">
     <h2>Amenities e instalaciones</h2>
     <div class="amenities-grid">
@@ -308,11 +348,17 @@
 </div>
   </section>
 
+  <!-- ============================
+       SECCIÓN ACCESO
+       ============================ -->
   <section id="acceso" class="seccion-texto seccion-centrada">
     <h2 class="section-title">Acceso al barrio</h2>
     <p>El ingreso al country se realiza por Rubén A. Martí 1350 · Villa Ciudad de América · X5189 · Córdoba. Contamos con guardia de seguridad las 24 horas, sistema de registro de visitas y acceso vehicular con barrera electrónica. Para autorizar visitas podés hacerlo desde la sección de Seguridad.</p>
   </section>
 
+  <!-- ============================
+       SECCIÓN CONVIVENCIA
+       ============================ -->
   <section id="convivencia" class="seccion-texto">
     <h2 class="section-title">Reglamento de convivencia</h2>
     <p>El reglamento de convivencia establece las normas que nos permiten a todos los residentes disfrutar en armonía de la vida en el barrio. Su cumplimiento es responsabilidad de cada vecino y contribuye al bienestar de toda la comunidad.</p>
@@ -322,9 +368,9 @@
     </a>
   </section>
 
-  <!-- ═══════════════════════════════════════════
-     FORMULARIO DE CONTACTO — Country Los Álamos
-════════════════════════════════════════════ -->
+  <!-- ============================
+       FORMULARIO DE CONTACTO
+       ============================ -->
  
 <section id="contacto" class="contacto-section">
   <div class="contacto-wrap">
@@ -415,7 +461,9 @@
     </div>
 </section>
 
-  <!-- MODALES (sin cambios) -->
+  <!-- ============================
+       MODALES DE AMENITIES
+       ============================ -->
   <div id="modal-pileta" class="modal-overlay">
     <div class="modal-contenido">
       <button class="modal-cerrar" type="button" data-close-modal="pileta">✕</button>
@@ -585,7 +633,9 @@
     </div>
   </div>
 
-  <!-- LIGHTBOX -->
+  <!-- ============================
+       LIGHTBOX (visor de imágenes)
+       ============================ -->
   <div class="lightbox" id="lightbox">
     <button class="lightbox-cerrar" id="lightbox-close" type="button">✕</button>
     <button class="lightbox-prev" id="lightbox-prev" type="button">&#10094;</button>
@@ -594,7 +644,9 @@
     <span class="lightbox-contador" id="lightbox-contador"></span>
   </div>
 
-<!-- Botones flotantes -->
+<!-- ============================
+     BOTONES FLOTANTES
+     ============================ -->
 <a href="https://www.google.com/maps/search/?api=1&query=Villa+Ciudad+de+America+Ruben+Americo+Marti+1350+Antiguo+Camino+del+Alto+Cordoba+X5189" target="_blank" class="boton-flotante maps-flotante" aria-label="Ver ubicación en Google Maps" title="Ver ubicación">
   <i class="fa-solid fa-location-dot"></i>
 </a>
@@ -602,7 +654,9 @@
     <i class="fa-brands fa-whatsapp"></i>
   </a>
 
-<!-- MODAL RESERVAS -->
+<!-- ============================
+     MODAL DE RESERVAS
+     ============================ -->
 <div id="modal-reservas" class="modal-overlay">
   <div class="modal-contenido modal-contenido-reservas">
     <button class="modal-cerrar" type="button" data-close-modal="reservas">✕</button>
@@ -654,7 +708,9 @@
   </div>
 </div>
 
-<!-- MODAL SEGURIDAD -->
+<!-- ============================
+     MODAL DE SEGURIDAD
+     ============================ -->
 <div id="modal-seguridad" class="modal-overlay">
   <div class="modal-contenido modal-contenido-reservas">
     <button class="modal-cerrar" type="button" data-close-modal="seguridad">✕</button>
@@ -667,7 +723,7 @@
       <button class="seg-tab" data-tab="llamar">Llamar a seguridad</button>
     </div>
 
-    <!-- Autorizar -->
+    <!-- Tab: Autorizar -->
     <div class="seg-panel active" id="seg-panel-autorizar">
       <div class="reserva-campo">
         <label>Nombre del visitante</label>
@@ -696,14 +752,14 @@
       </button>
     </div>
 
-    <!-- Lista -->
+    <!-- Tab: Lista -->
     <div class="seg-panel is-hidden" id="seg-panel-lista">
       <div class="visita-lista" id="seg-visita-lista">
         <p style="font-size:13px; color:#9CA3AF; text-align:center; padding:20px 0;">No hay visitas autorizadas aún.</p>
       </div>
     </div>
 
-    <!-- Llamar -->
+    <!-- Tab: Llamar -->
     <div class="seg-panel is-hidden" id="seg-panel-llamar">
       <div style="background:#fef2f2; border:0.5px solid #fca5a5; border-radius:10px; padding:20px; text-align:center;">
         <p style="font-size:13px; color:#7f1d1d; margin-bottom:14px; line-height:1.6;">En caso de emergencia o consulta urgente, contactá directamente al puesto de seguridad.</p>
@@ -716,9 +772,12 @@
   </div>
 </div>
   
+  <!-- ============================
+       SCRIPTS
+       ============================ -->
   <!-- Carga el módulo de autenticación (login de residentes).
-     Se carga con defer para que no bloquee el renderizado de la página,
-     pero se ejecuta en orden antes de app.js -->
+       Se carga con defer para que no bloquee el renderizado de la página,
+       pero se ejecuta en orden antes de app.js -->
 <script src="auth.js" defer></script>
 
 <!-- Carga la lógica principal de la interfaz:
